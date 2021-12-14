@@ -1,0 +1,81 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Programme:
+	loadscopes+=Loadscope*;
+	
+Loadscope :
+	"Load(" STRING ")""{"instructions+=Instruction*"}"
+;	
+Instruction:
+	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print)";"
+;
+
+	
+InsertCol : //insert col at INT with name STRING
+	"InsertCol("Expression","STRING")"
+;
+
+RemoveCol : 
+	"RemoveCol("Expression")"
+;
+	
+InsertLine : //insert line at INT
+	"InsertLine("Expression")"
+;
+
+RemoveLine : 
+	"RemoveLine("Expression")"
+;
+
+Modify : 
+	"Modify("Expression","Expression","Expression|STRING")"
+;
+
+Print : 
+	"Print"
+;
+
+Store :
+	"Store("STRING")"
+;
+
+Export : 
+	"Export("STRING")"
+;
+
+Expression : 
+	INT | Binexpr | Selectcell | Linesum | Colsum | Lineprod | Colprod
+;
+
+Selectcell : 
+	"Selectcell("Expression","Expression")"
+;
+
+Linesum: //somme de toutes les case de la ligne INT
+	"Linesum("Expression")"
+;
+
+Colsum : //somme de toutes les case de la col INT
+	"Colsum("Expression")"
+;
+
+Lineprod : //produit de toutes les case de la ligne INT
+	"Lineprod("Expression")"
+;
+
+Colprod : //produit de toutes les case de la col INT
+	"Colprod("Expression")"
+;
+
+Binexpr : 
+	"(" INT Op Expression ")"
+;
+
+Op : 
+	"+" | "-" | "*" | "/"
+;
+
+
+
