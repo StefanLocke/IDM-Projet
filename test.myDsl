@@ -1,0 +1,9 @@
+
+
+Load("path/to/csv") {
+
+	InsertLine(3); //add line after line 3
+	Modify(3,5,(5+6); //modify line 3 case 5 with 5
+	
+	Store("path/to/new");
+}
