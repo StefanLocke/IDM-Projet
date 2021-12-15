@@ -1,6 +1,10 @@
 "# IDM-Projet" 
 
-## Grammaire : MyDsl.xtext
+## Metamodele
+12142021-Model.ecore
 
-## Exemples : 
+## Grammaire
+MyDsl.xtext
+
+## Exemples
 test.myDsl
