@@ -1,4 +1,4 @@
-Load("example1.csv"){
+Create(){
 	
 	
 	Print("Test Inserts");
