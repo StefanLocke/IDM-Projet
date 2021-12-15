@@ -56,7 +56,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//ConcreteBinaryExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sub" eSuperTypes="#//ConcreteBinaryExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelectCell" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="2"
+        upperBound="2" eType="#//Expression" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
