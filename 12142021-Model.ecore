@@ -7,56 +7,74 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Load" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="string" lowerBound="1"
-        eType="#//String" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Store" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="string" lowerBound="1"
-        eType="#//String" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExportJSON" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="string" lowerBound="1"
-        eType="#//String" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sum" eSuperTypes="#//Instruction #//ConcreteBinaryExp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mul" eSuperTypes="#//Instruction #//ConcreteBinaryExp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Print" eSuperTypes="#//Instruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertLine" eSuperTypes="#//Instruction">
+  <eClassifiers xsi:type="ecore:EClass" name="Sum" eSuperTypes="#//Instruction #//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mul" eSuperTypes="#//Instruction #//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Print" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoveLine" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="String"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertColumn" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoveColumn" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Modify">
+  <eClassifiers xsi:type="ecore:EClass" name="InsertLine" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveLine" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//IntValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InsertColumn" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveColumn" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Modify" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="3"
         upperBound="3" eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryExp">
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryexp" lowerBound="1"
+        eType="#//PrimaryExp"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-        eType="#//ConcreteBinaryExp" containment="true"/>
+        eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="int" lowerBound="1" eType="#//Int"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConcreteBinaryExp" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//ConcreteBinaryExp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sub" eSuperTypes="#//ConcreteBinaryExp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectCell" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="2"
-        upperBound="2" eType="#//Expression" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sub" eSuperTypes="#//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectCell">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryexp" lowerBound="2"
+        upperBound="2" eType="#//PrimaryExp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colprod" eSuperTypes="#//PrimaryExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Linesum" eSuperTypes="#//PrimaryExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colsum" eSuperTypes="#//PrimaryExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lineprod" eSuperTypes="#//PrimaryExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExp" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//StringValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntValue" abstract="true" eSuperTypes="#//PrimaryExp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringValue" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Create" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringvalue" lowerBound="1"
+        eType="#//StringValue" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
