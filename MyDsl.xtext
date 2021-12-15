@@ -1,81 +1,91 @@
 grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
-generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+generate myDsl 'http://www.xtext.org/example/mydsl/MyDsl'
 
 Programme:
 	loadscopes+=Loadscope*;
 	
 Loadscope :
-	"Load(" STRING ")""{"instructions+=Instruction*"}"
-;	
-Instruction:
-	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print)";"
+	'Load(' url=STRING ')' '{' instructions+=Instruction* '}'
+;
+	
+Instruction :
+	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print) ';'
 ;
 
 	
 InsertCol : //insert col at INT with name STRING
-	"InsertCol("Expression","STRING")"
+	'InsertCol(' colIndex=Expression ',' colName=STRING ')'
 ;
 
-RemoveCol : 
-	"RemoveCol("Expression")"
+RemoveCol :  
+	'RemoveCol(' colIndex=Expression')'
 ;
 	
 InsertLine : //insert line at INT
-	"InsertLine("Expression")"
+	'InsertLine(' lineIndex=Expression ')'
 ;
 
 RemoveLine : 
-	"RemoveLine("Expression")"
+	'RemoveLine(' lineIndex=Expression')'
 ;
 
 Modify : 
-	"Modify("Expression","Expression","Expression|STRING")"
+	'Modify(' colIndex=Expression ',' rowIndex=Expression ',' value=(Expression | StringValue) ')'
 ;
 
 Print : 
-	"Print"
+	'Print('value=(Expression|StringValue)')'
 ;
 
 Store :
-	"Store("STRING")"
+	'Store('url=STRING')'
 ;
 
 Export : 
-	"Export("STRING")"
+	'Export('url=STRING')'
 ;
 
 Expression : 
-	INT | Binexpr | Selectcell | Linesum | Colsum | Lineprod | Colprod
+	value=(PrimaryExpression | Binexpr)
+;
+
+PrimaryExpression : 
+	value=(IntValue | Selectcell | Linesum | Colsum | Lineprod | Colprod)
 ;
 
 Selectcell : 
-	"Selectcell("Expression","Expression")"
+	'Selectcell('cellX=Expression','cellY=Expression')'
 ;
 
 Linesum: //somme de toutes les case de la ligne INT
-	"Linesum("Expression")"
+	'Linesum('lineIndex=Expression')'
 ;
 
 Colsum : //somme de toutes les case de la col INT
-	"Colsum("Expression")"
+	'Colsum('colIndex=Expression')'
 ;
 
 Lineprod : //produit de toutes les case de la ligne INT
-	"Lineprod("Expression")"
+	'Lineprod('lineIndex=Expression')'
 ;
 
 Colprod : //produit de toutes les case de la col INT
-	"Colprod("Expression")"
+	'Colprod('colIndex=Expression')'
 ;
 
 Binexpr : 
-	"(" INT Op Expression ")"
+	'(' left=PrimaryExpression op=Op right=Expression ')'
 ;
 
 Op : 
-	"+" | "-" | "*" | "/"
+	'+' | '-' | '*' | '/'
 ;
 
+IntValue : 
+	value=INT
+;
 
-
+StringValue :
+	value=STRING
+;
