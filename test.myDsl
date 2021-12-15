@@ -1,9 +1,20 @@
 
 
-Load("path/to/csv") {
-
-	InsertLine(3); //add line after line 3
-	Modify(3,5,(5+6); //modify line 3 case 5 with 5
+Load("example.csv") {
 	
-	Store("path/to/new");
+	InsertCol(0, "0");
+	InsertCol(1, "1");
+	InsertCol(2, "2");
+	InsertCol(3, "3");
+	InsertCol(4, "4");
+	InsertCol(5,"FACTORIEL");
+	
+	Modify(0,0,2);
+	Modify(0,0,3);
+	Modify(0,0,4);
+	Modify(0,0,5);
+	Modify(0,0,Lineprod(0);
+	
+	Print(SelectCell(0,5));
+	
 }
