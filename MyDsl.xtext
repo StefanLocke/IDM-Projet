@@ -6,7 +6,8 @@ Programme:
 	loadscopes+=Loadscope*;
 	
 Loadscope :
-	'Load(' url=STRING ')' '{' instructions+=Instruction* '}'
+	'Load(' url=STRING ')' '{' instructions+=Instruction* '}' |
+	'Create()' '{' instructions+=Instruction* '}' 
 ;
 	
 Instruction :
