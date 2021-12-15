@@ -1,30 +1,32 @@
-Load("example.csv") {
+Create(){
 	
-	InsertCol(0, "Ventes");
-	InsertCol(1, "Banane");
-	InsertCol(2, "Clementine");
-	InsertCol(3, "Pomme");
-	InsertCol(4, "Poire");
-	InsertCol(5, "Nois de coco");
+	InsertCol(0, "Article");
+	InsertCol(1, "Stock");
+	InsertCol(2, "Prix");
+	InsertCol(3, "Error");
 	
-	InsertLine(0);
-	InsertLine(1);
-	InsertLine(2);
-	
-	Modify(0,1,1,5);
-	Modify(0,2,7.4);
-	Modify(0,3,2.6);
-	Modify(0,4,1.2);
-	Modify(0,5,5);
-	
-	Modify(1,1,186);
-	Modify(1,2,1709.4);
-	Modify(1,3,746.2);
-	Modify(1,4,196.8);
-	Modify(1,5,130);
-	
-	//print la somme de la ligne de la case (1,1) à (1,5)
-	Print(Linesum(Selectcell(Selectcell(1,1),Selectcell(1,5)));
+	Modify(0,0,"Pomme");
+	Modify(0,1,2);
+	Modify(0,2,1);
+
+	Modify(1,0,"Banane");
+	Modify(1,1,2);
+	Modify(1,2,1);
+
+	Modify(2,0,"Peche");
+	Modify(2,1,2);
+	Modify(2,2,1);
+
+	Modify(3,0,"ERROR");
+	Modify(3,1,100);
+	Modify(3,2,100);
+
+	RemoveLine(3)
+	RemoveCol(3)
+
+	InsertCol(3, "Benefice");
+
+	//benefice = stock * prix
 	
 	Store("recettesFruits.csv");
 }

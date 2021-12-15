@@ -26,8 +26,8 @@ print("Test Selectcell")
 print(df[df.columns[2]][1])
 
 print("Test store and export")
-df.to_csv("store1.csv")
-df.to_json("export1.json")
+df.to_csv("results/store1.csv")
+df.to_json("results/export1.json")
 
 
 
