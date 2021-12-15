@@ -1,0 +1,20 @@
+
+
+Load("example.csv") {
+	
+	InsertCol(0, "0");
+	InsertCol(1, "1");
+	InsertCol(2, "2");
+	InsertCol(3, "3");
+	InsertCol(4, "4");
+	InsertCol(5,"FACTORIEL");
+	
+	Modify(0,0,2);
+	Modify(0,0,3);
+	Modify(0,0,4);
+	Modify(0,0,5);
+	Modify(0,0,Lineprod(0);
+	
+	Print(SelectCell(0,5));
+	
+}
