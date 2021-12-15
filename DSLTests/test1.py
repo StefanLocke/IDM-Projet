@@ -1,16 +1,13 @@
-import csv
-
-import pandas
 import pandas as pd
 
-#df = pd.read_csv("CsvTestFile.csv")
-df = pandas.DataFrame()
+df = pd.read_csv("CsvTestFile.csv")
 
-print(type(df))
-df.insert(0, "0", "")
-df.insert(1, "1", "")
-df.insert(2, "2", "")
-df.insert(3, "3", "")
-df.insert(4, "FACTORIEL", "grrgd")
+# Inserer colonne
+df.insert(1, "Prenom", "")
+df.insert(2, "Sexe", "")
 
-print(df.to_csv())
+df.at[0, df.columns[1]] = "Alexis"
+df.at[0, df.columns[2]] = "Male"
+# Supprimer insertline car on peut inserer precisement sans ligne
+
+print(df[df.columns[1]][0])
