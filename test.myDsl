@@ -1,7 +1,4 @@
-
-
-Load("example.csv") {
-	
+Load("example.csv") {	
 	InsertCol(0, "0");
 	InsertCol(1, "1");
 	InsertCol(2, "2");
