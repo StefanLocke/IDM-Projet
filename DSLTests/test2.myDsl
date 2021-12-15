@@ -1,13 +1,8 @@
 Create(){
-	
-	
 	Print("Test Inserts");
 	InsertCol(0,"FirstCol");
 	InsertCol(1,"MiddleCol");
 	InsertCol(2,"LastCol");
-	InsertLine(0);
-	InsertLine(1);
-	
 	
 	Print("Test Modify");
 	Modify(0,0,1);
@@ -25,21 +20,9 @@ Create(){
 	Print(Lineprod(0));
 	
 	Print("Test Selectcell");
-	Print(Selectcell(2,2));
+	Print(Selectcell(2,1));
 	
 	Print("Test store and export");
 	Store("store1.csv");
 	Export("export1.json");
-	
-	Print("Test remove");
-	RemoveLine(1);
-	RemoveCol(1);
-	
-	Store("store2.csv");
-}
-
-Load("example2.csv") {
-	Print(Selectcell(0,0));
-	Print("Test binop");
-	Print((5+(3*(4-2))));
 }

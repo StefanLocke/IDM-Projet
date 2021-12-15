@@ -5,11 +5,11 @@ Load("example.csv") {
 	InsertCol(2, "Clementine");
 	InsertCol(3, "Pomme");
 	InsertCol(4, "Poire");
-	InsertCol(5,"Nois de coco");
+	InsertCol(5, "Nois de coco");
 	
-	InsertLine("Fruits");
-	InsertLine("€/kg");
-	InsertLine("Recettes");
+	InsertLine(0);
+	InsertLine(1);
+	InsertLine(2);
 	
 	Modify(0,1,1,5);
 	Modify(0,2,7.4);
