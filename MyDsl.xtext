@@ -11,7 +11,7 @@ Loadscope :
 ;
 	
 Instruction :
-	 ( InsertLine | RemoveLine | InsertCol | RemoveCol | Insert | Store | Export | Print) ';'
+	 ( InsertLine | RemoveLine | InsertCol | RemoveCol | Insert | ExportJSON | ExportCSV | Print) ';'
 ;
 
 	
@@ -20,15 +20,15 @@ InsertCol : //insert col at INT with name STRING
 ;
 
 RemoveCol :  
-	'RemoveCol(' colIndex=Expression')'
+	'RemoveCol(' colIndex=Expression | name=STRING')'
 ;
-	
+
 InsertLine : //insert line at INT
 	'InsertLine(' lineIndex=Expression (','exp=Expression )+ ')'
 ;
 
 RemoveLine : 
-	'RemoveLine(' lineIndex=Expression')'
+	'RemoveLine(' lineIndex=Expression ')'
 ;
 
 Insert : // Looks like a modify but is translated as an update in python 
@@ -39,12 +39,12 @@ Print :
 	'Print('value=(Expression|StringValue)')'
 ;
 
-Store :
-	'Store('url=STRING')'
+ExportCSV :
+	'Store('path=STRING')'
 ;
 
-Export : 
-	'Export('url=STRING')'
+ExportJSON : 
+	'Export('path=STRING')'
 ;
 
 Expression : 
@@ -64,7 +64,7 @@ Linesum: //somme de toutes les case de la ligne INT
 ;
 
 Colsum : //somme de toutes les case de la col INT
-	'Colsum('colIndex=Expression')'
+	'Colsum('colIndex=Expression | name=STRING')'
 ;
 
 Lineprod : //produit de toutes les case de la ligne INT
@@ -72,7 +72,7 @@ Lineprod : //produit de toutes les case de la ligne INT
 ;
 
 Colprod : //produit de toutes les case de la col INT
-	'Colprod('colIndex=Expression')'
+	'Colprod('colIndex=Expression | name=STRING ')'
 ;
 
 Binexpr : 
