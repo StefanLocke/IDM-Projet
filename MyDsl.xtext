@@ -6,17 +6,17 @@ Programme:
 	loadscopes+=Loadscope*;
 	
 Loadscope :
-	'Load(' url=STRING ')' '{' instructions+=Instruction* '}' |
+	'Load(' path=STRING ')' '{' instructions+=Instruction* '}' |
 	'Create()' '{' instructions+=Instruction* '}' 
 ;
 	
 Instruction :
-	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print) ';'
+	 ( InsertLine | RemoveLine | InsertCol | RemoveCol | Insert | Store | Export | Print) ';'
 ;
 
 	
 InsertCol : //insert col at INT with name STRING
-	'InsertCol(' colIndex=Expression ',' colName=STRING ')'
+	'InsertCol(' colIndex=Expression ',' colName=STRING (','exp=Expression)')'
 ;
 
 RemoveCol :  
@@ -24,15 +24,15 @@ RemoveCol :
 ;
 	
 InsertLine : //insert line at INT
-	'InsertLine(' lineIndex=Expression ')'
+	'InsertLine(' lineIndex=Expression (','exp=Expression )+ ')'
 ;
 
 RemoveLine : 
 	'RemoveLine(' lineIndex=Expression')'
 ;
 
-Modify : 
-	'Modify(' colIndex=Expression ',' rowIndex=Expression ',' value=(Expression | StringValue) ')'
+Insert : // Looks like a modify but is translated as an update in python 
+	'Insert(' lineIndex=Expression ',' colNameOrIndex=Expression ',' value=(Expression | StringValue) ')'
 ;
 
 Print : 
@@ -48,7 +48,7 @@ Export :
 ;
 
 Expression : 
-	value=(PrimaryExpression | Binexpr)
+	value=(PrimaryExpression | Binexpr | NoneValue)
 ;
 
 PrimaryExpression : 
@@ -81,6 +81,10 @@ Binexpr :
 
 Op : 
 	'+' | '-' | '*' | '/'
+;
+
+NoneValue :
+	value="None"
 ;
 
 IntValue : 
