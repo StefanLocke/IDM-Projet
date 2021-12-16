@@ -31,3 +31,9 @@ import pandas as pd
 
 # Remove line
 # df = df.drop(POSITION)
+
+# Export to csv
+# df.to_csv("results/store1.csv")
+
+# Export to json
+# df.to_json("results/export1.json")
