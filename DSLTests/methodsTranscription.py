@@ -20,6 +20,9 @@ import pandas as pd
 # Insert empty line at specific position
 # df.loc[POSITION] = [None] * df.columns.size
 
+# Insert specific line
+# df.loc[POSITION] = [e1,e2,...]
+
 # Remove Col with col name
 # df = df.drop(columns=NAME)
 
