@@ -33,6 +33,24 @@ df = df.drop(columns=df.columns[INDEX])
 ### Remove line > RemoveLine(INDEX)
 df = df.drop(INDEX)
 
+### Column prod > ColProd(INDEX)
+df[df.columns[INDEX]].prod()
+
+### Column prod > ColProd(COLUMN_NAME)
+df[COLUMN_NAME].prod()
+
+### Column sum > ColSum(INDEX)
+df[df.columns[INDEX]].sum()
+
+### Column sum > ColSum(COLUMN_NAME)
+df[COLUMN_NAME].sum()
+
+
+### Line prod > LineProd
+
+### Line sum > LineSum
+
+
 ### Export to csv > ExportCSV(PATH)
 df.to_csv("results/store1.csv")
 
