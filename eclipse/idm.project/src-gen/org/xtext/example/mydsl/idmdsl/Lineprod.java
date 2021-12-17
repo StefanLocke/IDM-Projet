@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Lineprod extends EObject
+public interface Lineprod extends PrimaryExpression
 {
   /**
    * Returns the value of the '<em><b>Line Index</b></em>' containment reference.

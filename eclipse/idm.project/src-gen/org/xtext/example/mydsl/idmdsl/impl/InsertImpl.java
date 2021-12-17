@@ -14,44 +14,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
-import org.xtext.example.mydsl.idmdsl.Modify;
+import org.xtext.example.mydsl.idmdsl.Insert;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Modify</b></em>'.
+ * An implementation of the model object '<em><b>Insert</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ModifyImpl#getColIndex <em>Col Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ModifyImpl#getRowIndex <em>Row Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ModifyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getLineIndex <em>Line Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getColNameOrIndex <em>Col Name Or Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModifyImpl extends InstructionImpl implements Modify
+public class InsertImpl extends InstructionImpl implements Insert
 {
   /**
-   * The cached value of the '{@link #getColIndex() <em>Col Index</em>}' containment reference.
+   * The cached value of the '{@link #getLineIndex() <em>Line Index</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColIndex()
+   * @see #getLineIndex()
    * @generated
    * @ordered
    */
-  protected Expression colIndex;
+  protected Expression lineIndex;
 
   /**
-   * The cached value of the '{@link #getRowIndex() <em>Row Index</em>}' containment reference.
+   * The cached value of the '{@link #getColNameOrIndex() <em>Col Name Or Index</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRowIndex()
+   * @see #getColNameOrIndex()
    * @generated
    * @ordered
    */
-  protected Expression rowIndex;
+  protected Expression colNameOrIndex;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -68,7 +68,7 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModifyImpl()
+  protected InsertImpl()
   {
     super();
   }
@@ -81,7 +81,7 @@ public class ModifyImpl extends InstructionImpl implements Modify
   @Override
   protected EClass eStaticClass()
   {
-    return IdmdslPackage.Literals.MODIFY;
+    return IdmdslPackage.Literals.INSERT;
   }
 
   /**
@@ -90,9 +90,9 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * @generated
    */
   @Override
-  public Expression getColIndex()
+  public Expression getLineIndex()
   {
-    return colIndex;
+    return lineIndex;
   }
 
   /**
@@ -100,13 +100,13 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetColIndex(Expression newColIndex, NotificationChain msgs)
+  public NotificationChain basicSetLineIndex(Expression newLineIndex, NotificationChain msgs)
   {
-    Expression oldColIndex = colIndex;
-    colIndex = newColIndex;
+    Expression oldLineIndex = lineIndex;
+    lineIndex = newLineIndex;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__COL_INDEX, oldColIndex, newColIndex);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__LINE_INDEX, oldLineIndex, newLineIndex);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -118,20 +118,20 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * @generated
    */
   @Override
-  public void setColIndex(Expression newColIndex)
+  public void setLineIndex(Expression newLineIndex)
   {
-    if (newColIndex != colIndex)
+    if (newLineIndex != lineIndex)
     {
       NotificationChain msgs = null;
-      if (colIndex != null)
-        msgs = ((InternalEObject)colIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__COL_INDEX, null, msgs);
-      if (newColIndex != null)
-        msgs = ((InternalEObject)newColIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__COL_INDEX, null, msgs);
-      msgs = basicSetColIndex(newColIndex, msgs);
+      if (lineIndex != null)
+        msgs = ((InternalEObject)lineIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__LINE_INDEX, null, msgs);
+      if (newLineIndex != null)
+        msgs = ((InternalEObject)newLineIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__LINE_INDEX, null, msgs);
+      msgs = basicSetLineIndex(newLineIndex, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__COL_INDEX, newColIndex, newColIndex));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__LINE_INDEX, newLineIndex, newLineIndex));
   }
 
   /**
@@ -140,9 +140,9 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * @generated
    */
   @Override
-  public Expression getRowIndex()
+  public Expression getColNameOrIndex()
   {
-    return rowIndex;
+    return colNameOrIndex;
   }
 
   /**
@@ -150,13 +150,13 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRowIndex(Expression newRowIndex, NotificationChain msgs)
+  public NotificationChain basicSetColNameOrIndex(Expression newColNameOrIndex, NotificationChain msgs)
   {
-    Expression oldRowIndex = rowIndex;
-    rowIndex = newRowIndex;
+    Expression oldColNameOrIndex = colNameOrIndex;
+    colNameOrIndex = newColNameOrIndex;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__ROW_INDEX, oldRowIndex, newRowIndex);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME_OR_INDEX, oldColNameOrIndex, newColNameOrIndex);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -168,20 +168,20 @@ public class ModifyImpl extends InstructionImpl implements Modify
    * @generated
    */
   @Override
-  public void setRowIndex(Expression newRowIndex)
+  public void setColNameOrIndex(Expression newColNameOrIndex)
   {
-    if (newRowIndex != rowIndex)
+    if (newColNameOrIndex != colNameOrIndex)
     {
       NotificationChain msgs = null;
-      if (rowIndex != null)
-        msgs = ((InternalEObject)rowIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__ROW_INDEX, null, msgs);
-      if (newRowIndex != null)
-        msgs = ((InternalEObject)newRowIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__ROW_INDEX, null, msgs);
-      msgs = basicSetRowIndex(newRowIndex, msgs);
+      if (colNameOrIndex != null)
+        msgs = ((InternalEObject)colNameOrIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME_OR_INDEX, null, msgs);
+      if (newColNameOrIndex != null)
+        msgs = ((InternalEObject)newColNameOrIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME_OR_INDEX, null, msgs);
+      msgs = basicSetColNameOrIndex(newColNameOrIndex, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__ROW_INDEX, newRowIndex, newRowIndex));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME_OR_INDEX, newColNameOrIndex, newColNameOrIndex));
   }
 
   /**
@@ -206,7 +206,7 @@ public class ModifyImpl extends InstructionImpl implements Modify
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -224,14 +224,14 @@ public class ModifyImpl extends InstructionImpl implements Modify
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.MODIFY__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.MODIFY__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__VALUE, newValue, newValue));
   }
 
   /**
@@ -244,11 +244,11 @@ public class ModifyImpl extends InstructionImpl implements Modify
   {
     switch (featureID)
     {
-      case IdmdslPackage.MODIFY__COL_INDEX:
-        return basicSetColIndex(null, msgs);
-      case IdmdslPackage.MODIFY__ROW_INDEX:
-        return basicSetRowIndex(null, msgs);
-      case IdmdslPackage.MODIFY__VALUE:
+      case IdmdslPackage.INSERT__LINE_INDEX:
+        return basicSetLineIndex(null, msgs);
+      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
+        return basicSetColNameOrIndex(null, msgs);
+      case IdmdslPackage.INSERT__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -264,11 +264,11 @@ public class ModifyImpl extends InstructionImpl implements Modify
   {
     switch (featureID)
     {
-      case IdmdslPackage.MODIFY__COL_INDEX:
-        return getColIndex();
-      case IdmdslPackage.MODIFY__ROW_INDEX:
-        return getRowIndex();
-      case IdmdslPackage.MODIFY__VALUE:
+      case IdmdslPackage.INSERT__LINE_INDEX:
+        return getLineIndex();
+      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
+        return getColNameOrIndex();
+      case IdmdslPackage.INSERT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -284,13 +284,13 @@ public class ModifyImpl extends InstructionImpl implements Modify
   {
     switch (featureID)
     {
-      case IdmdslPackage.MODIFY__COL_INDEX:
-        setColIndex((Expression)newValue);
+      case IdmdslPackage.INSERT__LINE_INDEX:
+        setLineIndex((Expression)newValue);
         return;
-      case IdmdslPackage.MODIFY__ROW_INDEX:
-        setRowIndex((Expression)newValue);
+      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
+        setColNameOrIndex((Expression)newValue);
         return;
-      case IdmdslPackage.MODIFY__VALUE:
+      case IdmdslPackage.INSERT__VALUE:
         setValue((EObject)newValue);
         return;
     }
@@ -307,13 +307,13 @@ public class ModifyImpl extends InstructionImpl implements Modify
   {
     switch (featureID)
     {
-      case IdmdslPackage.MODIFY__COL_INDEX:
-        setColIndex((Expression)null);
+      case IdmdslPackage.INSERT__LINE_INDEX:
+        setLineIndex((Expression)null);
         return;
-      case IdmdslPackage.MODIFY__ROW_INDEX:
-        setRowIndex((Expression)null);
+      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
+        setColNameOrIndex((Expression)null);
         return;
-      case IdmdslPackage.MODIFY__VALUE:
+      case IdmdslPackage.INSERT__VALUE:
         setValue((EObject)null);
         return;
     }
@@ -330,14 +330,14 @@ public class ModifyImpl extends InstructionImpl implements Modify
   {
     switch (featureID)
     {
-      case IdmdslPackage.MODIFY__COL_INDEX:
-        return colIndex != null;
-      case IdmdslPackage.MODIFY__ROW_INDEX:
-        return rowIndex != null;
-      case IdmdslPackage.MODIFY__VALUE:
+      case IdmdslPackage.INSERT__LINE_INDEX:
+        return lineIndex != null;
+      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
+        return colNameOrIndex != null;
+      case IdmdslPackage.INSERT__VALUE:
         return value != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ModifyImpl
+} //InsertImpl

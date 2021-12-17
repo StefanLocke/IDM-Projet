@@ -21,21 +21,13 @@ class MyDslParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Load("example.csv") {	
-				InsertCol(0, "0");
-				InsertCol(1, "1");
-				InsertCol(2, "2");
-				InsertCol(3, "3");
-				InsertCol(4, "4");
-				InsertCol(5,"FACTORIEL");
-				
-				Modify(0,0,2);
-				Modify(0,0,3);
-				Modify(0,0,4);
-				Modify(0,0,5);
-				Modify(0,0,Lineprod(0));
-				
-				
+			Create() {
+			
+				InsertCol(1, "Prenom");
+				InsertCol((1+5), "Sexe");
+				Insert(0, 1, "Alexis");
+				Insert(0, (1+5), "Male");
+				Print(Selectcell(1,5));
 			}
 		''')
 		val compiler = new PythonCompiler(result);

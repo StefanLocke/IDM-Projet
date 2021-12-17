@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.idmdsl.Binexpr;
 import org.xtext.example.mydsl.idmdsl.Expression;
@@ -32,7 +31,7 @@ import org.xtext.example.mydsl.idmdsl.PrimaryExpression;
  *
  * @generated
  */
-public class BinexprImpl extends MinimalEObjectImpl.Container implements Binexpr
+public class BinexprImpl extends ExpressionImpl implements Binexpr
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.

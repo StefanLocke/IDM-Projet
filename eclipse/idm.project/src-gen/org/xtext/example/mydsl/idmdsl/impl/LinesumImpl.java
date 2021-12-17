@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
@@ -29,7 +28,7 @@ import org.xtext.example.mydsl.idmdsl.Linesum;
  *
  * @generated
  */
-public class LinesumImpl extends MinimalEObjectImpl.Container implements Linesum
+public class LinesumImpl extends PrimaryExpressionImpl implements Linesum
 {
   /**
    * The cached value of the '{@link #getLineIndex() <em>Line Index</em>}' containment reference.

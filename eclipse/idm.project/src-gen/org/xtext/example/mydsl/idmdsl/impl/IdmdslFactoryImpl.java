@@ -67,15 +67,17 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
     {
       case IdmdslPackage.PROGRAMME: return createProgramme();
       case IdmdslPackage.LOADSCOPE: return createLoadscope();
+      case IdmdslPackage.LOAD: return createLoad();
+      case IdmdslPackage.CREATE: return createCreate();
       case IdmdslPackage.INSTRUCTION: return createInstruction();
       case IdmdslPackage.INSERT_COL: return createInsertCol();
       case IdmdslPackage.REMOVE_COL: return createRemoveCol();
       case IdmdslPackage.INSERT_LINE: return createInsertLine();
       case IdmdslPackage.REMOVE_LINE: return createRemoveLine();
-      case IdmdslPackage.MODIFY: return createModify();
+      case IdmdslPackage.INSERT: return createInsert();
       case IdmdslPackage.PRINT: return createPrint();
-      case IdmdslPackage.STORE: return createStore();
-      case IdmdslPackage.EXPORT: return createExport();
+      case IdmdslPackage.EXPORT_CSV: return createExportCSV();
+      case IdmdslPackage.EXPORT_JSON: return createExportJSON();
       case IdmdslPackage.EXPRESSION: return createExpression();
       case IdmdslPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
       case IdmdslPackage.SELECTCELL: return createSelectcell();
@@ -84,6 +86,7 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
       case IdmdslPackage.LINEPROD: return createLineprod();
       case IdmdslPackage.COLPROD: return createColprod();
       case IdmdslPackage.BINEXPR: return createBinexpr();
+      case IdmdslPackage.NONE_VALUE: return createNoneValue();
       case IdmdslPackage.INT_VALUE: return createIntValue();
       case IdmdslPackage.STRING_VALUE: return createStringValue();
       default:
@@ -113,6 +116,30 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
   {
     LoadscopeImpl loadscope = new LoadscopeImpl();
     return loadscope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Load createLoad()
+  {
+    LoadImpl load = new LoadImpl();
+    return load;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Create createCreate()
+  {
+    CreateImpl create = new CreateImpl();
+    return create;
   }
 
   /**
@@ -181,10 +208,10 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
    * @generated
    */
   @Override
-  public Modify createModify()
+  public Insert createInsert()
   {
-    ModifyImpl modify = new ModifyImpl();
-    return modify;
+    InsertImpl insert = new InsertImpl();
+    return insert;
   }
 
   /**
@@ -205,10 +232,10 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
    * @generated
    */
   @Override
-  public Store createStore()
+  public ExportCSV createExportCSV()
   {
-    StoreImpl store = new StoreImpl();
-    return store;
+    ExportCSVImpl exportCSV = new ExportCSVImpl();
+    return exportCSV;
   }
 
   /**
@@ -217,10 +244,10 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
    * @generated
    */
   @Override
-  public Export createExport()
+  public ExportJSON createExportJSON()
   {
-    ExportImpl export = new ExportImpl();
-    return export;
+    ExportJSONImpl exportJSON = new ExportJSONImpl();
+    return exportJSON;
   }
 
   /**
@@ -317,6 +344,18 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
   {
     BinexprImpl binexpr = new BinexprImpl();
     return binexpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NoneValue createNoneValue()
+  {
+    NoneValueImpl noneValue = new NoneValueImpl();
+    return noneValue;
   }
 
   /**

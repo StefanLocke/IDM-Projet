@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.idmdsl.RemoveCol;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.RemoveColImpl#getColIndex <em>Col Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.RemoveColImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +40,26 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
    * @ordered
    */
   protected Expression colIndex;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,6 +138,31 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
    * @generated
    */
   @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.REMOVE_COL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -139,6 +185,8 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
     {
       case IdmdslPackage.REMOVE_COL__COL_INDEX:
         return getColIndex();
+      case IdmdslPackage.REMOVE_COL__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -155,6 +203,9 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
     {
       case IdmdslPackage.REMOVE_COL__COL_INDEX:
         setColIndex((Expression)newValue);
+        return;
+      case IdmdslPackage.REMOVE_COL__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -173,6 +224,9 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
       case IdmdslPackage.REMOVE_COL__COL_INDEX:
         setColIndex((Expression)null);
         return;
+      case IdmdslPackage.REMOVE_COL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -189,8 +243,27 @@ public class RemoveColImpl extends InstructionImpl implements RemoveCol
     {
       case IdmdslPackage.REMOVE_COL__COL_INDEX:
         return colIndex != null;
+      case IdmdslPackage.REMOVE_COL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //RemoveColImpl

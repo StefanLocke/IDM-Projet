@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.idmdsl.Colprod;
 import org.xtext.example.mydsl.idmdsl.Expression;
@@ -25,11 +24,12 @@ import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ColprodImpl#getColIndex <em>Col Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ColprodImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
+public class ColprodImpl extends PrimaryExpressionImpl implements Colprod
 {
   /**
    * The cached value of the '{@link #getColIndex() <em>Col Index</em>}' containment reference.
@@ -40,6 +40,26 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
    * @ordered
    */
   protected Expression colIndex;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,6 +138,31 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
    * @generated
    */
   @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLPROD__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -140,6 +185,8 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
     {
       case IdmdslPackage.COLPROD__COL_INDEX:
         return getColIndex();
+      case IdmdslPackage.COLPROD__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,6 +203,9 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
     {
       case IdmdslPackage.COLPROD__COL_INDEX:
         setColIndex((Expression)newValue);
+        return;
+      case IdmdslPackage.COLPROD__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,6 +224,9 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
       case IdmdslPackage.COLPROD__COL_INDEX:
         setColIndex((Expression)null);
         return;
+      case IdmdslPackage.COLPROD__NAME:
+        setName(NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -190,8 +243,27 @@ public class ColprodImpl extends MinimalEObjectImpl.Container implements Colprod
     {
       case IdmdslPackage.COLPROD__COL_INDEX:
         return colIndex != null;
+      case IdmdslPackage.COLPROD__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ColprodImpl

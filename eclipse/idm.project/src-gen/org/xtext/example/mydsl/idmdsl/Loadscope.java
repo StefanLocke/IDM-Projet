@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Loadscope#getUrl <em>Url</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.Loadscope#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
@@ -26,28 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Loadscope extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Url</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Url</em>' attribute.
-   * @see #setUrl(String)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getLoadscope_Url()
-   * @model
-   * @generated
-   */
-  String getUrl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Loadscope#getUrl <em>Url</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Url</em>' attribute.
-   * @see #getUrl()
-   * @generated
-   */
-  void setUrl(String value);
-
   /**
    * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.idmdsl.Instruction}.

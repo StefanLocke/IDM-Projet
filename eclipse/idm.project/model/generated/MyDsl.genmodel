@@ -10,43 +10,45 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Programme/loadscopes"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Loadscope">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Loadscope/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Loadscope/instructions"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Load">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Load/path"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Create"/>
     <genClasses ecoreClass="MyDsl.ecore#//Instruction"/>
     <genClasses ecoreClass="MyDsl.ecore#//InsertCol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//InsertCol/colIndex"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertCol/colName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//InsertCol/exp"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//RemoveCol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RemoveCol/colIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//RemoveCol/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//InsertLine">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//InsertLine/lineIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//InsertLine/exps"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//RemoveLine">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RemoveLine/lineIndex"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Modify">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Modify/colIndex"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Modify/rowIndex"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Modify/value"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Insert">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Insert/lineIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Insert/colNameOrIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Insert/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Print">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Print/value"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Store">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Store/url"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ExportCSV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExportCSV/path"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Export">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Export/url"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ExportJSON">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExportJSON/path"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression/value"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//PrimaryExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PrimaryExpression/value"/>
-    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="MyDsl.ecore#//PrimaryExpression"/>
     <genClasses ecoreClass="MyDsl.ecore#//Selectcell">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Selectcell/cellX"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Selectcell/cellY"/>
@@ -56,17 +58,22 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Colsum">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Colsum/colIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Colsum/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Lineprod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Lineprod/lineIndex"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Colprod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Colprod/colIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Colprod/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Binexpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Binexpr/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Binexpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Binexpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NoneValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//NoneValue/value"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//IntValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IntValue/value"/>

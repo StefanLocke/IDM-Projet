@@ -87,6 +87,22 @@ public class IdmdslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case IdmdslPackage.LOAD:
+      {
+        Load load = (Load)theEObject;
+        T result = caseLoad(load);
+        if (result == null) result = caseLoadscope(load);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case IdmdslPackage.CREATE:
+      {
+        Create create = (Create)theEObject;
+        T result = caseCreate(create);
+        if (result == null) result = caseLoadscope(create);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case IdmdslPackage.INSTRUCTION:
       {
         Instruction instruction = (Instruction)theEObject;
@@ -126,11 +142,11 @@ public class IdmdslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case IdmdslPackage.MODIFY:
+      case IdmdslPackage.INSERT:
       {
-        Modify modify = (Modify)theEObject;
-        T result = caseModify(modify);
-        if (result == null) result = caseInstruction(modify);
+        Insert insert = (Insert)theEObject;
+        T result = caseInsert(insert);
+        if (result == null) result = caseInstruction(insert);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,19 +158,19 @@ public class IdmdslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case IdmdslPackage.STORE:
+      case IdmdslPackage.EXPORT_CSV:
       {
-        Store store = (Store)theEObject;
-        T result = caseStore(store);
-        if (result == null) result = caseInstruction(store);
+        ExportCSV exportCSV = (ExportCSV)theEObject;
+        T result = caseExportCSV(exportCSV);
+        if (result == null) result = caseInstruction(exportCSV);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case IdmdslPackage.EXPORT:
+      case IdmdslPackage.EXPORT_JSON:
       {
-        Export export = (Export)theEObject;
-        T result = caseExport(export);
-        if (result == null) result = caseInstruction(export);
+        ExportJSON exportJSON = (ExportJSON)theEObject;
+        T result = caseExportJSON(exportJSON);
+        if (result == null) result = caseInstruction(exportJSON);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -169,6 +185,7 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
         T result = casePrimaryExpression(primaryExpression);
+        if (result == null) result = caseExpression(primaryExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,6 +193,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Selectcell selectcell = (Selectcell)theEObject;
         T result = caseSelectcell(selectcell);
+        if (result == null) result = casePrimaryExpression(selectcell);
+        if (result == null) result = caseExpression(selectcell);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,6 +202,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Linesum linesum = (Linesum)theEObject;
         T result = caseLinesum(linesum);
+        if (result == null) result = casePrimaryExpression(linesum);
+        if (result == null) result = caseExpression(linesum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,6 +211,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Colsum colsum = (Colsum)theEObject;
         T result = caseColsum(colsum);
+        if (result == null) result = casePrimaryExpression(colsum);
+        if (result == null) result = caseExpression(colsum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -197,6 +220,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Lineprod lineprod = (Lineprod)theEObject;
         T result = caseLineprod(lineprod);
+        if (result == null) result = casePrimaryExpression(lineprod);
+        if (result == null) result = caseExpression(lineprod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,6 +229,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Colprod colprod = (Colprod)theEObject;
         T result = caseColprod(colprod);
+        if (result == null) result = casePrimaryExpression(colprod);
+        if (result == null) result = caseExpression(colprod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,6 +238,15 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Binexpr binexpr = (Binexpr)theEObject;
         T result = caseBinexpr(binexpr);
+        if (result == null) result = caseExpression(binexpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case IdmdslPackage.NONE_VALUE:
+      {
+        NoneValue noneValue = (NoneValue)theEObject;
+        T result = caseNoneValue(noneValue);
+        if (result == null) result = caseExpression(noneValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -218,6 +254,8 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         IntValue intValue = (IntValue)theEObject;
         T result = caseIntValue(intValue);
+        if (result == null) result = casePrimaryExpression(intValue);
+        if (result == null) result = caseExpression(intValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -260,6 +298,38 @@ public class IdmdslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLoadscope(Loadscope object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Load</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Load</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoad(Load object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreate(Create object)
   {
     return null;
   }
@@ -345,17 +415,17 @@ public class IdmdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Modify</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Insert</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Modify</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Insert</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModify(Modify object)
+  public T caseInsert(Insert object)
   {
     return null;
   }
@@ -377,33 +447,33 @@ public class IdmdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Store</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Export CSV</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Store</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Export CSV</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStore(Store object)
+  public T caseExportCSV(ExportCSV object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Export</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Export JSON</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Export</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Export JSON</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExport(Export object)
+  public T caseExportJSON(ExportJSON object)
   {
     return null;
   }
@@ -532,6 +602,22 @@ public class IdmdslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBinexpr(Binexpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>None Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>None Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNoneValue(NoneValue object)
   {
     return null;
   }

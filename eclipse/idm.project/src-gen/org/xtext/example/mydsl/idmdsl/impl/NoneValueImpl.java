@@ -10,49 +10,49 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
-import org.xtext.example.mydsl.idmdsl.Store;
+import org.xtext.example.mydsl.idmdsl.NoneValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Store</b></em>'.
+ * An implementation of the model object '<em><b>None Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.StoreImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.NoneValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StoreImpl extends InstructionImpl implements Store
+public class NoneValueImpl extends ExpressionImpl implements NoneValue
 {
   /**
-   * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String URL_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String url = URL_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StoreImpl()
+  protected NoneValueImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class StoreImpl extends InstructionImpl implements Store
   @Override
   protected EClass eStaticClass()
   {
-    return IdmdslPackage.Literals.STORE;
+    return IdmdslPackage.Literals.NONE_VALUE;
   }
 
   /**
@@ -74,9 +74,9 @@ public class StoreImpl extends InstructionImpl implements Store
    * @generated
    */
   @Override
-  public String getUrl()
+  public String getValue()
   {
-    return url;
+    return value;
   }
 
   /**
@@ -85,12 +85,12 @@ public class StoreImpl extends InstructionImpl implements Store
    * @generated
    */
   @Override
-  public void setUrl(String newUrl)
+  public void setValue(String newValue)
   {
-    String oldUrl = url;
-    url = newUrl;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.STORE__URL, oldUrl, url));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.NONE_VALUE__VALUE, oldValue, value));
   }
 
   /**
@@ -103,8 +103,8 @@ public class StoreImpl extends InstructionImpl implements Store
   {
     switch (featureID)
     {
-      case IdmdslPackage.STORE__URL:
-        return getUrl();
+      case IdmdslPackage.NONE_VALUE__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class StoreImpl extends InstructionImpl implements Store
   {
     switch (featureID)
     {
-      case IdmdslPackage.STORE__URL:
-        setUrl((String)newValue);
+      case IdmdslPackage.NONE_VALUE__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class StoreImpl extends InstructionImpl implements Store
   {
     switch (featureID)
     {
-      case IdmdslPackage.STORE__URL:
-        setUrl(URL_EDEFAULT);
+      case IdmdslPackage.NONE_VALUE__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class StoreImpl extends InstructionImpl implements Store
   {
     switch (featureID)
     {
-      case IdmdslPackage.STORE__URL:
-        return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+      case IdmdslPackage.NONE_VALUE__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class StoreImpl extends InstructionImpl implements Store
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (url: ");
-    result.append(url);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //StoreImpl
+} //NoneValueImpl

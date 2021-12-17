@@ -42,6 +42,24 @@ public interface IdmdslFactory extends EFactory
   Loadscope createLoadscope();
 
   /**
+   * Returns a new object of class '<em>Load</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Load</em>'.
+   * @generated
+   */
+  Load createLoad();
+
+  /**
+   * Returns a new object of class '<em>Create</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create</em>'.
+   * @generated
+   */
+  Create createCreate();
+
+  /**
    * Returns a new object of class '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -87,13 +105,13 @@ public interface IdmdslFactory extends EFactory
   RemoveLine createRemoveLine();
 
   /**
-   * Returns a new object of class '<em>Modify</em>'.
+   * Returns a new object of class '<em>Insert</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Modify</em>'.
+   * @return a new object of class '<em>Insert</em>'.
    * @generated
    */
-  Modify createModify();
+  Insert createInsert();
 
   /**
    * Returns a new object of class '<em>Print</em>'.
@@ -105,22 +123,22 @@ public interface IdmdslFactory extends EFactory
   Print createPrint();
 
   /**
-   * Returns a new object of class '<em>Store</em>'.
+   * Returns a new object of class '<em>Export CSV</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Store</em>'.
+   * @return a new object of class '<em>Export CSV</em>'.
    * @generated
    */
-  Store createStore();
+  ExportCSV createExportCSV();
 
   /**
-   * Returns a new object of class '<em>Export</em>'.
+   * Returns a new object of class '<em>Export JSON</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Export</em>'.
+   * @return a new object of class '<em>Export JSON</em>'.
    * @generated
    */
-  Export createExport();
+  ExportJSON createExportJSON();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -193,6 +211,15 @@ public interface IdmdslFactory extends EFactory
    * @generated
    */
   Binexpr createBinexpr();
+
+  /**
+   * Returns a new object of class '<em>None Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>None Value</em>'.
+   * @generated
+   */
+  NoneValue createNoneValue();
 
   /**
    * Returns a new object of class '<em>Int Value</em>'.

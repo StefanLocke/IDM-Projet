@@ -14,6 +14,7 @@ package org.xtext.example.mydsl.idmdsl;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.RemoveCol#getColIndex <em>Col Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.RemoveCol#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getRemoveCol()
@@ -43,5 +44,27 @@ public interface RemoveCol extends Instruction
    * @generated
    */
   void setColIndex(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getRemoveCol_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.RemoveCol#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
 } // RemoveCol

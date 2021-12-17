@@ -9,50 +9,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.idmdsl.Export;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
+import org.xtext.example.mydsl.idmdsl.Load;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Export</b></em>'.
+ * An implementation of the model object '<em><b>Load</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ExportImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.LoadImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExportImpl extends InstructionImpl implements Export
+public class LoadImpl extends LoadscopeImpl implements Load
 {
   /**
-   * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getPath()
    * @generated
    * @ordered
    */
-  protected static final String URL_EDEFAULT = null;
+  protected static final String PATH_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getPath()
    * @generated
    * @ordered
    */
-  protected String url = URL_EDEFAULT;
+  protected String path = PATH_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExportImpl()
+  protected LoadImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class ExportImpl extends InstructionImpl implements Export
   @Override
   protected EClass eStaticClass()
   {
-    return IdmdslPackage.Literals.EXPORT;
+    return IdmdslPackage.Literals.LOAD;
   }
 
   /**
@@ -74,9 +74,9 @@ public class ExportImpl extends InstructionImpl implements Export
    * @generated
    */
   @Override
-  public String getUrl()
+  public String getPath()
   {
-    return url;
+    return path;
   }
 
   /**
@@ -85,12 +85,12 @@ public class ExportImpl extends InstructionImpl implements Export
    * @generated
    */
   @Override
-  public void setUrl(String newUrl)
+  public void setPath(String newPath)
   {
-    String oldUrl = url;
-    url = newUrl;
+    String oldPath = path;
+    path = newPath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.EXPORT__URL, oldUrl, url));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.LOAD__PATH, oldPath, path));
   }
 
   /**
@@ -103,8 +103,8 @@ public class ExportImpl extends InstructionImpl implements Export
   {
     switch (featureID)
     {
-      case IdmdslPackage.EXPORT__URL:
-        return getUrl();
+      case IdmdslPackage.LOAD__PATH:
+        return getPath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class ExportImpl extends InstructionImpl implements Export
   {
     switch (featureID)
     {
-      case IdmdslPackage.EXPORT__URL:
-        setUrl((String)newValue);
+      case IdmdslPackage.LOAD__PATH:
+        setPath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ExportImpl extends InstructionImpl implements Export
   {
     switch (featureID)
     {
-      case IdmdslPackage.EXPORT__URL:
-        setUrl(URL_EDEFAULT);
+      case IdmdslPackage.LOAD__PATH:
+        setPath(PATH_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class ExportImpl extends InstructionImpl implements Export
   {
     switch (featureID)
     {
-      case IdmdslPackage.EXPORT__URL:
-        return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+      case IdmdslPackage.LOAD__PATH:
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class ExportImpl extends InstructionImpl implements Export
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (url: ");
-    result.append(url);
+    result.append(" (path: ");
+    result.append(path);
     result.append(')');
     return result.toString();
   }
 
-} //ExportImpl
+} //LoadImpl

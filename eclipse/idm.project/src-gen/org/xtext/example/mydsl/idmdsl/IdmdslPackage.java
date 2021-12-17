@@ -96,22 +96,13 @@ public interface IdmdslPackage extends EPackage
   int LOADSCOPE = 1;
 
   /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOADSCOPE__URL = 0;
-
-  /**
    * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOADSCOPE__INSTRUCTIONS = 1;
+  int LOADSCOPE__INSTRUCTIONS = 0;
 
   /**
    * The number of structural features of the '<em>Loadscope</em>' class.
@@ -120,7 +111,72 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOADSCOPE_FEATURE_COUNT = 2;
+  int LOADSCOPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.LoadImpl <em>Load</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.idmdsl.impl.LoadImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getLoad()
+   * @generated
+   */
+  int LOAD = 2;
+
+  /**
+   * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOAD__INSTRUCTIONS = LOADSCOPE__INSTRUCTIONS;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOAD__PATH = LOADSCOPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Load</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOAD_FEATURE_COUNT = LOADSCOPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.CreateImpl <em>Create</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.idmdsl.impl.CreateImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getCreate()
+   * @generated
+   */
+  int CREATE = 3;
+
+  /**
+   * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE__INSTRUCTIONS = LOADSCOPE__INSTRUCTIONS;
+
+  /**
+   * The number of structural features of the '<em>Create</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_FEATURE_COUNT = LOADSCOPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -130,7 +186,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getInstruction()
    * @generated
    */
-  int INSTRUCTION = 2;
+  int INSTRUCTION = 4;
 
   /**
    * The number of structural features of the '<em>Instruction</em>' class.
@@ -149,7 +205,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getInsertCol()
    * @generated
    */
-  int INSERT_COL = 3;
+  int INSERT_COL = 5;
 
   /**
    * The feature id for the '<em><b>Col Index</b></em>' containment reference.
@@ -170,13 +226,22 @@ public interface IdmdslPackage extends EPackage
   int INSERT_COL__COL_NAME = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_COL__EXP = INSTRUCTION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Insert Col</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_COL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+  int INSERT_COL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.RemoveColImpl <em>Remove Col</em>}' class.
@@ -186,7 +251,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getRemoveCol()
    * @generated
    */
-  int REMOVE_COL = 4;
+  int REMOVE_COL = 6;
 
   /**
    * The feature id for the '<em><b>Col Index</b></em>' containment reference.
@@ -198,13 +263,22 @@ public interface IdmdslPackage extends EPackage
   int REMOVE_COL__COL_INDEX = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REMOVE_COL__NAME = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Remove Col</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REMOVE_COL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int REMOVE_COL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.InsertLineImpl <em>Insert Line</em>}' class.
@@ -214,7 +288,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getInsertLine()
    * @generated
    */
-  int INSERT_LINE = 5;
+  int INSERT_LINE = 7;
 
   /**
    * The feature id for the '<em><b>Line Index</b></em>' containment reference.
@@ -226,13 +300,22 @@ public interface IdmdslPackage extends EPackage
   int INSERT_LINE__LINE_INDEX = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Exps</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_LINE__EXPS = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Insert Line</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_LINE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int INSERT_LINE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.RemoveLineImpl <em>Remove Line</em>}' class.
@@ -242,7 +325,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getRemoveLine()
    * @generated
    */
-  int REMOVE_LINE = 6;
+  int REMOVE_LINE = 8;
 
   /**
    * The feature id for the '<em><b>Line Index</b></em>' containment reference.
@@ -263,32 +346,32 @@ public interface IdmdslPackage extends EPackage
   int REMOVE_LINE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ModifyImpl <em>Modify</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl <em>Insert</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.idmdsl.impl.ModifyImpl
-   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getModify()
+   * @see org.xtext.example.mydsl.idmdsl.impl.InsertImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getInsert()
    * @generated
    */
-  int MODIFY = 7;
+  int INSERT = 9;
 
   /**
-   * The feature id for the '<em><b>Col Index</b></em>' containment reference.
+   * The feature id for the '<em><b>Line Index</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFY__COL_INDEX = INSTRUCTION_FEATURE_COUNT + 0;
+  int INSERT__LINE_INDEX = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Row Index</b></em>' containment reference.
+   * The feature id for the '<em><b>Col Name Or Index</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFY__ROW_INDEX = INSTRUCTION_FEATURE_COUNT + 1;
+  int INSERT__COL_NAME_OR_INDEX = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -297,16 +380,16 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODIFY__VALUE = INSTRUCTION_FEATURE_COUNT + 2;
+  int INSERT__VALUE = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Modify</em>' class.
+   * The number of structural features of the '<em>Insert</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFY_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
+  int INSERT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.PrintImpl <em>Print</em>}' class.
@@ -316,7 +399,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getPrint()
    * @generated
    */
-  int PRINT = 8;
+  int PRINT = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -337,60 +420,60 @@ public interface IdmdslPackage extends EPackage
   int PRINT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.StoreImpl <em>Store</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportCSVImpl <em>Export CSV</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.idmdsl.impl.StoreImpl
-   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getStore()
+   * @see org.xtext.example.mydsl.idmdsl.impl.ExportCSVImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExportCSV()
    * @generated
    */
-  int STORE = 9;
+  int EXPORT_CSV = 11;
 
   /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STORE__URL = INSTRUCTION_FEATURE_COUNT + 0;
+  int EXPORT_CSV__PATH = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Store</em>' class.
+   * The number of structural features of the '<em>Export CSV</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STORE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int EXPORT_CSV_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportImpl <em>Export</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportJSONImpl <em>Export JSON</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.idmdsl.impl.ExportImpl
-   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExport()
+   * @see org.xtext.example.mydsl.idmdsl.impl.ExportJSONImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExportJSON()
    * @generated
    */
-  int EXPORT = 10;
+  int EXPORT_JSON = 12;
 
   /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPORT__URL = INSTRUCTION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Export</em>' class.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPORT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int EXPORT_JSON__PATH = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Export JSON</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPORT_JSON_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -400,16 +483,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 11;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__VALUE = 0;
+  int EXPRESSION = 13;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -418,7 +492,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -428,16 +502,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 12;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__VALUE = 0;
+  int PRIMARY_EXPRESSION = 14;
 
   /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
@@ -446,7 +511,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = 1;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl <em>Selectcell</em>}' class.
@@ -456,7 +521,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getSelectcell()
    * @generated
    */
-  int SELECTCELL = 13;
+  int SELECTCELL = 15;
 
   /**
    * The feature id for the '<em><b>Cell X</b></em>' containment reference.
@@ -465,7 +530,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECTCELL__CELL_X = 0;
+  int SELECTCELL__CELL_X = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Cell Y</b></em>' containment reference.
@@ -474,7 +539,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECTCELL__CELL_Y = 1;
+  int SELECTCELL__CELL_Y = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Selectcell</em>' class.
@@ -483,7 +548,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECTCELL_FEATURE_COUNT = 2;
+  int SELECTCELL_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.LinesumImpl <em>Linesum</em>}' class.
@@ -493,7 +558,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getLinesum()
    * @generated
    */
-  int LINESUM = 14;
+  int LINESUM = 16;
 
   /**
    * The feature id for the '<em><b>Line Index</b></em>' containment reference.
@@ -502,7 +567,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINESUM__LINE_INDEX = 0;
+  int LINESUM__LINE_INDEX = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Linesum</em>' class.
@@ -511,7 +576,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINESUM_FEATURE_COUNT = 1;
+  int LINESUM_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ColsumImpl <em>Colsum</em>}' class.
@@ -521,7 +586,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getColsum()
    * @generated
    */
-  int COLSUM = 15;
+  int COLSUM = 17;
 
   /**
    * The feature id for the '<em><b>Col Index</b></em>' containment reference.
@@ -530,7 +595,16 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLSUM__COL_INDEX = 0;
+  int COLSUM__COL_INDEX = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLSUM__NAME = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Colsum</em>' class.
@@ -539,7 +613,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLSUM_FEATURE_COUNT = 1;
+  int COLSUM_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.LineprodImpl <em>Lineprod</em>}' class.
@@ -549,7 +623,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getLineprod()
    * @generated
    */
-  int LINEPROD = 16;
+  int LINEPROD = 18;
 
   /**
    * The feature id for the '<em><b>Line Index</b></em>' containment reference.
@@ -558,7 +632,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINEPROD__LINE_INDEX = 0;
+  int LINEPROD__LINE_INDEX = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Lineprod</em>' class.
@@ -567,7 +641,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINEPROD_FEATURE_COUNT = 1;
+  int LINEPROD_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.ColprodImpl <em>Colprod</em>}' class.
@@ -577,7 +651,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getColprod()
    * @generated
    */
-  int COLPROD = 17;
+  int COLPROD = 19;
 
   /**
    * The feature id for the '<em><b>Col Index</b></em>' containment reference.
@@ -586,7 +660,16 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLPROD__COL_INDEX = 0;
+  int COLPROD__COL_INDEX = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLPROD__NAME = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Colprod</em>' class.
@@ -595,7 +678,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLPROD_FEATURE_COUNT = 1;
+  int COLPROD_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.BinexprImpl <em>Binexpr</em>}' class.
@@ -605,7 +688,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getBinexpr()
    * @generated
    */
-  int BINEXPR = 18;
+  int BINEXPR = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -614,7 +697,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINEXPR__LEFT = 0;
+  int BINEXPR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -623,7 +706,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINEXPR__OP = 1;
+  int BINEXPR__OP = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -632,7 +715,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINEXPR__RIGHT = 2;
+  int BINEXPR__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Binexpr</em>' class.
@@ -641,7 +724,35 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINEXPR_FEATURE_COUNT = 3;
+  int BINEXPR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.NoneValueImpl <em>None Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.idmdsl.impl.NoneValueImpl
+   * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getNoneValue()
+   * @generated
+   */
+  int NONE_VALUE = 21;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NONE_VALUE__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>None Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NONE_VALUE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.IntValueImpl <em>Int Value</em>}' class.
@@ -651,7 +762,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getIntValue()
    * @generated
    */
-  int INT_VALUE = 19;
+  int INT_VALUE = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -660,7 +771,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_VALUE__VALUE = 0;
+  int INT_VALUE__VALUE = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Int Value</em>' class.
@@ -669,7 +780,7 @@ public interface IdmdslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_VALUE_FEATURE_COUNT = 1;
+  int INT_VALUE_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.idmdsl.impl.StringValueImpl <em>String Value</em>}' class.
@@ -679,7 +790,7 @@ public interface IdmdslPackage extends EPackage
    * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getStringValue()
    * @generated
    */
-  int STRING_VALUE = 20;
+  int STRING_VALUE = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -732,17 +843,6 @@ public interface IdmdslPackage extends EPackage
   EClass getLoadscope();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Loadscope#getUrl <em>Url</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Loadscope#getUrl()
-   * @see #getLoadscope()
-   * @generated
-   */
-  EAttribute getLoadscope_Url();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.idmdsl.Loadscope#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -752,6 +852,37 @@ public interface IdmdslPackage extends EPackage
    * @generated
    */
   EReference getLoadscope_Instructions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Load <em>Load</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Load</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Load
+   * @generated
+   */
+  EClass getLoad();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Load#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Load#getPath()
+   * @see #getLoad()
+   * @generated
+   */
+  EAttribute getLoad_Path();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Create <em>Create</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Create</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Create
+   * @generated
+   */
+  EClass getCreate();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Instruction <em>Instruction</em>}'.
@@ -796,6 +927,17 @@ public interface IdmdslPackage extends EPackage
   EAttribute getInsertCol_ColName();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.InsertCol#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.InsertCol#getExp()
+   * @see #getInsertCol()
+   * @generated
+   */
+  EReference getInsertCol_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.RemoveCol <em>Remove Col</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -815,6 +957,17 @@ public interface IdmdslPackage extends EPackage
    * @generated
    */
   EReference getRemoveCol_ColIndex();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.RemoveCol#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.RemoveCol#getName()
+   * @see #getRemoveCol()
+   * @generated
+   */
+  EAttribute getRemoveCol_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.InsertLine <em>Insert Line</em>}'.
@@ -838,6 +991,17 @@ public interface IdmdslPackage extends EPackage
   EReference getInsertLine_LineIndex();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.idmdsl.InsertLine#getExps <em>Exps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Exps</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.InsertLine#getExps()
+   * @see #getInsertLine()
+   * @generated
+   */
+  EReference getInsertLine_Exps();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.RemoveLine <em>Remove Line</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -859,47 +1023,47 @@ public interface IdmdslPackage extends EPackage
   EReference getRemoveLine_LineIndex();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Modify <em>Modify</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Insert <em>Insert</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Modify</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Modify
+   * @return the meta object for class '<em>Insert</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Insert
    * @generated
    */
-  EClass getModify();
+  EClass getInsert();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Modify#getColIndex <em>Col Index</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Insert#getLineIndex <em>Line Index</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Col Index</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Modify#getColIndex()
-   * @see #getModify()
+   * @return the meta object for the containment reference '<em>Line Index</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Insert#getLineIndex()
+   * @see #getInsert()
    * @generated
    */
-  EReference getModify_ColIndex();
+  EReference getInsert_LineIndex();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Modify#getRowIndex <em>Row Index</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Insert#getColNameOrIndex <em>Col Name Or Index</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Row Index</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Modify#getRowIndex()
-   * @see #getModify()
+   * @return the meta object for the containment reference '<em>Col Name Or Index</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Insert#getColNameOrIndex()
+   * @see #getInsert()
    * @generated
    */
-  EReference getModify_RowIndex();
+  EReference getInsert_ColNameOrIndex();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Modify#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Insert#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Modify#getValue()
-   * @see #getModify()
+   * @see org.xtext.example.mydsl.idmdsl.Insert#getValue()
+   * @see #getInsert()
    * @generated
    */
-  EReference getModify_Value();
+  EReference getInsert_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Print <em>Print</em>}'.
@@ -923,46 +1087,46 @@ public interface IdmdslPackage extends EPackage
   EReference getPrint_Value();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Store <em>Store</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.ExportCSV <em>Export CSV</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Store</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Store
+   * @return the meta object for class '<em>Export CSV</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.ExportCSV
    * @generated
    */
-  EClass getStore();
+  EClass getExportCSV();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Store#getUrl <em>Url</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.ExportCSV#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Store#getUrl()
-   * @see #getStore()
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.ExportCSV#getPath()
+   * @see #getExportCSV()
    * @generated
    */
-  EAttribute getStore_Url();
+  EAttribute getExportCSV_Path();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Export <em>Export</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.ExportJSON <em>Export JSON</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Export</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Export
+   * @return the meta object for class '<em>Export JSON</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.ExportJSON
    * @generated
    */
-  EClass getExport();
+  EClass getExportJSON();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Export#getUrl <em>Url</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.ExportJSON#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Export#getUrl()
-   * @see #getExport()
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.ExportJSON#getPath()
+   * @see #getExportJSON()
    * @generated
    */
-  EAttribute getExport_Url();
+  EAttribute getExportJSON_Path();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Expression <em>Expression</em>}'.
@@ -975,17 +1139,6 @@ public interface IdmdslPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.Expression#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.Expression#getValue()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Value();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.PrimaryExpression <em>Primary Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -994,17 +1147,6 @@ public interface IdmdslPackage extends EPackage
    * @generated
    */
   EClass getPrimaryExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.idmdsl.PrimaryExpression#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.xtext.example.mydsl.idmdsl.PrimaryExpression#getValue()
-   * @see #getPrimaryExpression()
-   * @generated
-   */
-  EReference getPrimaryExpression_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Selectcell <em>Selectcell</em>}'.
@@ -1081,6 +1223,17 @@ public interface IdmdslPackage extends EPackage
   EReference getColsum_ColIndex();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Colsum#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Colsum#getName()
+   * @see #getColsum()
+   * @generated
+   */
+  EAttribute getColsum_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Lineprod <em>Lineprod</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1121,6 +1274,17 @@ public interface IdmdslPackage extends EPackage
    * @generated
    */
   EReference getColprod_ColIndex();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.Colprod#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.Colprod#getName()
+   * @see #getColprod()
+   * @generated
+   */
+  EAttribute getColprod_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.Binexpr <em>Binexpr</em>}'.
@@ -1164,6 +1328,27 @@ public interface IdmdslPackage extends EPackage
    * @generated
    */
   EReference getBinexpr_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.NoneValue <em>None Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>None Value</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.NoneValue
+   * @generated
+   */
+  EClass getNoneValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.idmdsl.NoneValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.idmdsl.NoneValue#getValue()
+   * @see #getNoneValue()
+   * @generated
+   */
+  EAttribute getNoneValue_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.idmdsl.IntValue <em>Int Value</em>}'.
@@ -1259,20 +1444,40 @@ public interface IdmdslPackage extends EPackage
     EClass LOADSCOPE = eINSTANCE.getLoadscope();
 
     /**
-     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LOADSCOPE__URL = eINSTANCE.getLoadscope_Url();
-
-    /**
      * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference LOADSCOPE__INSTRUCTIONS = eINSTANCE.getLoadscope_Instructions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.LoadImpl <em>Load</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.idmdsl.impl.LoadImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getLoad()
+     * @generated
+     */
+    EClass LOAD = eINSTANCE.getLoad();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOAD__PATH = eINSTANCE.getLoad_Path();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.CreateImpl <em>Create</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.idmdsl.impl.CreateImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getCreate()
+     * @generated
+     */
+    EClass CREATE = eINSTANCE.getCreate();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -1311,6 +1516,14 @@ public interface IdmdslPackage extends EPackage
     EAttribute INSERT_COL__COL_NAME = eINSTANCE.getInsertCol_ColName();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_COL__EXP = eINSTANCE.getInsertCol_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.RemoveColImpl <em>Remove Col</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1327,6 +1540,14 @@ public interface IdmdslPackage extends EPackage
      * @generated
      */
     EReference REMOVE_COL__COL_INDEX = eINSTANCE.getRemoveCol_ColIndex();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REMOVE_COL__NAME = eINSTANCE.getRemoveCol_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.InsertLineImpl <em>Insert Line</em>}' class.
@@ -1347,6 +1568,14 @@ public interface IdmdslPackage extends EPackage
     EReference INSERT_LINE__LINE_INDEX = eINSTANCE.getInsertLine_LineIndex();
 
     /**
+     * The meta object literal for the '<em><b>Exps</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSERT_LINE__EXPS = eINSTANCE.getInsertLine_Exps();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.RemoveLineImpl <em>Remove Line</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1365,30 +1594,30 @@ public interface IdmdslPackage extends EPackage
     EReference REMOVE_LINE__LINE_INDEX = eINSTANCE.getRemoveLine_LineIndex();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.ModifyImpl <em>Modify</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl <em>Insert</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.idmdsl.impl.ModifyImpl
-     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getModify()
+     * @see org.xtext.example.mydsl.idmdsl.impl.InsertImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getInsert()
      * @generated
      */
-    EClass MODIFY = eINSTANCE.getModify();
+    EClass INSERT = eINSTANCE.getInsert();
 
     /**
-     * The meta object literal for the '<em><b>Col Index</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Line Index</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODIFY__COL_INDEX = eINSTANCE.getModify_ColIndex();
+    EReference INSERT__LINE_INDEX = eINSTANCE.getInsert_LineIndex();
 
     /**
-     * The meta object literal for the '<em><b>Row Index</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Col Name Or Index</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODIFY__ROW_INDEX = eINSTANCE.getModify_RowIndex();
+    EReference INSERT__COL_NAME_OR_INDEX = eINSTANCE.getInsert_ColNameOrIndex();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -1396,7 +1625,7 @@ public interface IdmdslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODIFY__VALUE = eINSTANCE.getModify_Value();
+    EReference INSERT__VALUE = eINSTANCE.getInsert_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.PrintImpl <em>Print</em>}' class.
@@ -1417,40 +1646,40 @@ public interface IdmdslPackage extends EPackage
     EReference PRINT__VALUE = eINSTANCE.getPrint_Value();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.StoreImpl <em>Store</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportCSVImpl <em>Export CSV</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.idmdsl.impl.StoreImpl
-     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getStore()
+     * @see org.xtext.example.mydsl.idmdsl.impl.ExportCSVImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExportCSV()
      * @generated
      */
-    EClass STORE = eINSTANCE.getStore();
+    EClass EXPORT_CSV = eINSTANCE.getExportCSV();
 
     /**
-     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STORE__URL = eINSTANCE.getStore_Url();
+    EAttribute EXPORT_CSV__PATH = eINSTANCE.getExportCSV_Path();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportImpl <em>Export</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExportJSONImpl <em>Export JSON</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.idmdsl.impl.ExportImpl
-     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExport()
+     * @see org.xtext.example.mydsl.idmdsl.impl.ExportJSONImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getExportJSON()
      * @generated
      */
-    EClass EXPORT = eINSTANCE.getExport();
+    EClass EXPORT_JSON = eINSTANCE.getExportJSON();
 
     /**
-     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPORT__URL = eINSTANCE.getExport_Url();
+    EAttribute EXPORT_JSON__PATH = eINSTANCE.getExportJSON_Path();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1463,14 +1692,6 @@ public interface IdmdslPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1479,14 +1700,6 @@ public interface IdmdslPackage extends EPackage
      * @generated
      */
     EClass PRIMARY_EXPRESSION = eINSTANCE.getPrimaryExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__VALUE = eINSTANCE.getPrimaryExpression_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl <em>Selectcell</em>}' class.
@@ -1551,6 +1764,14 @@ public interface IdmdslPackage extends EPackage
     EReference COLSUM__COL_INDEX = eINSTANCE.getColsum_ColIndex();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLSUM__NAME = eINSTANCE.getColsum_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.LineprodImpl <em>Lineprod</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1587,6 +1808,14 @@ public interface IdmdslPackage extends EPackage
     EReference COLPROD__COL_INDEX = eINSTANCE.getColprod_ColIndex();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLPROD__NAME = eINSTANCE.getColprod_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.BinexprImpl <em>Binexpr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1619,6 +1848,24 @@ public interface IdmdslPackage extends EPackage
      * @generated
      */
     EReference BINEXPR__RIGHT = eINSTANCE.getBinexpr_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.NoneValueImpl <em>None Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.idmdsl.impl.NoneValueImpl
+     * @see org.xtext.example.mydsl.idmdsl.impl.IdmdslPackageImpl#getNoneValue()
+     * @generated
+     */
+    EClass NONE_VALUE = eINSTANCE.getNoneValue();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NONE_VALUE__VALUE = eINSTANCE.getNoneValue_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.idmdsl.impl.IntValueImpl <em>Int Value</em>}' class.

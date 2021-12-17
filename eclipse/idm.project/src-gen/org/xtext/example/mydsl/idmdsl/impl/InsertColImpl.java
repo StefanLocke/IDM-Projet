@@ -25,6 +25,7 @@ import org.xtext.example.mydsl.idmdsl.InsertCol;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getColIndex <em>Col Index</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getColName <em>Col Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,16 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @ordered
    */
   protected String colName = COL_NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected Expression exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,12 +174,64 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    */
   @Override
+  public Expression getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
+  {
+    Expression oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExp(Expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case IdmdslPackage.INSERT_COL__COL_INDEX:
         return basicSetColIndex(null, msgs);
+      case IdmdslPackage.INSERT_COL__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -187,6 +250,8 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
         return getColIndex();
       case IdmdslPackage.INSERT_COL__COL_NAME:
         return getColName();
+      case IdmdslPackage.INSERT_COL__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -206,6 +271,9 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
         return;
       case IdmdslPackage.INSERT_COL__COL_NAME:
         setColName((String)newValue);
+        return;
+      case IdmdslPackage.INSERT_COL__EXP:
+        setExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -227,6 +295,9 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
       case IdmdslPackage.INSERT_COL__COL_NAME:
         setColName(COL_NAME_EDEFAULT);
         return;
+      case IdmdslPackage.INSERT_COL__EXP:
+        setExp((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -245,6 +316,8 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
         return colIndex != null;
       case IdmdslPackage.INSERT_COL__COL_NAME:
         return COL_NAME_EDEFAULT == null ? colName != null : !COL_NAME_EDEFAULT.equals(colName);
+      case IdmdslPackage.INSERT_COL__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }

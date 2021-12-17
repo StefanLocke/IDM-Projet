@@ -86,6 +86,16 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
         return createLoadscopeAdapter();
       }
       @Override
+      public Adapter caseLoad(Load object)
+      {
+        return createLoadAdapter();
+      }
+      @Override
+      public Adapter caseCreate(Create object)
+      {
+        return createCreateAdapter();
+      }
+      @Override
       public Adapter caseInstruction(Instruction object)
       {
         return createInstructionAdapter();
@@ -111,9 +121,9 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
         return createRemoveLineAdapter();
       }
       @Override
-      public Adapter caseModify(Modify object)
+      public Adapter caseInsert(Insert object)
       {
-        return createModifyAdapter();
+        return createInsertAdapter();
       }
       @Override
       public Adapter casePrint(Print object)
@@ -121,14 +131,14 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
         return createPrintAdapter();
       }
       @Override
-      public Adapter caseStore(Store object)
+      public Adapter caseExportCSV(ExportCSV object)
       {
-        return createStoreAdapter();
+        return createExportCSVAdapter();
       }
       @Override
-      public Adapter caseExport(Export object)
+      public Adapter caseExportJSON(ExportJSON object)
       {
-        return createExportAdapter();
+        return createExportJSONAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -169,6 +179,11 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBinexpr(Binexpr object)
       {
         return createBinexprAdapter();
+      }
+      @Override
+      public Adapter caseNoneValue(NoneValue object)
+      {
+        return createNoneValueAdapter();
       }
       @Override
       public Adapter caseIntValue(IntValue object)
@@ -228,6 +243,36 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLoadscopeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Load <em>Load</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.idmdsl.Load
+   * @generated
+   */
+  public Adapter createLoadAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Create <em>Create</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.idmdsl.Create
+   * @generated
+   */
+  public Adapter createCreateAdapter()
   {
     return null;
   }
@@ -308,16 +353,16 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Modify <em>Modify</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Insert <em>Insert</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.idmdsl.Modify
+   * @see org.xtext.example.mydsl.idmdsl.Insert
    * @generated
    */
-  public Adapter createModifyAdapter()
+  public Adapter createInsertAdapter()
   {
     return null;
   }
@@ -338,31 +383,31 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Store <em>Store</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.ExportCSV <em>Export CSV</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.idmdsl.Store
+   * @see org.xtext.example.mydsl.idmdsl.ExportCSV
    * @generated
    */
-  public Adapter createStoreAdapter()
+  public Adapter createExportCSVAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Export <em>Export</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.ExportJSON <em>Export JSON</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.idmdsl.Export
+   * @see org.xtext.example.mydsl.idmdsl.ExportJSON
    * @generated
    */
-  public Adapter createExportAdapter()
+  public Adapter createExportJSONAdapter()
   {
     return null;
   }
@@ -483,6 +528,21 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBinexprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.NoneValue <em>None Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.idmdsl.NoneValue
+   * @generated
+   */
+  public Adapter createNoneValueAdapter()
   {
     return null;
   }

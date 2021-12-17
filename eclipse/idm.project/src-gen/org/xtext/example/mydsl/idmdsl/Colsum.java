@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,13 +14,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.Colsum#getColIndex <em>Col Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.Colsum#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColsum()
  * @model
  * @generated
  */
-public interface Colsum extends EObject
+public interface Colsum extends PrimaryExpression
 {
   /**
    * Returns the value of the '<em><b>Col Index</b></em>' containment reference.
@@ -44,5 +44,27 @@ public interface Colsum extends EObject
    * @generated
    */
   void setColIndex(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColsum_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Colsum#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
 } // Colsum

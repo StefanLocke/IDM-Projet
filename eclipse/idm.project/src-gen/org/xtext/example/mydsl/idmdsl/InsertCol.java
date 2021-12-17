@@ -15,6 +15,7 @@ package org.xtext.example.mydsl.idmdsl;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.InsertCol#getColIndex <em>Col Index</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.InsertCol#getColName <em>Col Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.InsertCol#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsertCol()
@@ -66,5 +67,27 @@ public interface InsertCol extends Instruction
    * @generated
    */
   void setColName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expression)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsertCol_Exp()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.InsertCol#getExp <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
+   * @generated
+   */
+  void setExp(Expression value);
 
 } // InsertCol

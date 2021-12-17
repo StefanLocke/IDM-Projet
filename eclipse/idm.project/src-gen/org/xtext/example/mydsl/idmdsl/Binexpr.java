@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Binexpr extends EObject
+public interface Binexpr extends Expression
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.

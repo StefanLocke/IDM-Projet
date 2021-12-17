@@ -6,53 +6,60 @@ Programme:
 	loadscopes+=Loadscope*;
 	
 Loadscope :
-	'Load(' url=STRING ')' '{' instructions+=Instruction* '}' |
-	'Create()' '{' instructions+=Instruction* '}' 
+	Load | Create
+	 
+;
+
+Load : 
+	'Load(' path=STRING ')' '{' instructions+=Instruction* '}'
+;
+
+Create :
+	'Create()' '{' instructions+=Instruction* '}'
 ;
 	
 Instruction :
-	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print) ';'
+	 ( InsertLine | RemoveLine | InsertCol | RemoveCol | Insert | ExportJSON | ExportCSV | Print) ';'
 ;
 
 	
 InsertCol : //insert col at INT with name STRING
-	'InsertCol(' colIndex=Expression ',' colName=STRING ')'
+	'InsertCol(' colIndex=Expression ',' colName=STRING (','exp=Expression)?')'
 ;
 
 RemoveCol :  
-	'RemoveCol(' colIndex=Expression')'
+	'RemoveCol(' colIndex=Expression | name=STRING')'
 ;
-	
+
 InsertLine : //insert line at INT
-	'InsertLine(' lineIndex=Expression ')'
+	'InsertLine(' lineIndex=Expression (','exps+=Expression )+ ')'
 ;
 
 RemoveLine : 
-	'RemoveLine(' lineIndex=Expression')'
+	'RemoveLine(' lineIndex=Expression ')'
 ;
-
-Modify : 
-	'Modify(' colIndex=Expression ',' rowIndex=Expression ',' value=(Expression | StringValue) ')'
+Insert : // Looks like a modify but is translated as an update in python 
+	'Insert(' lineIndex=Expression ',' colNameOrIndex=(Expression | StringValue) ',' value=(Expression | StringValue) ')'
 ;
 
 Print : 
 	'Print('value=(Expression|StringValue)')'
 ;
 
-Store :
-	'Store('url=STRING')'
+ExportCSV :
+	'Store('path=STRING')'
 ;
 
-Export : 
-	'Export('url=STRING')'
+ExportJSON : 
+	'Export('path=STRING')'
 ;
 
 Expression : 
-	value=(PrimaryExpression | Binexpr)
+	(PrimaryExpression | Binexpr | NoneValue)
 ;
 
 PrimaryExpression : 
-	value=(IntValue | Selectcell | Linesum | Colsum | Lineprod | Colprod)
+	(IntValue | Selectcell | Linesum | Colsum | Lineprod | Colprod)
 ;
 
 Selectcell : 
@@ -64,7 +71,7 @@ Linesum: //somme de toutes les case de la ligne INT
 ;
 
 Colsum : //somme de toutes les case de la col INT
-	'Colsum('colIndex=Expression')'
+	'Colsum('colIndex=Expression | name=STRING')'
 ;
 
 Lineprod : //produit de toutes les case de la ligne INT
@@ -72,7 +79,7 @@ Lineprod : //produit de toutes les case de la ligne INT
 ;
 
 Colprod : //produit de toutes les case de la col INT
-	'Colprod('colIndex=Expression')'
+	'Colprod('colIndex=Expression | name=STRING ')'
 ;
 
 Binexpr : 
@@ -81,6 +88,10 @@ Binexpr :
 
 Op : 
 	'+' | '-' | '*' | '/'
+;
+
+NoneValue :
+	value="None"
 ;
 
 IntValue : 
