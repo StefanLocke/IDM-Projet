@@ -1,0 +1,92 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate idmdsl 'http://www.xtext.org/example/mydsl/MyDsl'
+
+Programme:
+	loadscopes+=Loadscope*;
+	
+Loadscope :
+	'Load(' url=STRING ')' '{' instructions+=Instruction* '}' |
+	'Create()' '{' instructions+=Instruction* '}' 
+;
+	
+Instruction :
+	 (InsertLine | RemoveLine | InsertCol | RemoveCol | Modify | Store | Export | Print) ';'
+;
+
+	
+InsertCol : //insert col at INT with name STRING
+	'InsertCol(' colIndex=Expression ',' colName=STRING ')'
+;
+
+RemoveCol :  
+	'RemoveCol(' colIndex=Expression')'
+;
+	
+InsertLine : //insert line at INT
+	'InsertLine(' lineIndex=Expression ')'
+;
+
+RemoveLine : 
+	'RemoveLine(' lineIndex=Expression')'
+;
+
+Modify : 
+	'Modify(' colIndex=Expression ',' rowIndex=Expression ',' value=(Expression | StringValue) ')'
+;
+
+Print : 
+	'Print('value=(Expression|StringValue)')'
+;
+
+Store :
+	'Store('url=STRING')'
+;
+
+Export : 
+	'Export('url=STRING')'
+;
+
+Expression : 
+	value=(PrimaryExpression | Binexpr)
+;
+
+PrimaryExpression : 
+	value=(IntValue | Selectcell | Linesum | Colsum | Lineprod | Colprod)
+;
+
+Selectcell : 
+	'Selectcell('cellX=Expression','cellY=Expression')'
+;
+
+Linesum: //somme de toutes les case de la ligne INT
+	'Linesum('lineIndex=Expression')'
+;
+
+Colsum : //somme de toutes les case de la col INT
+	'Colsum('colIndex=Expression')'
+;
+
+Lineprod : //produit de toutes les case de la ligne INT
+	'Lineprod('lineIndex=Expression')'
+;
+
+Colprod : //produit de toutes les case de la col INT
+	'Colprod('colIndex=Expression')'
+;
+
+Binexpr : 
+	'(' left=PrimaryExpression op=Op right=Expression ')'
+;
+
+Op : 
+	'+' | '-' | '*' | '/'
+;
+
+IntValue : 
+	value=INT
+;
+
+StringValue :
+	value=STRING
+;
