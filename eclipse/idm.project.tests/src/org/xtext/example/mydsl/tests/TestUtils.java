@@ -9,12 +9,9 @@ import java.util.Arrays;
 
 
 public class TestUtils {
-	String inputPath = System.getProperty("user.dir") 
-			+ "/ressources/input".replace("\"", "/");
-	String outputPath = System.getProperty("user.dir") 
-	    	+ "/ressources/output".replace("\"", "/");
-	String generatedPath = System.getProperty("user.dir") 
-	    	+ "/ressources/generated".replace("\"", "/");
+	String inputPath = (System.getProperty("user.dir") + "/ressources/input").replace("\\", "/");
+	String outputPath = (System.getProperty("user.dir") + "/ressources/output").replace("\\", "/");
+	String generatedPath = (System.getProperty("user.dir") + "/ressources/generated").replace("\\", "/");
 	
 	public String getInputPath() {
 		return inputPath;
@@ -38,13 +35,10 @@ public class TestUtils {
 	     }
 	}
 	
-	public void runPython(String pythonFilePath, String pythonModuleName){
-		try{
-			var process = Runtime.getRuntime();
-	       	process.exec(pythonModuleName + " " + pythonFilePath);
-	    }catch(Exception e) {
-	        System.out.println("Exception Raised" + e.toString());
-	    }
+	public void runPython(String pythonFilePath, String pythonModuleName) throws IOException{
+		var rt = Runtime.getRuntime();
+		var pr = rt.exec(pythonModuleName + " " + pythonFilePath);
+
 	}
 	
 	public Boolean compareFiles(String filePath1, String filePath2) throws IOException{
