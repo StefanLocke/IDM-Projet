@@ -38,10 +38,10 @@ public class TestUtils {
 	     }
 	}
 	
-	public void runPython(String pythonFilePath){
+	public void runPython(String pythonFilePath, String pythonModuleName){
 		try{
 			var process = Runtime.getRuntime();
-	       	process.exec("python3 " + pythonFilePath);
+	       	process.exec(pythonModuleName + " " + pythonFilePath);
 	    }catch(Exception e) {
 	        System.out.println("Exception Raised" + e.toString());
 	    }

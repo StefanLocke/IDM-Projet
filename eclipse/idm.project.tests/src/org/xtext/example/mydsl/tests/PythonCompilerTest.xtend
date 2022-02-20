@@ -42,7 +42,7 @@ class PythonCompilerTest {
         Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
         
         
-        testUtils.runPython(testUtils.getGeneratedPath + "/" + currentTest + ".py")
+        testUtils.runPython(testUtils.getGeneratedPath + "/" + currentTest + ".py", "python")
         
 
         
