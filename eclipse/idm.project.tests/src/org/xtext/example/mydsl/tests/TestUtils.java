@@ -26,7 +26,7 @@ public class TestUtils {
 		return generatedPath;
 	}
 	
-	public void WriteFile(String filePath, String fileContent) throws IOException{
+	public void writeFile(String filePath, String fileContent) throws IOException{
 		try {
 	        System.out.println("Write " + filePath);
 	        var writer = new FileWriter(new File(filePath));
@@ -38,7 +38,7 @@ public class TestUtils {
 	     }
 	}
 	
-	public void RunPython(String pythonFilePath){
+	public void runPython(String pythonFilePath){
 		try{
 			var process = Runtime.getRuntime();
 	       	process.exec("python3 " + pythonFilePath);
@@ -47,7 +47,7 @@ public class TestUtils {
 	    }
 	}
 	
-	public Boolean CompareFiles(String filePath1, String filePath2) throws IOException{
+	public Boolean compareFiles(String filePath1, String filePath2) throws IOException{
         var first = Files.readAllBytes(Paths.get(filePath1));
         var second = Files.readAllBytes(Paths.get(filePath2));
         return Arrays.equals(first, second);
