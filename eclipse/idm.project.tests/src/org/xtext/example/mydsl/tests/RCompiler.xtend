@@ -21,8 +21,7 @@ import org.xtext.example.mydsl.idmdsl.RemoveLine
 import org.xtext.example.mydsl.idmdsl.Selectcell
 import org.xtext.example.mydsl.idmdsl.StringValue
 
-class PythonCompiler {
-	
+class RCompiler {
 	val Programme prog;
 	
 	new(Programme prog) {
@@ -49,16 +48,16 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(Load scope) {
-		var python = ""
-		python+= "df = pd.read_csv(\"" + scope.path + "\")\n"
+		var python = "# Creates a new DataFrame from a CSV File\n"
+		python += '''df = read.csv(file = '«scope.path»')\n\n'''
 		for (instruction : scope.instructions) {
 			python += compile(instruction) + "\n"
 		}
 		python
 	}
 	def dispatch String compile(Create scope) {
-		var python = ""
-		python+= "df = pd.DataFrame(list())\ndf.to_csv(\'temp.csv\')\n" //TODO CHANGE
+		var python = '''# Creates a new DataFrame from a CSV File\n'''
+		python+= '''df = data.frame()\n\n'''
 		for (instruction : scope.instructions) {
 			python += compile(instruction) + "\n"
 		}
@@ -113,19 +112,7 @@ class PythonCompiler {
 		return '''df.to_json("«instruction.path»")''';
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	def dispatch String compile(Expression expr) {
 		return "Expr not implemented"
@@ -151,6 +138,5 @@ class PythonCompiler {
 	def dispatch String compile(StringValue expr) {
 		return '''"«expr.value»"'''
 	}
-	
 	
 }

@@ -31,7 +31,6 @@ public class MyDslParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Create() {");
       _builder.newLine();
-      _builder.newLine();
       _builder.append("\t");
       _builder.append("InsertCol(1, \"Prenom\");");
       _builder.newLine();

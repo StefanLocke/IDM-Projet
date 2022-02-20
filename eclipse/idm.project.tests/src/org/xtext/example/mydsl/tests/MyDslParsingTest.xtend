@@ -22,7 +22,6 @@ class MyDslParsingTest {
 	def void loadModel() {
 		val result = parseHelper.parse('''
 			Create() {
-			
 				InsertCol(1, "Prenom");
 				InsertCol((1+5), "Sexe");
 				Insert(0, 1, "Alexis");

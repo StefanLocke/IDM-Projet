@@ -26,10 +26,10 @@ import org.xtext.example.mydsl.idmdsl.Selectcell;
 import org.xtext.example.mydsl.idmdsl.StringValue;
 
 @SuppressWarnings("all")
-public class PythonCompiler {
+public class RCompiler {
   private final Programme prog;
   
-  public PythonCompiler(final Programme prog) {
+  public RCompiler(final Programme prog) {
     this.prog = prog;
   }
   
@@ -56,18 +56,20 @@ public class PythonCompiler {
   protected String _compile(final Load scope) {
     String _xblockexpression = null;
     {
-      String python = "";
+      String python = "# Creates a new DataFrame from a CSV File\n";
       String _python = python;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("df = read.csv(file = \'");
       String _path = scope.getPath();
-      String _plus = ("df = pd.read_csv(\"" + _path);
-      String _plus_1 = (_plus + "\")\n");
-      python = (_python + _plus_1);
+      _builder.append(_path);
+      _builder.append("\')\\n\\n");
+      python = (_python + _builder);
       EList<Instruction> _instructions = scope.getInstructions();
       for (final Instruction instruction : _instructions) {
         String _python_1 = python;
         String _compile = this.compile(instruction);
-        String _plus_2 = (_compile + "\n");
-        python = (_python_1 + _plus_2);
+        String _plus = (_compile + "\n");
+        python = (_python_1 + _plus);
       }
       _xblockexpression = python;
     }
@@ -77,9 +79,13 @@ public class PythonCompiler {
   protected String _compile(final Create scope) {
     String _xblockexpression = null;
     {
-      String python = "";
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("# Creates a new DataFrame from a CSV File\\n");
+      String python = _builder.toString();
       String _python = python;
-      python = (_python + "df = pd.DataFrame(list())\ndf.to_csv(\'temp.csv\')\n");
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("df = data.frame()\\n\\n");
+      python = (_python + _builder_1);
       EList<Instruction> _instructions = scope.getInstructions();
       for (final Instruction instruction : _instructions) {
         String _python_1 = python;
