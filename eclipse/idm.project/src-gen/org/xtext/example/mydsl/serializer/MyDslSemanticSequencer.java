@@ -14,7 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.example.mydsl.idmdsl.Binexpr;
+import org.xtext.example.mydsl.idmdsl.BinaryExpression;
 import org.xtext.example.mydsl.idmdsl.Colprod;
 import org.xtext.example.mydsl.idmdsl.Colsum;
 import org.xtext.example.mydsl.idmdsl.Create;
@@ -51,8 +51,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == IdmdslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case IdmdslPackage.BINEXPR:
-				sequence_Binexpr(context, (Binexpr) semanticObject); 
+			case IdmdslPackage.BINARY_EXPRESSION:
+				sequence_BinaryExpression(context, (BinaryExpression) semanticObject); 
 				return; 
 			case IdmdslPackage.COLPROD:
 				sequence_Colprod(context, (Colprod) semanticObject); 
@@ -118,25 +118,26 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Binexpr
-	 *     Binexpr returns Binexpr
+	 *     Expression returns BinaryExpression
+	 *     MathExpression returns BinaryExpression
+	 *     BinaryExpression returns BinaryExpression
 	 *
 	 * Constraint:
-	 *     (left=PrimaryExpression op=Op right=Expression)
+	 *     (left=MathPrimaryExpression op=Op right=MathExpression)
 	 */
-	protected void sequence_Binexpr(ISerializationContext context, Binexpr semanticObject) {
+	protected void sequence_BinaryExpression(ISerializationContext context, BinaryExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINEXPR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINEXPR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINEXPR__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINEXPR__OP));
-			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINEXPR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINEXPR__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__OP));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.BINARY_EXPRESSION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBinexprAccess().getLeftPrimaryExpressionParserRuleCall_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getBinexprAccess().getOpOpParserRuleCall_2_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getBinexprAccess().getRightExpressionParserRuleCall_3_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getBinaryExpressionAccess().getLeftMathPrimaryExpressionParserRuleCall_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getBinaryExpressionAccess().getOpOpParserRuleCall_2_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getBinaryExpressionAccess().getRightMathExpressionParserRuleCall_3_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -144,28 +145,42 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Expression returns Colprod
-	 *     PrimaryExpression returns Colprod
+	 *     MathExpression returns Colprod
+	 *     MathPrimaryExpression returns Colprod
 	 *     Colprod returns Colprod
 	 *
 	 * Constraint:
-	 *     (colIndex=Expression | name=STRING)
+	 *     colName=StringValue
 	 */
 	protected void sequence_Colprod(ISerializationContext context, Colprod semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.COLPROD__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.COLPROD__COL_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColprodAccess().getColNameStringValueParserRuleCall_1_0(), semanticObject.getColName());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
 	 *     Expression returns Colsum
-	 *     PrimaryExpression returns Colsum
+	 *     MathExpression returns Colsum
+	 *     MathPrimaryExpression returns Colsum
 	 *     Colsum returns Colsum
 	 *
 	 * Constraint:
-	 *     (colIndex=Expression | name=STRING)
+	 *     colName=StringValue
 	 */
 	protected void sequence_Colsum(ISerializationContext context, Colsum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.COLSUM__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.COLSUM__COL_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColsumAccess().getColNameStringValueParserRuleCall_1_0(), semanticObject.getColName());
+		feeder.finish();
 	}
 	
 	
@@ -188,7 +203,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ExportCSV returns ExportCSV
 	 *
 	 * Constraint:
-	 *     path=STRING
+	 *     path=StringValue
 	 */
 	protected void sequence_ExportCSV(ISerializationContext context, ExportCSV semanticObject) {
 		if (errorAcceptor != null) {
@@ -196,7 +211,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.EXPORT_CSV__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExportCSVAccess().getPathSTRINGTerminalRuleCall_1_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getExportCSVAccess().getPathStringValueParserRuleCall_1_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
@@ -207,7 +222,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ExportJSON returns ExportJSON
 	 *
 	 * Constraint:
-	 *     path=STRING
+	 *     path=StringValue
 	 */
 	protected void sequence_ExportJSON(ISerializationContext context, ExportJSON semanticObject) {
 		if (errorAcceptor != null) {
@@ -215,7 +230,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.EXPORT_JSON__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExportJSONAccess().getPathSTRINGTerminalRuleCall_1_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getExportJSONAccess().getPathStringValueParserRuleCall_1_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
@@ -226,10 +241,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     InsertCol returns InsertCol
 	 *
 	 * Constraint:
-	 *     (colIndex=Expression colName=STRING exp=Expression?)
+	 *     (colIndex=MathExpression colName=StringValue)
 	 */
 	protected void sequence_InsertCol(ISerializationContext context, InsertCol semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT_COL__COL_INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT_COL__COL_INDEX));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT_COL__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT_COL__COL_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInsertColAccess().getColIndexMathExpressionParserRuleCall_1_0(), semanticObject.getColIndex());
+		feeder.accept(grammarAccess.getInsertColAccess().getColNameStringValueParserRuleCall_3_0(), semanticObject.getColName());
+		feeder.finish();
 	}
 	
 	
@@ -239,10 +263,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     InsertLine returns InsertLine
 	 *
 	 * Constraint:
-	 *     (lineIndex=Expression exps+=Expression+)
+	 *     lineIndex=MathExpression
 	 */
 	protected void sequence_InsertLine(ISerializationContext context, InsertLine semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT_LINE__LINE_INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT_LINE__LINE_INDEX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInsertLineAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.finish();
 	}
 	
 	
@@ -252,17 +282,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Insert returns Insert
 	 *
 	 * Constraint:
-	 *     (lineIndex=Expression colNameOrIndex=Expression (value=Expression | value=StringValue))
+	 *     (lineIndex=MathExpression colName=StringValue value=Expression)
 	 */
 	protected void sequence_Insert(ISerializationContext context, Insert semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT__LINE_INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT__LINE_INDEX));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT__COL_NAME));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.INSERT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.INSERT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInsertAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.accept(grammarAccess.getInsertAccess().getColNameStringValueParserRuleCall_3_0(), semanticObject.getColName());
+		feeder.accept(grammarAccess.getInsertAccess().getValueExpressionParserRuleCall_5_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
 	 *     Expression returns IntValue
-	 *     PrimaryExpression returns IntValue
+	 *     MathExpression returns IntValue
+	 *     MathPrimaryExpression returns IntValue
 	 *     IntValue returns IntValue
 	 *
 	 * Constraint:
@@ -282,11 +325,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Expression returns Lineprod
-	 *     PrimaryExpression returns Lineprod
+	 *     MathExpression returns Lineprod
+	 *     MathPrimaryExpression returns Lineprod
 	 *     Lineprod returns Lineprod
 	 *
 	 * Constraint:
-	 *     lineIndex=Expression
+	 *     lineIndex=MathExpression
 	 */
 	protected void sequence_Lineprod(ISerializationContext context, Lineprod semanticObject) {
 		if (errorAcceptor != null) {
@@ -294,7 +338,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.LINEPROD__LINE_INDEX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLineprodAccess().getLineIndexExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.accept(grammarAccess.getLineprodAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
 		feeder.finish();
 	}
 	
@@ -302,11 +346,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Expression returns Linesum
-	 *     PrimaryExpression returns Linesum
+	 *     MathExpression returns Linesum
+	 *     MathPrimaryExpression returns Linesum
 	 *     Linesum returns Linesum
 	 *
 	 * Constraint:
-	 *     lineIndex=Expression
+	 *     lineIndex=MathExpression
 	 */
 	protected void sequence_Linesum(ISerializationContext context, Linesum semanticObject) {
 		if (errorAcceptor != null) {
@@ -314,7 +359,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.LINESUM__LINE_INDEX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLinesumAccess().getLineIndexExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.accept(grammarAccess.getLinesumAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
 		feeder.finish();
 	}
 	
@@ -325,7 +370,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Load returns Load
 	 *
 	 * Constraint:
-	 *     (path=STRING instructions+=Instruction*)
+	 *     (path=StringValue instructions+=Instruction*)
 	 */
 	protected void sequence_Load(ISerializationContext context, Load semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -357,10 +402,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Print returns Print
 	 *
 	 * Constraint:
-	 *     (value=Expression | value=StringValue)
+	 *     value=Expression
 	 */
 	protected void sequence_Print(ISerializationContext context, Print semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.PRINT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.PRINT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrintAccess().getValueExpressionParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -382,10 +433,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     RemoveCol returns RemoveCol
 	 *
 	 * Constraint:
-	 *     (colIndex=Expression | name=STRING)
+	 *     colName=StringValue
 	 */
 	protected void sequence_RemoveCol(ISerializationContext context, RemoveCol semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.REMOVE_COL__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.REMOVE_COL__COL_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRemoveColAccess().getColNameStringValueParserRuleCall_1_0(), semanticObject.getColName());
+		feeder.finish();
 	}
 	
 	
@@ -395,7 +452,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     RemoveLine returns RemoveLine
 	 *
 	 * Constraint:
-	 *     lineIndex=Expression
+	 *     lineIndex=MathExpression
 	 */
 	protected void sequence_RemoveLine(ISerializationContext context, RemoveLine semanticObject) {
 		if (errorAcceptor != null) {
@@ -403,7 +460,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.REMOVE_LINE__LINE_INDEX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRemoveLineAccess().getLineIndexExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.accept(grammarAccess.getRemoveLineAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
 		feeder.finish();
 	}
 	
@@ -411,28 +468,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Expression returns Selectcell
-	 *     PrimaryExpression returns Selectcell
+	 *     MathExpression returns Selectcell
+	 *     MathPrimaryExpression returns Selectcell
 	 *     Selectcell returns Selectcell
 	 *
 	 * Constraint:
-	 *     (cellX=Expression cellY=Expression)
+	 *     (lineIndex=MathExpression colName=StringValue)
 	 */
 	protected void sequence_Selectcell(ISerializationContext context, Selectcell semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.SELECTCELL__CELL_X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.SELECTCELL__CELL_X));
-			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.SELECTCELL__CELL_Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.SELECTCELL__CELL_Y));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.SELECTCELL__LINE_INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.SELECTCELL__LINE_INDEX));
+			if (transientValues.isValueTransient(semanticObject, IdmdslPackage.Literals.SELECTCELL__COL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, IdmdslPackage.Literals.SELECTCELL__COL_NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSelectcellAccess().getCellXExpressionParserRuleCall_1_0(), semanticObject.getCellX());
-		feeder.accept(grammarAccess.getSelectcellAccess().getCellYExpressionParserRuleCall_3_0(), semanticObject.getCellY());
+		feeder.accept(grammarAccess.getSelectcellAccess().getLineIndexMathExpressionParserRuleCall_1_0(), semanticObject.getLineIndex());
+		feeder.accept(grammarAccess.getSelectcellAccess().getColNameStringValueParserRuleCall_3_0(), semanticObject.getColName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Expression returns StringValue
 	 *     StringValue returns StringValue
 	 *
 	 * Constraint:

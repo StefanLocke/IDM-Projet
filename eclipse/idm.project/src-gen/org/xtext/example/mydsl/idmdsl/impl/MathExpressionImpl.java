@@ -5,24 +5,26 @@ package org.xtext.example.mydsl.idmdsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
-import org.xtext.example.mydsl.idmdsl.PrimaryExpression;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Primary Expression</b></em>'.
+ * An implementation of the model object '<em><b>Math Expression</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpression
+public class MathExpressionImpl extends MinimalEObjectImpl.Container implements MathExpression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PrimaryExpressionImpl()
+  protected MathExpressionImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   @Override
   protected EClass eStaticClass()
   {
-    return IdmdslPackage.Literals.PRIMARY_EXPRESSION;
+    return IdmdslPackage.Literals.MATH_EXPRESSION;
   }
 
-} //PrimaryExpressionImpl
+} //MathExpressionImpl

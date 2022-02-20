@@ -20,19 +20,19 @@ package org.xtext.example.mydsl.idmdsl;
  * @model
  * @generated
  */
-public interface Linesum extends PrimaryExpression
+public interface Linesum extends MathPrimaryExpression
 {
   /**
    * Returns the value of the '<em><b>Line Index</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Line Index</em>' containment reference.
-   * @see #setLineIndex(Expression)
+   * @see #setLineIndex(MathExpression)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getLinesum_LineIndex()
    * @model containment="true"
    * @generated
    */
-  Expression getLineIndex();
+  MathExpression getLineIndex();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Linesum#getLineIndex <em>Line Index</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface Linesum extends PrimaryExpression
    * @see #getLineIndex()
    * @generated
    */
-  void setLineIndex(Expression value);
+  void setLineIndex(MathExpression value);
 
 } // Linesum

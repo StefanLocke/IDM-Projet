@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.idmdsl.Colsum;
-import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
+import org.xtext.example.mydsl.idmdsl.StringValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,43 +23,22 @@ import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ColsumImpl#getColIndex <em>Col Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ColsumImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.ColsumImpl#getColName <em>Col Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
+public class ColsumImpl extends MathPrimaryExpressionImpl implements Colsum
 {
   /**
-   * The cached value of the '{@link #getColIndex() <em>Col Index</em>}' containment reference.
+   * The cached value of the '{@link #getColName() <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColIndex()
+   * @see #getColName()
    * @generated
    * @ordered
    */
-  protected Expression colIndex;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected StringValue colName;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,9 +67,9 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
    * @generated
    */
   @Override
-  public Expression getColIndex()
+  public StringValue getColName()
   {
-    return colIndex;
+    return colName;
   }
 
   /**
@@ -98,13 +77,13 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetColIndex(Expression newColIndex, NotificationChain msgs)
+  public NotificationChain basicSetColName(StringValue newColName, NotificationChain msgs)
   {
-    Expression oldColIndex = colIndex;
-    colIndex = newColIndex;
+    StringValue oldColName = colName;
+    colName = newColName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLSUM__COL_INDEX, oldColIndex, newColIndex);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLSUM__COL_NAME, oldColName, newColName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -116,45 +95,20 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
    * @generated
    */
   @Override
-  public void setColIndex(Expression newColIndex)
+  public void setColName(StringValue newColName)
   {
-    if (newColIndex != colIndex)
+    if (newColName != colName)
     {
       NotificationChain msgs = null;
-      if (colIndex != null)
-        msgs = ((InternalEObject)colIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.COLSUM__COL_INDEX, null, msgs);
-      if (newColIndex != null)
-        msgs = ((InternalEObject)newColIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.COLSUM__COL_INDEX, null, msgs);
-      msgs = basicSetColIndex(newColIndex, msgs);
+      if (colName != null)
+        msgs = ((InternalEObject)colName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.COLSUM__COL_NAME, null, msgs);
+      if (newColName != null)
+        msgs = ((InternalEObject)newColName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.COLSUM__COL_NAME, null, msgs);
+      msgs = basicSetColName(newColName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLSUM__COL_INDEX, newColIndex, newColIndex));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLSUM__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.COLSUM__COL_NAME, newColName, newColName));
   }
 
   /**
@@ -167,8 +121,8 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
   {
     switch (featureID)
     {
-      case IdmdslPackage.COLSUM__COL_INDEX:
-        return basicSetColIndex(null, msgs);
+      case IdmdslPackage.COLSUM__COL_NAME:
+        return basicSetColName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,10 +137,8 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
   {
     switch (featureID)
     {
-      case IdmdslPackage.COLSUM__COL_INDEX:
-        return getColIndex();
-      case IdmdslPackage.COLSUM__NAME:
-        return getName();
+      case IdmdslPackage.COLSUM__COL_NAME:
+        return getColName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,11 +153,8 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
   {
     switch (featureID)
     {
-      case IdmdslPackage.COLSUM__COL_INDEX:
-        setColIndex((Expression)newValue);
-        return;
-      case IdmdslPackage.COLSUM__NAME:
-        setName((String)newValue);
+      case IdmdslPackage.COLSUM__COL_NAME:
+        setColName((StringValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,11 +170,8 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
   {
     switch (featureID)
     {
-      case IdmdslPackage.COLSUM__COL_INDEX:
-        setColIndex((Expression)null);
-        return;
-      case IdmdslPackage.COLSUM__NAME:
-        setName(NAME_EDEFAULT);
+      case IdmdslPackage.COLSUM__COL_NAME:
+        setColName((StringValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -241,29 +187,10 @@ public class ColsumImpl extends PrimaryExpressionImpl implements Colsum
   {
     switch (featureID)
     {
-      case IdmdslPackage.COLSUM__COL_INDEX:
-        return colIndex != null;
-      case IdmdslPackage.COLSUM__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case IdmdslPackage.COLSUM__COL_NAME:
+        return colName != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ColsumImpl

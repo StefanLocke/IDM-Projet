@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -15,6 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
 import org.xtext.example.mydsl.idmdsl.Insert;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
+import org.xtext.example.mydsl.idmdsl.StringValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +26,7 @@ import org.xtext.example.mydsl.idmdsl.Insert;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getLineIndex <em>Line Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getColNameOrIndex <em>Col Name Or Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getColName <em>Col Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -41,17 +42,17 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    * @ordered
    */
-  protected Expression lineIndex;
+  protected MathExpression lineIndex;
 
   /**
-   * The cached value of the '{@link #getColNameOrIndex() <em>Col Name Or Index</em>}' containment reference.
+   * The cached value of the '{@link #getColName() <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColNameOrIndex()
+   * @see #getColName()
    * @generated
    * @ordered
    */
-  protected Expression colNameOrIndex;
+  protected StringValue colName;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -61,7 +62,7 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    * @ordered
    */
-  protected EObject value;
+  protected Expression value;
 
   /**
    * <!-- begin-user-doc -->
@@ -90,7 +91,7 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public Expression getLineIndex()
+  public MathExpression getLineIndex()
   {
     return lineIndex;
   }
@@ -100,9 +101,9 @@ public class InsertImpl extends InstructionImpl implements Insert
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLineIndex(Expression newLineIndex, NotificationChain msgs)
+  public NotificationChain basicSetLineIndex(MathExpression newLineIndex, NotificationChain msgs)
   {
-    Expression oldLineIndex = lineIndex;
+    MathExpression oldLineIndex = lineIndex;
     lineIndex = newLineIndex;
     if (eNotificationRequired())
     {
@@ -118,7 +119,7 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public void setLineIndex(Expression newLineIndex)
+  public void setLineIndex(MathExpression newLineIndex)
   {
     if (newLineIndex != lineIndex)
     {
@@ -140,9 +141,9 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public Expression getColNameOrIndex()
+  public StringValue getColName()
   {
-    return colNameOrIndex;
+    return colName;
   }
 
   /**
@@ -150,13 +151,13 @@ public class InsertImpl extends InstructionImpl implements Insert
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetColNameOrIndex(Expression newColNameOrIndex, NotificationChain msgs)
+  public NotificationChain basicSetColName(StringValue newColName, NotificationChain msgs)
   {
-    Expression oldColNameOrIndex = colNameOrIndex;
-    colNameOrIndex = newColNameOrIndex;
+    StringValue oldColName = colName;
+    colName = newColName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME_OR_INDEX, oldColNameOrIndex, newColNameOrIndex);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME, oldColName, newColName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -168,20 +169,20 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public void setColNameOrIndex(Expression newColNameOrIndex)
+  public void setColName(StringValue newColName)
   {
-    if (newColNameOrIndex != colNameOrIndex)
+    if (newColName != colName)
     {
       NotificationChain msgs = null;
-      if (colNameOrIndex != null)
-        msgs = ((InternalEObject)colNameOrIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME_OR_INDEX, null, msgs);
-      if (newColNameOrIndex != null)
-        msgs = ((InternalEObject)newColNameOrIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME_OR_INDEX, null, msgs);
-      msgs = basicSetColNameOrIndex(newColNameOrIndex, msgs);
+      if (colName != null)
+        msgs = ((InternalEObject)colName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME, null, msgs);
+      if (newColName != null)
+        msgs = ((InternalEObject)newColName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT__COL_NAME, null, msgs);
+      msgs = basicSetColName(newColName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME_OR_INDEX, newColNameOrIndex, newColNameOrIndex));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT__COL_NAME, newColName, newColName));
   }
 
   /**
@@ -190,7 +191,7 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public EObject getValue()
+  public Expression getValue()
   {
     return value;
   }
@@ -200,9 +201,9 @@ public class InsertImpl extends InstructionImpl implements Insert
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(EObject newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
   {
-    EObject oldValue = value;
+    Expression oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -218,7 +219,7 @@ public class InsertImpl extends InstructionImpl implements Insert
    * @generated
    */
   @Override
-  public void setValue(EObject newValue)
+  public void setValue(Expression newValue)
   {
     if (newValue != value)
     {
@@ -246,8 +247,8 @@ public class InsertImpl extends InstructionImpl implements Insert
     {
       case IdmdslPackage.INSERT__LINE_INDEX:
         return basicSetLineIndex(null, msgs);
-      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
-        return basicSetColNameOrIndex(null, msgs);
+      case IdmdslPackage.INSERT__COL_NAME:
+        return basicSetColName(null, msgs);
       case IdmdslPackage.INSERT__VALUE:
         return basicSetValue(null, msgs);
     }
@@ -266,8 +267,8 @@ public class InsertImpl extends InstructionImpl implements Insert
     {
       case IdmdslPackage.INSERT__LINE_INDEX:
         return getLineIndex();
-      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
-        return getColNameOrIndex();
+      case IdmdslPackage.INSERT__COL_NAME:
+        return getColName();
       case IdmdslPackage.INSERT__VALUE:
         return getValue();
     }
@@ -285,13 +286,13 @@ public class InsertImpl extends InstructionImpl implements Insert
     switch (featureID)
     {
       case IdmdslPackage.INSERT__LINE_INDEX:
-        setLineIndex((Expression)newValue);
+        setLineIndex((MathExpression)newValue);
         return;
-      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
-        setColNameOrIndex((Expression)newValue);
+      case IdmdslPackage.INSERT__COL_NAME:
+        setColName((StringValue)newValue);
         return;
       case IdmdslPackage.INSERT__VALUE:
-        setValue((EObject)newValue);
+        setValue((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,13 +309,13 @@ public class InsertImpl extends InstructionImpl implements Insert
     switch (featureID)
     {
       case IdmdslPackage.INSERT__LINE_INDEX:
-        setLineIndex((Expression)null);
+        setLineIndex((MathExpression)null);
         return;
-      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
-        setColNameOrIndex((Expression)null);
+      case IdmdslPackage.INSERT__COL_NAME:
+        setColName((StringValue)null);
         return;
       case IdmdslPackage.INSERT__VALUE:
-        setValue((EObject)null);
+        setValue((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -332,8 +333,8 @@ public class InsertImpl extends InstructionImpl implements Insert
     {
       case IdmdslPackage.INSERT__LINE_INDEX:
         return lineIndex != null;
-      case IdmdslPackage.INSERT__COL_NAME_OR_INDEX:
-        return colNameOrIndex != null;
+      case IdmdslPackage.INSERT__COL_NAME:
+        return colName != null;
       case IdmdslPackage.INSERT__VALUE:
         return value != null;
     }

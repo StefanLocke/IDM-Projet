@@ -3,24 +3,17 @@
  */
 package org.xtext.example.mydsl.idmdsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
 import org.xtext.example.mydsl.idmdsl.InsertLine;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +24,6 @@ import org.xtext.example.mydsl.idmdsl.InsertLine;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertLineImpl#getLineIndex <em>Line Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertLineImpl#getExps <em>Exps</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,17 +38,7 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * @generated
    * @ordered
    */
-  protected Expression lineIndex;
-
-  /**
-   * The cached value of the '{@link #getExps() <em>Exps</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExps()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> exps;
+  protected MathExpression lineIndex;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,7 +67,7 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * @generated
    */
   @Override
-  public Expression getLineIndex()
+  public MathExpression getLineIndex()
   {
     return lineIndex;
   }
@@ -95,9 +77,9 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLineIndex(Expression newLineIndex, NotificationChain msgs)
+  public NotificationChain basicSetLineIndex(MathExpression newLineIndex, NotificationChain msgs)
   {
-    Expression oldLineIndex = lineIndex;
+    MathExpression oldLineIndex = lineIndex;
     lineIndex = newLineIndex;
     if (eNotificationRequired())
     {
@@ -113,7 +95,7 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * @generated
    */
   @Override
-  public void setLineIndex(Expression newLineIndex)
+  public void setLineIndex(MathExpression newLineIndex)
   {
     if (newLineIndex != lineIndex)
     {
@@ -135,29 +117,12 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * @generated
    */
   @Override
-  public EList<Expression> getExps()
-  {
-    if (exps == null)
-    {
-      exps = new EObjectContainmentEList<Expression>(Expression.class, this, IdmdslPackage.INSERT_LINE__EXPS);
-    }
-    return exps;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case IdmdslPackage.INSERT_LINE__LINE_INDEX:
         return basicSetLineIndex(null, msgs);
-      case IdmdslPackage.INSERT_LINE__EXPS:
-        return ((InternalEList<?>)getExps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,8 +139,6 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
     {
       case IdmdslPackage.INSERT_LINE__LINE_INDEX:
         return getLineIndex();
-      case IdmdslPackage.INSERT_LINE__EXPS:
-        return getExps();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -185,18 +148,13 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case IdmdslPackage.INSERT_LINE__LINE_INDEX:
-        setLineIndex((Expression)newValue);
-        return;
-      case IdmdslPackage.INSERT_LINE__EXPS:
-        getExps().clear();
-        getExps().addAll((Collection<? extends Expression>)newValue);
+        setLineIndex((MathExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,10 +171,7 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
     switch (featureID)
     {
       case IdmdslPackage.INSERT_LINE__LINE_INDEX:
-        setLineIndex((Expression)null);
-        return;
-      case IdmdslPackage.INSERT_LINE__EXPS:
-        getExps().clear();
+        setLineIndex((MathExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -234,8 +189,6 @@ public class InsertLineImpl extends InstructionImpl implements InsertLine
     {
       case IdmdslPackage.INSERT_LINE__LINE_INDEX:
         return lineIndex != null;
-      case IdmdslPackage.INSERT_LINE__EXPS:
-        return exps != null && !exps.isEmpty();
     }
     return super.eIsSet(featureID);
   }

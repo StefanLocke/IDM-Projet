@@ -4,13 +4,16 @@
 package org.xtext.example.mydsl.idmdsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
 import org.xtext.example.mydsl.idmdsl.Load;
+import org.xtext.example.mydsl.idmdsl.StringValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,24 +31,14 @@ import org.xtext.example.mydsl.idmdsl.Load;
 public class LoadImpl extends LoadscopeImpl implements Load
 {
   /**
-   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPath()
    * @generated
    * @ordered
    */
-  protected static final String PATH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
-  protected String path = PATH_EDEFAULT;
+  protected StringValue path;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +67,7 @@ public class LoadImpl extends LoadscopeImpl implements Load
    * @generated
    */
   @Override
-  public String getPath()
+  public StringValue getPath()
   {
     return path;
   }
@@ -84,13 +77,54 @@ public class LoadImpl extends LoadscopeImpl implements Load
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setPath(String newPath)
+  public NotificationChain basicSetPath(StringValue newPath, NotificationChain msgs)
   {
-    String oldPath = path;
+    StringValue oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.LOAD__PATH, oldPath, path));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.LOAD__PATH, oldPath, newPath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPath(StringValue newPath)
+  {
+    if (newPath != path)
+    {
+      NotificationChain msgs = null;
+      if (path != null)
+        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.LOAD__PATH, null, msgs);
+      if (newPath != null)
+        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.LOAD__PATH, null, msgs);
+      msgs = basicSetPath(newPath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.LOAD__PATH, newPath, newPath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case IdmdslPackage.LOAD__PATH:
+        return basicSetPath(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -120,7 +154,7 @@ public class LoadImpl extends LoadscopeImpl implements Load
     switch (featureID)
     {
       case IdmdslPackage.LOAD__PATH:
-        setPath((String)newValue);
+        setPath((StringValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,7 +171,7 @@ public class LoadImpl extends LoadscopeImpl implements Load
     switch (featureID)
     {
       case IdmdslPackage.LOAD__PATH:
-        setPath(PATH_EDEFAULT);
+        setPath((StringValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,26 +188,9 @@ public class LoadImpl extends LoadscopeImpl implements Load
     switch (featureID)
     {
       case IdmdslPackage.LOAD__PATH:
-        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+        return path != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (path: ");
-    result.append(path);
-    result.append(')');
-    return result.toString();
   }
 
 } //LoadImpl

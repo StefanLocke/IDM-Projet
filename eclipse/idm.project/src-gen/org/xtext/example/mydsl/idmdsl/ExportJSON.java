@@ -23,25 +23,25 @@ package org.xtext.example.mydsl.idmdsl;
 public interface ExportJSON extends Instruction
 {
   /**
-   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * Returns the value of the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' attribute.
-   * @see #setPath(String)
+   * @return the value of the '<em>Path</em>' containment reference.
+   * @see #setPath(StringValue)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getExportJSON_Path()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPath();
+  StringValue getPath();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.ExportJSON#getPath <em>Path</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.ExportJSON#getPath <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' attribute.
+   * @param value the new value of the '<em>Path</em>' containment reference.
    * @see #getPath()
    * @generated
    */
-  void setPath(String value);
+  void setPath(StringValue value);
 
 } // ExportJSON

@@ -6,45 +6,45 @@ package org.xtext.example.mydsl.idmdsl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Binexpr</b></em>'.
+ * A representation of the model object '<em><b>Binary Expression</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Binexpr#getLeft <em>Left</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Binexpr#getOp <em>Op</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Binexpr#getRight <em>Right</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getOp <em>Op</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getRight <em>Right</em>}</li>
  * </ul>
  *
- * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinexpr()
+ * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinaryExpression()
  * @model
  * @generated
  */
-public interface Binexpr extends Expression
+public interface BinaryExpression extends Expression, MathExpression
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(PrimaryExpression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinexpr_Left()
+   * @see #setLeft(MathPrimaryExpression)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinaryExpression_Left()
    * @model containment="true"
    * @generated
    */
-  PrimaryExpression getLeft();
+  MathPrimaryExpression getLeft();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Binexpr#getLeft <em>Left</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Left</em>' containment reference.
    * @see #getLeft()
    * @generated
    */
-  void setLeft(PrimaryExpression value);
+  void setLeft(MathPrimaryExpression value);
 
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
@@ -52,14 +52,14 @@ public interface Binexpr extends Expression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Op</em>' attribute.
    * @see #setOp(String)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinexpr_Op()
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinaryExpression_Op()
    * @model
    * @generated
    */
   String getOp();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Binexpr#getOp <em>Op</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Op</em>' attribute.
@@ -73,21 +73,21 @@ public interface Binexpr extends Expression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinexpr_Right()
+   * @see #setRight(MathExpression)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getBinaryExpression_Right()
    * @model containment="true"
    * @generated
    */
-  Expression getRight();
+  MathExpression getRight();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Binexpr#getRight <em>Right</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.BinaryExpression#getRight <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Right</em>' containment reference.
    * @see #getRight()
    * @generated
    */
-  void setRight(Expression value);
+  void setRight(MathExpression value);
 
-} // Binexpr
+} // BinaryExpression

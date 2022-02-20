@@ -7,11 +7,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
 import org.xtext.example.mydsl.idmdsl.Print;
 
@@ -38,7 +38,7 @@ public class PrintImpl extends InstructionImpl implements Print
    * @generated
    * @ordered
    */
-  protected EObject value;
+  protected Expression value;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class PrintImpl extends InstructionImpl implements Print
    * @generated
    */
   @Override
-  public EObject getValue()
+  public Expression getValue()
   {
     return value;
   }
@@ -77,9 +77,9 @@ public class PrintImpl extends InstructionImpl implements Print
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(EObject newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
   {
-    EObject oldValue = value;
+    Expression oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class PrintImpl extends InstructionImpl implements Print
    * @generated
    */
   @Override
-  public void setValue(EObject newValue)
+  public void setValue(Expression newValue)
   {
     if (newValue != value)
     {
@@ -154,7 +154,7 @@ public class PrintImpl extends InstructionImpl implements Print
     switch (featureID)
     {
       case IdmdslPackage.PRINT__VALUE:
-        setValue((EObject)newValue);
+        setValue((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class PrintImpl extends InstructionImpl implements Print
     switch (featureID)
     {
       case IdmdslPackage.PRINT__VALUE:
-        setValue((EObject)null);
+        setValue((Expression)null);
         return;
     }
     super.eUnset(featureID);

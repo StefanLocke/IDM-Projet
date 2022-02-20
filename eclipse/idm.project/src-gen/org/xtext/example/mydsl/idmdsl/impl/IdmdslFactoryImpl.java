@@ -79,13 +79,14 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
       case IdmdslPackage.EXPORT_CSV: return createExportCSV();
       case IdmdslPackage.EXPORT_JSON: return createExportJSON();
       case IdmdslPackage.EXPRESSION: return createExpression();
-      case IdmdslPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+      case IdmdslPackage.MATH_EXPRESSION: return createMathExpression();
+      case IdmdslPackage.BINARY_EXPRESSION: return createBinaryExpression();
+      case IdmdslPackage.MATH_PRIMARY_EXPRESSION: return createMathPrimaryExpression();
       case IdmdslPackage.SELECTCELL: return createSelectcell();
       case IdmdslPackage.LINESUM: return createLinesum();
       case IdmdslPackage.COLSUM: return createColsum();
       case IdmdslPackage.LINEPROD: return createLineprod();
       case IdmdslPackage.COLPROD: return createColprod();
-      case IdmdslPackage.BINEXPR: return createBinexpr();
       case IdmdslPackage.NONE_VALUE: return createNoneValue();
       case IdmdslPackage.INT_VALUE: return createIntValue();
       case IdmdslPackage.STRING_VALUE: return createStringValue();
@@ -268,10 +269,34 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
    * @generated
    */
   @Override
-  public PrimaryExpression createPrimaryExpression()
+  public MathExpression createMathExpression()
   {
-    PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
-    return primaryExpression;
+    MathExpressionImpl mathExpression = new MathExpressionImpl();
+    return mathExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinaryExpression createBinaryExpression()
+  {
+    BinaryExpressionImpl binaryExpression = new BinaryExpressionImpl();
+    return binaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MathPrimaryExpression createMathPrimaryExpression()
+  {
+    MathPrimaryExpressionImpl mathPrimaryExpression = new MathPrimaryExpressionImpl();
+    return mathPrimaryExpression;
   }
 
   /**
@@ -332,18 +357,6 @@ public class IdmdslFactoryImpl extends EFactoryImpl implements IdmdslFactory
   {
     ColprodImpl colprod = new ColprodImpl();
     return colprod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Binexpr createBinexpr()
-  {
-    BinexprImpl binexpr = new BinexprImpl();
-    return binexpr;
   }
 
   /**

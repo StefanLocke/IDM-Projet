@@ -13,58 +13,35 @@ package org.xtext.example.mydsl.idmdsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Colprod#getColIndex <em>Col Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Colprod#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.Colprod#getColName <em>Col Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColprod()
  * @model
  * @generated
  */
-public interface Colprod extends PrimaryExpression
+public interface Colprod extends MathPrimaryExpression
 {
   /**
-   * Returns the value of the '<em><b>Col Index</b></em>' containment reference.
+   * Returns the value of the '<em><b>Col Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Col Index</em>' containment reference.
-   * @see #setColIndex(Expression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColprod_ColIndex()
+   * @return the value of the '<em>Col Name</em>' containment reference.
+   * @see #setColName(StringValue)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColprod_ColName()
    * @model containment="true"
    * @generated
    */
-  Expression getColIndex();
+  StringValue getColName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Colprod#getColIndex <em>Col Index</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Colprod#getColName <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Col Index</em>' containment reference.
-   * @see #getColIndex()
+   * @param value the new value of the '<em>Col Name</em>' containment reference.
+   * @see #getColName()
    * @generated
    */
-  void setColIndex(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getColprod_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Colprod#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  void setColName(StringValue value);
 
 } // Colprod

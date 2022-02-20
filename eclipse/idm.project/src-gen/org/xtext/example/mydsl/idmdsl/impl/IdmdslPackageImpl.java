@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.example.mydsl.idmdsl.Binexpr;
+import org.xtext.example.mydsl.idmdsl.BinaryExpression;
 import org.xtext.example.mydsl.idmdsl.Colprod;
 import org.xtext.example.mydsl.idmdsl.Colsum;
 import org.xtext.example.mydsl.idmdsl.Create;
@@ -28,8 +28,9 @@ import org.xtext.example.mydsl.idmdsl.Lineprod;
 import org.xtext.example.mydsl.idmdsl.Linesum;
 import org.xtext.example.mydsl.idmdsl.Load;
 import org.xtext.example.mydsl.idmdsl.Loadscope;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
+import org.xtext.example.mydsl.idmdsl.MathPrimaryExpression;
 import org.xtext.example.mydsl.idmdsl.NoneValue;
-import org.xtext.example.mydsl.idmdsl.PrimaryExpression;
 import org.xtext.example.mydsl.idmdsl.Print;
 import org.xtext.example.mydsl.idmdsl.Programme;
 import org.xtext.example.mydsl.idmdsl.RemoveCol;
@@ -148,7 +149,21 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass primaryExpressionEClass = null;
+  private EClass mathExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binaryExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mathPrimaryExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -184,13 +199,6 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   private EClass colprodEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass binexprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -337,9 +345,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EAttribute getLoad_Path()
+  public EReference getLoad_Path()
   {
-    return (EAttribute)loadEClass.getEStructuralFeatures().get(0);
+    return (EReference)loadEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -392,20 +400,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EAttribute getInsertCol_ColName()
+  public EReference getInsertCol_ColName()
   {
-    return (EAttribute)insertColEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getInsertCol_Exp()
-  {
-    return (EReference)insertColEClass.getEStructuralFeatures().get(2);
+    return (EReference)insertColEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -425,20 +422,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getRemoveCol_ColIndex()
+  public EReference getRemoveCol_ColName()
   {
     return (EReference)removeColEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getRemoveCol_Name()
-  {
-    return (EAttribute)removeColEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -461,17 +447,6 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
   public EReference getInsertLine_LineIndex()
   {
     return (EReference)insertLineEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getInsertLine_Exps()
-  {
-    return (EReference)insertLineEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -524,7 +499,7 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getInsert_ColNameOrIndex()
+  public EReference getInsert_ColName()
   {
     return (EReference)insertEClass.getEStructuralFeatures().get(1);
   }
@@ -579,9 +554,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EAttribute getExportCSV_Path()
+  public EReference getExportCSV_Path()
   {
-    return (EAttribute)exportCSVEClass.getEStructuralFeatures().get(0);
+    return (EReference)exportCSVEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -601,9 +576,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EAttribute getExportJSON_Path()
+  public EReference getExportJSON_Path()
   {
-    return (EAttribute)exportJSONEClass.getEStructuralFeatures().get(0);
+    return (EReference)exportJSONEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -623,9 +598,64 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EClass getPrimaryExpression()
+  public EClass getMathExpression()
   {
-    return primaryExpressionEClass;
+    return mathExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBinaryExpression()
+  {
+    return binaryExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpression_Left()
+  {
+    return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryExpression_Op()
+  {
+    return (EAttribute)binaryExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpression_Right()
+  {
+    return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMathPrimaryExpression()
+  {
+    return mathPrimaryExpressionEClass;
   }
 
   /**
@@ -645,7 +675,7 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getSelectcell_CellX()
+  public EReference getSelectcell_LineIndex()
   {
     return (EReference)selectcellEClass.getEStructuralFeatures().get(0);
   }
@@ -656,7 +686,7 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getSelectcell_CellY()
+  public EReference getSelectcell_ColName()
   {
     return (EReference)selectcellEClass.getEStructuralFeatures().get(1);
   }
@@ -700,20 +730,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getColsum_ColIndex()
+  public EReference getColsum_ColName()
   {
     return (EReference)colsumEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getColsum_Name()
-  {
-    return (EAttribute)colsumEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -755,64 +774,9 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
    * @generated
    */
   @Override
-  public EReference getColprod_ColIndex()
+  public EReference getColprod_ColName()
   {
     return (EReference)colprodEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getColprod_Name()
-  {
-    return (EAttribute)colprodEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getBinexpr()
-  {
-    return binexprEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBinexpr_Left()
-  {
-    return (EReference)binexprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getBinexpr_Op()
-  {
-    return (EAttribute)binexprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBinexpr_Right()
-  {
-    return (EReference)binexprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -919,7 +883,7 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
     createEReference(loadscopeEClass, LOADSCOPE__INSTRUCTIONS);
 
     loadEClass = createEClass(LOAD);
-    createEAttribute(loadEClass, LOAD__PATH);
+    createEReference(loadEClass, LOAD__PATH);
 
     createEClass = createEClass(CREATE);
 
@@ -927,60 +891,57 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
 
     insertColEClass = createEClass(INSERT_COL);
     createEReference(insertColEClass, INSERT_COL__COL_INDEX);
-    createEAttribute(insertColEClass, INSERT_COL__COL_NAME);
-    createEReference(insertColEClass, INSERT_COL__EXP);
+    createEReference(insertColEClass, INSERT_COL__COL_NAME);
 
     removeColEClass = createEClass(REMOVE_COL);
-    createEReference(removeColEClass, REMOVE_COL__COL_INDEX);
-    createEAttribute(removeColEClass, REMOVE_COL__NAME);
+    createEReference(removeColEClass, REMOVE_COL__COL_NAME);
 
     insertLineEClass = createEClass(INSERT_LINE);
     createEReference(insertLineEClass, INSERT_LINE__LINE_INDEX);
-    createEReference(insertLineEClass, INSERT_LINE__EXPS);
 
     removeLineEClass = createEClass(REMOVE_LINE);
     createEReference(removeLineEClass, REMOVE_LINE__LINE_INDEX);
 
     insertEClass = createEClass(INSERT);
     createEReference(insertEClass, INSERT__LINE_INDEX);
-    createEReference(insertEClass, INSERT__COL_NAME_OR_INDEX);
+    createEReference(insertEClass, INSERT__COL_NAME);
     createEReference(insertEClass, INSERT__VALUE);
 
     printEClass = createEClass(PRINT);
     createEReference(printEClass, PRINT__VALUE);
 
     exportCSVEClass = createEClass(EXPORT_CSV);
-    createEAttribute(exportCSVEClass, EXPORT_CSV__PATH);
+    createEReference(exportCSVEClass, EXPORT_CSV__PATH);
 
     exportJSONEClass = createEClass(EXPORT_JSON);
-    createEAttribute(exportJSONEClass, EXPORT_JSON__PATH);
+    createEReference(exportJSONEClass, EXPORT_JSON__PATH);
 
     expressionEClass = createEClass(EXPRESSION);
 
-    primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
+    mathExpressionEClass = createEClass(MATH_EXPRESSION);
+
+    binaryExpressionEClass = createEClass(BINARY_EXPRESSION);
+    createEReference(binaryExpressionEClass, BINARY_EXPRESSION__LEFT);
+    createEAttribute(binaryExpressionEClass, BINARY_EXPRESSION__OP);
+    createEReference(binaryExpressionEClass, BINARY_EXPRESSION__RIGHT);
+
+    mathPrimaryExpressionEClass = createEClass(MATH_PRIMARY_EXPRESSION);
 
     selectcellEClass = createEClass(SELECTCELL);
-    createEReference(selectcellEClass, SELECTCELL__CELL_X);
-    createEReference(selectcellEClass, SELECTCELL__CELL_Y);
+    createEReference(selectcellEClass, SELECTCELL__LINE_INDEX);
+    createEReference(selectcellEClass, SELECTCELL__COL_NAME);
 
     linesumEClass = createEClass(LINESUM);
     createEReference(linesumEClass, LINESUM__LINE_INDEX);
 
     colsumEClass = createEClass(COLSUM);
-    createEReference(colsumEClass, COLSUM__COL_INDEX);
-    createEAttribute(colsumEClass, COLSUM__NAME);
+    createEReference(colsumEClass, COLSUM__COL_NAME);
 
     lineprodEClass = createEClass(LINEPROD);
     createEReference(lineprodEClass, LINEPROD__LINE_INDEX);
 
     colprodEClass = createEClass(COLPROD);
-    createEReference(colprodEClass, COLPROD__COL_INDEX);
-    createEAttribute(colprodEClass, COLPROD__NAME);
-
-    binexprEClass = createEClass(BINEXPR);
-    createEReference(binexprEClass, BINEXPR__LEFT);
-    createEAttribute(binexprEClass, BINEXPR__OP);
-    createEReference(binexprEClass, BINEXPR__RIGHT);
+    createEReference(colprodEClass, COLPROD__COL_NAME);
 
     noneValueEClass = createEClass(NONE_VALUE);
     createEAttribute(noneValueEClass, NONE_VALUE__VALUE);
@@ -1031,15 +992,18 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
     printEClass.getESuperTypes().add(this.getInstruction());
     exportCSVEClass.getESuperTypes().add(this.getInstruction());
     exportJSONEClass.getESuperTypes().add(this.getInstruction());
-    primaryExpressionEClass.getESuperTypes().add(this.getExpression());
-    selectcellEClass.getESuperTypes().add(this.getPrimaryExpression());
-    linesumEClass.getESuperTypes().add(this.getPrimaryExpression());
-    colsumEClass.getESuperTypes().add(this.getPrimaryExpression());
-    lineprodEClass.getESuperTypes().add(this.getPrimaryExpression());
-    colprodEClass.getESuperTypes().add(this.getPrimaryExpression());
-    binexprEClass.getESuperTypes().add(this.getExpression());
+    binaryExpressionEClass.getESuperTypes().add(this.getExpression());
+    binaryExpressionEClass.getESuperTypes().add(this.getMathExpression());
+    mathPrimaryExpressionEClass.getESuperTypes().add(this.getExpression());
+    mathPrimaryExpressionEClass.getESuperTypes().add(this.getMathExpression());
+    selectcellEClass.getESuperTypes().add(this.getMathPrimaryExpression());
+    linesumEClass.getESuperTypes().add(this.getMathPrimaryExpression());
+    colsumEClass.getESuperTypes().add(this.getMathPrimaryExpression());
+    lineprodEClass.getESuperTypes().add(this.getMathPrimaryExpression());
+    colprodEClass.getESuperTypes().add(this.getMathPrimaryExpression());
     noneValueEClass.getESuperTypes().add(this.getExpression());
-    intValueEClass.getESuperTypes().add(this.getPrimaryExpression());
+    intValueEClass.getESuperTypes().add(this.getMathPrimaryExpression());
+    stringValueEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programmeEClass, Programme.class, "Programme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1049,68 +1013,65 @@ public class IdmdslPackageImpl extends EPackageImpl implements IdmdslPackage
     initEReference(getLoadscope_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Loadscope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loadEClass, Load.class, "Load", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLoad_Path(), ecorePackage.getEString(), "path", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLoad_Path(), this.getStringValue(), null, "path", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(insertColEClass, InsertCol.class, "InsertCol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInsertCol_ColIndex(), this.getExpression(), null, "colIndex", null, 0, 1, InsertCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getInsertCol_ColName(), ecorePackage.getEString(), "colName", null, 0, 1, InsertCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsertCol_Exp(), this.getExpression(), null, "exp", null, 0, 1, InsertCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsertCol_ColIndex(), this.getMathExpression(), null, "colIndex", null, 0, 1, InsertCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsertCol_ColName(), this.getStringValue(), null, "colName", null, 0, 1, InsertCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(removeColEClass, RemoveCol.class, "RemoveCol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRemoveCol_ColIndex(), this.getExpression(), null, "colIndex", null, 0, 1, RemoveCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRemoveCol_Name(), ecorePackage.getEString(), "name", null, 0, 1, RemoveCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRemoveCol_ColName(), this.getStringValue(), null, "colName", null, 0, 1, RemoveCol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertLineEClass, InsertLine.class, "InsertLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInsertLine_LineIndex(), this.getExpression(), null, "lineIndex", null, 0, 1, InsertLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsertLine_Exps(), this.getExpression(), null, "exps", null, 0, -1, InsertLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsertLine_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, InsertLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(removeLineEClass, RemoveLine.class, "RemoveLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRemoveLine_LineIndex(), this.getExpression(), null, "lineIndex", null, 0, 1, RemoveLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRemoveLine_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, RemoveLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertEClass, Insert.class, "Insert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInsert_LineIndex(), this.getExpression(), null, "lineIndex", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsert_ColNameOrIndex(), this.getExpression(), null, "colNameOrIndex", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsert_Value(), ecorePackage.getEObject(), null, "value", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsert_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsert_ColName(), this.getStringValue(), null, "colName", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInsert_Value(), this.getExpression(), null, "value", null, 0, 1, Insert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrint_Value(), ecorePackage.getEObject(), null, "value", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrint_Value(), this.getExpression(), null, "value", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exportCSVEClass, ExportCSV.class, "ExportCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExportCSV_Path(), ecorePackage.getEString(), "path", null, 0, 1, ExportCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExportCSV_Path(), this.getStringValue(), null, "path", null, 0, 1, ExportCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exportJSONEClass, ExportJSON.class, "ExportJSON", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExportJSON_Path(), ecorePackage.getEString(), "path", null, 0, 1, ExportJSON.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExportJSON_Path(), this.getStringValue(), null, "path", null, 0, 1, ExportJSON.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(mathExpressionEClass, MathExpression.class, "MathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryExpression_Left(), this.getMathPrimaryExpression(), null, "left", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryExpression_Op(), ecorePackage.getEString(), "op", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryExpression_Right(), this.getMathExpression(), null, "right", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mathPrimaryExpressionEClass, MathPrimaryExpression.class, "MathPrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(selectcellEClass, Selectcell.class, "Selectcell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelectcell_CellX(), this.getExpression(), null, "cellX", null, 0, 1, Selectcell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelectcell_CellY(), this.getExpression(), null, "cellY", null, 0, 1, Selectcell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectcell_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, Selectcell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectcell_ColName(), this.getStringValue(), null, "colName", null, 0, 1, Selectcell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(linesumEClass, Linesum.class, "Linesum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLinesum_LineIndex(), this.getExpression(), null, "lineIndex", null, 0, 1, Linesum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLinesum_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, Linesum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colsumEClass, Colsum.class, "Colsum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getColsum_ColIndex(), this.getExpression(), null, "colIndex", null, 0, 1, Colsum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getColsum_Name(), ecorePackage.getEString(), "name", null, 0, 1, Colsum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColsum_ColName(), this.getStringValue(), null, "colName", null, 0, 1, Colsum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lineprodEClass, Lineprod.class, "Lineprod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLineprod_LineIndex(), this.getExpression(), null, "lineIndex", null, 0, 1, Lineprod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLineprod_LineIndex(), this.getMathExpression(), null, "lineIndex", null, 0, 1, Lineprod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colprodEClass, Colprod.class, "Colprod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getColprod_ColIndex(), this.getExpression(), null, "colIndex", null, 0, 1, Colprod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getColprod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Colprod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(binexprEClass, Binexpr.class, "Binexpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinexpr_Left(), this.getPrimaryExpression(), null, "left", null, 0, 1, Binexpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBinexpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, Binexpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinexpr_Right(), this.getExpression(), null, "right", null, 0, 1, Binexpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColprod_ColName(), this.getStringValue(), null, "colName", null, 0, 1, Colprod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(noneValueEClass, NoneValue.class, "NoneValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNoneValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, NoneValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

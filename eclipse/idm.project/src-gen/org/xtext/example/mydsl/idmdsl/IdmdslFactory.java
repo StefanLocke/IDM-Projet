@@ -150,13 +150,31 @@ public interface IdmdslFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Primary Expression</em>'.
+   * Returns a new object of class '<em>Math Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Expression</em>'.
+   * @return a new object of class '<em>Math Expression</em>'.
    * @generated
    */
-  PrimaryExpression createPrimaryExpression();
+  MathExpression createMathExpression();
+
+  /**
+   * Returns a new object of class '<em>Binary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Expression</em>'.
+   * @generated
+   */
+  BinaryExpression createBinaryExpression();
+
+  /**
+   * Returns a new object of class '<em>Math Primary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Math Primary Expression</em>'.
+   * @generated
+   */
+  MathPrimaryExpression createMathPrimaryExpression();
 
   /**
    * Returns a new object of class '<em>Selectcell</em>'.
@@ -202,15 +220,6 @@ public interface IdmdslFactory extends EFactory
    * @generated
    */
   Colprod createColprod();
-
-  /**
-   * Returns a new object of class '<em>Binexpr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binexpr</em>'.
-   * @generated
-   */
-  Binexpr createBinexpr();
 
   /**
    * Returns a new object of class '<em>None Value</em>'.

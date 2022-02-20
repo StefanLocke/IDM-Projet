@@ -11,9 +11,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
 import org.xtext.example.mydsl.idmdsl.InsertCol;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
+import org.xtext.example.mydsl.idmdsl.StringValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +26,6 @@ import org.xtext.example.mydsl.idmdsl.InsertCol;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getColIndex <em>Col Index</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getColName <em>Col Name</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.InsertColImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,37 +40,17 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    * @ordered
    */
-  protected Expression colIndex;
+  protected MathExpression colIndex;
 
   /**
-   * The default value of the '{@link #getColName() <em>Col Name</em>}' attribute.
+   * The cached value of the '{@link #getColName() <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getColName()
    * @generated
    * @ordered
    */
-  protected static final String COL_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getColName() <em>Col Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getColName()
-   * @generated
-   * @ordered
-   */
-  protected String colName = COL_NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp()
-   * @generated
-   * @ordered
-   */
-  protected Expression exp;
+  protected StringValue colName;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,7 +79,7 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    */
   @Override
-  public Expression getColIndex()
+  public MathExpression getColIndex()
   {
     return colIndex;
   }
@@ -109,9 +89,9 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetColIndex(Expression newColIndex, NotificationChain msgs)
+  public NotificationChain basicSetColIndex(MathExpression newColIndex, NotificationChain msgs)
   {
-    Expression oldColIndex = colIndex;
+    MathExpression oldColIndex = colIndex;
     colIndex = newColIndex;
     if (eNotificationRequired())
     {
@@ -127,7 +107,7 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    */
   @Override
-  public void setColIndex(Expression newColIndex)
+  public void setColIndex(MathExpression newColIndex)
   {
     if (newColIndex != colIndex)
     {
@@ -149,7 +129,7 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    */
   @Override
-  public String getColName()
+  public StringValue getColName()
   {
     return colName;
   }
@@ -159,38 +139,13 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setColName(String newColName)
+  public NotificationChain basicSetColName(StringValue newColName, NotificationChain msgs)
   {
-    String oldColName = colName;
+    StringValue oldColName = colName;
     colName = newColName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__COL_NAME, oldColName, colName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Expression getExp()
-  {
-    return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
-  {
-    Expression oldExp = exp;
-    exp = newExp;
-    if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__EXP, oldExp, newExp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__COL_NAME, oldColName, newColName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -202,20 +157,20 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
    * @generated
    */
   @Override
-  public void setExp(Expression newExp)
+  public void setColName(StringValue newColName)
   {
-    if (newExp != exp)
+    if (newColName != colName)
     {
       NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
+      if (colName != null)
+        msgs = ((InternalEObject)colName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__COL_NAME, null, msgs);
+      if (newColName != null)
+        msgs = ((InternalEObject)newColName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.INSERT_COL__COL_NAME, null, msgs);
+      msgs = basicSetColName(newColName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__EXP, newExp, newExp));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.INSERT_COL__COL_NAME, newColName, newColName));
   }
 
   /**
@@ -230,8 +185,8 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
     {
       case IdmdslPackage.INSERT_COL__COL_INDEX:
         return basicSetColIndex(null, msgs);
-      case IdmdslPackage.INSERT_COL__EXP:
-        return basicSetExp(null, msgs);
+      case IdmdslPackage.INSERT_COL__COL_NAME:
+        return basicSetColName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -250,8 +205,6 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
         return getColIndex();
       case IdmdslPackage.INSERT_COL__COL_NAME:
         return getColName();
-      case IdmdslPackage.INSERT_COL__EXP:
-        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -267,13 +220,10 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
     switch (featureID)
     {
       case IdmdslPackage.INSERT_COL__COL_INDEX:
-        setColIndex((Expression)newValue);
+        setColIndex((MathExpression)newValue);
         return;
       case IdmdslPackage.INSERT_COL__COL_NAME:
-        setColName((String)newValue);
-        return;
-      case IdmdslPackage.INSERT_COL__EXP:
-        setExp((Expression)newValue);
+        setColName((StringValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,13 +240,10 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
     switch (featureID)
     {
       case IdmdslPackage.INSERT_COL__COL_INDEX:
-        setColIndex((Expression)null);
+        setColIndex((MathExpression)null);
         return;
       case IdmdslPackage.INSERT_COL__COL_NAME:
-        setColName(COL_NAME_EDEFAULT);
-        return;
-      case IdmdslPackage.INSERT_COL__EXP:
-        setExp((Expression)null);
+        setColName((StringValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -315,28 +262,9 @@ public class InsertColImpl extends InstructionImpl implements InsertCol
       case IdmdslPackage.INSERT_COL__COL_INDEX:
         return colIndex != null;
       case IdmdslPackage.INSERT_COL__COL_NAME:
-        return COL_NAME_EDEFAULT == null ? colName != null : !COL_NAME_EDEFAULT.equals(colName);
-      case IdmdslPackage.INSERT_COL__EXP:
-        return exp != null;
+        return colName != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (colName: ");
-    result.append(colName);
-    result.append(')');
-    return result.toString();
   }
 
 } //InsertColImpl

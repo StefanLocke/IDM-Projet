@@ -146,9 +146,19 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter casePrimaryExpression(PrimaryExpression object)
+      public Adapter caseMathExpression(MathExpression object)
       {
-        return createPrimaryExpressionAdapter();
+        return createMathExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBinaryExpression(BinaryExpression object)
+      {
+        return createBinaryExpressionAdapter();
+      }
+      @Override
+      public Adapter caseMathPrimaryExpression(MathPrimaryExpression object)
+      {
+        return createMathPrimaryExpressionAdapter();
       }
       @Override
       public Adapter caseSelectcell(Selectcell object)
@@ -174,11 +184,6 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseColprod(Colprod object)
       {
         return createColprodAdapter();
-      }
-      @Override
-      public Adapter caseBinexpr(Binexpr object)
-      {
-        return createBinexprAdapter();
       }
       @Override
       public Adapter caseNoneValue(NoneValue object)
@@ -428,16 +433,46 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.PrimaryExpression <em>Primary Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.MathExpression <em>Math Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.idmdsl.PrimaryExpression
+   * @see org.xtext.example.mydsl.idmdsl.MathExpression
    * @generated
    */
-  public Adapter createPrimaryExpressionAdapter()
+  public Adapter createMathExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.BinaryExpression <em>Binary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.idmdsl.BinaryExpression
+   * @generated
+   */
+  public Adapter createBinaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.MathPrimaryExpression <em>Math Primary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.idmdsl.MathPrimaryExpression
+   * @generated
+   */
+  public Adapter createMathPrimaryExpressionAdapter()
   {
     return null;
   }
@@ -513,21 +548,6 @@ public class IdmdslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createColprodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.idmdsl.Binexpr <em>Binexpr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.idmdsl.Binexpr
-   * @generated
-   */
-  public Adapter createBinexprAdapter()
   {
     return null;
   }

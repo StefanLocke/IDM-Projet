@@ -25,7 +25,7 @@ import org.xtext.example.mydsl.idmdsl.IntValue;
  *
  * @generated
  */
-public class IntValueImpl extends PrimaryExpressionImpl implements IntValue
+public class IntValueImpl extends MathPrimaryExpressionImpl implements IntValue
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

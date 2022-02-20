@@ -181,11 +181,28 @@ public class IdmdslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case IdmdslPackage.PRIMARY_EXPRESSION:
+      case IdmdslPackage.MATH_EXPRESSION:
       {
-        PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
-        T result = casePrimaryExpression(primaryExpression);
-        if (result == null) result = caseExpression(primaryExpression);
+        MathExpression mathExpression = (MathExpression)theEObject;
+        T result = caseMathExpression(mathExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case IdmdslPackage.BINARY_EXPRESSION:
+      {
+        BinaryExpression binaryExpression = (BinaryExpression)theEObject;
+        T result = caseBinaryExpression(binaryExpression);
+        if (result == null) result = caseExpression(binaryExpression);
+        if (result == null) result = caseMathExpression(binaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case IdmdslPackage.MATH_PRIMARY_EXPRESSION:
+      {
+        MathPrimaryExpression mathPrimaryExpression = (MathPrimaryExpression)theEObject;
+        T result = caseMathPrimaryExpression(mathPrimaryExpression);
+        if (result == null) result = caseExpression(mathPrimaryExpression);
+        if (result == null) result = caseMathExpression(mathPrimaryExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -193,8 +210,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Selectcell selectcell = (Selectcell)theEObject;
         T result = caseSelectcell(selectcell);
-        if (result == null) result = casePrimaryExpression(selectcell);
+        if (result == null) result = caseMathPrimaryExpression(selectcell);
         if (result == null) result = caseExpression(selectcell);
+        if (result == null) result = caseMathExpression(selectcell);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -202,8 +220,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Linesum linesum = (Linesum)theEObject;
         T result = caseLinesum(linesum);
-        if (result == null) result = casePrimaryExpression(linesum);
+        if (result == null) result = caseMathPrimaryExpression(linesum);
         if (result == null) result = caseExpression(linesum);
+        if (result == null) result = caseMathExpression(linesum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,8 +230,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Colsum colsum = (Colsum)theEObject;
         T result = caseColsum(colsum);
-        if (result == null) result = casePrimaryExpression(colsum);
+        if (result == null) result = caseMathPrimaryExpression(colsum);
         if (result == null) result = caseExpression(colsum);
+        if (result == null) result = caseMathExpression(colsum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -220,8 +240,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Lineprod lineprod = (Lineprod)theEObject;
         T result = caseLineprod(lineprod);
-        if (result == null) result = casePrimaryExpression(lineprod);
+        if (result == null) result = caseMathPrimaryExpression(lineprod);
         if (result == null) result = caseExpression(lineprod);
+        if (result == null) result = caseMathExpression(lineprod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -229,16 +250,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         Colprod colprod = (Colprod)theEObject;
         T result = caseColprod(colprod);
-        if (result == null) result = casePrimaryExpression(colprod);
+        if (result == null) result = caseMathPrimaryExpression(colprod);
         if (result == null) result = caseExpression(colprod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IdmdslPackage.BINEXPR:
-      {
-        Binexpr binexpr = (Binexpr)theEObject;
-        T result = caseBinexpr(binexpr);
-        if (result == null) result = caseExpression(binexpr);
+        if (result == null) result = caseMathExpression(colprod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -254,8 +268,9 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         IntValue intValue = (IntValue)theEObject;
         T result = caseIntValue(intValue);
-        if (result == null) result = casePrimaryExpression(intValue);
+        if (result == null) result = caseMathPrimaryExpression(intValue);
         if (result == null) result = caseExpression(intValue);
+        if (result == null) result = caseMathExpression(intValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -263,6 +278,7 @@ public class IdmdslSwitch<T> extends Switch<T>
       {
         StringValue stringValue = (StringValue)theEObject;
         T result = caseStringValue(stringValue);
+        if (result == null) result = caseExpression(stringValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -495,17 +511,49 @@ public class IdmdslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Primary Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Math Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primary Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Math Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePrimaryExpression(PrimaryExpression object)
+  public T caseMathExpression(MathExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryExpression(BinaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Math Primary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Math Primary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMathPrimaryExpression(MathPrimaryExpression object)
   {
     return null;
   }
@@ -586,22 +634,6 @@ public class IdmdslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseColprod(Colprod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Binexpr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Binexpr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBinexpr(Binexpr object)
   {
     return null;
   }

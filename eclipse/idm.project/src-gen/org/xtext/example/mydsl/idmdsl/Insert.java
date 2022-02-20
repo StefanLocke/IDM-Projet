@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.Insert#getLineIndex <em>Line Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Insert#getColNameOrIndex <em>Col Name Or Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.Insert#getColName <em>Col Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.Insert#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -30,12 +29,12 @@ public interface Insert extends Instruction
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Line Index</em>' containment reference.
-   * @see #setLineIndex(Expression)
+   * @see #setLineIndex(MathExpression)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsert_LineIndex()
    * @model containment="true"
    * @generated
    */
-  Expression getLineIndex();
+  MathExpression getLineIndex();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Insert#getLineIndex <em>Line Index</em>}' containment reference.
@@ -45,41 +44,41 @@ public interface Insert extends Instruction
    * @see #getLineIndex()
    * @generated
    */
-  void setLineIndex(Expression value);
+  void setLineIndex(MathExpression value);
 
   /**
-   * Returns the value of the '<em><b>Col Name Or Index</b></em>' containment reference.
+   * Returns the value of the '<em><b>Col Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Col Name Or Index</em>' containment reference.
-   * @see #setColNameOrIndex(Expression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsert_ColNameOrIndex()
+   * @return the value of the '<em>Col Name</em>' containment reference.
+   * @see #setColName(StringValue)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsert_ColName()
    * @model containment="true"
    * @generated
    */
-  Expression getColNameOrIndex();
+  StringValue getColName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Insert#getColNameOrIndex <em>Col Name Or Index</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Insert#getColName <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Col Name Or Index</em>' containment reference.
-   * @see #getColNameOrIndex()
+   * @param value the new value of the '<em>Col Name</em>' containment reference.
+   * @see #getColName()
    * @generated
    */
-  void setColNameOrIndex(Expression value);
+  void setColName(StringValue value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(EObject)
+   * @see #setValue(Expression)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsert_Value()
    * @model containment="true"
    * @generated
    */
-  EObject getValue();
+  Expression getValue();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Insert#getValue <em>Value</em>}' containment reference.
@@ -89,6 +88,6 @@ public interface Insert extends Instruction
    * @see #getValue()
    * @generated
    */
-  void setValue(EObject value);
+  void setValue(Expression value);
 
 } // Insert

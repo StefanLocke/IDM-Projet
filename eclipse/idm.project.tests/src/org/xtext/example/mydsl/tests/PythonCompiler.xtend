@@ -1,6 +1,6 @@
 package org.xtext.example.mydsl.tests
 
-import org.xtext.example.mydsl.idmdsl.Binexpr
+import org.xtext.example.mydsl.idmdsl.BinaryExpression
 import org.xtext.example.mydsl.idmdsl.Create
 import org.xtext.example.mydsl.idmdsl.ExportCSV
 import org.xtext.example.mydsl.idmdsl.ExportJSON
@@ -13,7 +13,8 @@ import org.xtext.example.mydsl.idmdsl.IntValue
 import org.xtext.example.mydsl.idmdsl.Load
 import org.xtext.example.mydsl.idmdsl.Loadscope
 import org.xtext.example.mydsl.idmdsl.NoneValue
-import org.xtext.example.mydsl.idmdsl.PrimaryExpression
+import org.xtext.example.mydsl.idmdsl.MathPrimaryExpression
+import org.xtext.example.mydsl.idmdsl.MathExpression
 import org.xtext.example.mydsl.idmdsl.Print
 import org.xtext.example.mydsl.idmdsl.Programme
 import org.xtext.example.mydsl.idmdsl.RemoveCol
@@ -44,21 +45,19 @@ class PythonCompiler {
 	
 	}
 	
-	def dispatch String compile(Loadscope scope) {
-		return "Loadscope";
-	}
-	
 	def dispatch String compile(Load scope) {
-		var python = ""
-		python+= "df = pd.read_csv(\"" + scope.path + "\")\n"
+		var python = '''
+		df = pd.read_csv( «compile(scope.path)» )
+		'''
 		for (instruction : scope.instructions) {
 			python += compile(instruction) + "\n"
 		}
 		python
 	}
 	def dispatch String compile(Create scope) {
-		var python = ""
-		python+= "df = pd.DataFrame(list())\ndf.to_csv(\'temp.csv\')\n" //TODO CHANGE
+		var python = '''
+		df = pd.DataFrame(list())
+		'''
 		for (instruction : scope.instructions) {
 			python += compile(instruction) + "\n"
 		}
@@ -70,19 +69,13 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(InsertCol instruction) { //TODO add conditional expression
-		var python = '''df.insert(«compile(instruction.colIndex)»,"«instruction.colName»")'''	
+		var python = '''df.insert(«compile(instruction.colIndex)»,«compile(instruction.colName)»,"")'''	
 		python
 	}
 	
 	def dispatch String compile(RemoveCol instruction) {
-		
-		var python = ""
-			python += '''df = df.drop(columns=df.columns[«compile(instruction.colIndex)»])'''
-		if (instruction.colIndex !== null) {
-			
-		} else {
-			python += '''df = df.drop(columns=«instruction.name»)'''
-		}
+		var python = '''
+		df = df.drop(columns=«compile(instruction.colName)»)'''
 		return python;
 	}
 	
@@ -94,53 +87,25 @@ class PythonCompiler {
 		return '''df = df.drop(«compile(instruction.lineIndex)»)''';
 	}
 	def dispatch String compile(Insert instruction) {
-		var python = ""
-		if (instruction.colNameOrIndex instanceof Expression) {
-			python += '''df.at[«compile(instruction.lineIndex)», df.columns[«compile(instruction.colNameOrIndex)»]] = «compile(instruction.value)»'''
-		}else {
-			python += '''df.at[«compile(instruction.lineIndex)», «compile(instruction.colNameOrIndex)»] = «compile(instruction.value)»'''
-			
-		}
+		var python = '''df.at[«compile(instruction.lineIndex)», «compile(instruction.colName)»] = «compile(instruction.value)»'''
 		return python;
 	}
 	def dispatch String compile(Print instruction) {
 		return '''print(«compile(instruction.value)»)''';
 	}
 	def dispatch String compile(ExportCSV instruction) {
-		return '''df.to_csv("«instruction.path»")''';
+		return '''df.to_csv(«compile(instruction.path)»)''';
 	}
 	def dispatch String compile(ExportJSON instruction) {
-		return '''df.to_json("«instruction.path»")''';
+		return '''df.to_json(«compile(instruction.path)»)''';
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	def dispatch String compile(Expression expr) {
-		return "Expr not implemented"
-	}
-	def dispatch String compile(PrimaryExpression expr) {
-		return '''PrimaryExpression'''
-	}
-	
-	def dispatch String compile(Binexpr expr) {
+	def dispatch String compile(BinaryExpression expr) {
 		return '''(«compile(expr.left) + expr.op + compile(expr.right)»)'''
 	}
 	
-	
 	def dispatch String compile(Selectcell expr) {
-		return '''df.iat[«compile(expr.cellX)»,«compile(expr.cellY)»]'''
+		return '''df.at[«compile(expr.lineIndex)»,«compile(expr.colName)»]'''
 	}
 	def dispatch String compile(NoneValue expr) {
 		return expr.value

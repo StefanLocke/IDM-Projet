@@ -13,58 +13,58 @@ package org.xtext.example.mydsl.idmdsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Selectcell#getCellX <em>Cell X</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.Selectcell#getCellY <em>Cell Y</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.Selectcell#getLineIndex <em>Line Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.Selectcell#getColName <em>Col Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getSelectcell()
  * @model
  * @generated
  */
-public interface Selectcell extends PrimaryExpression
+public interface Selectcell extends MathPrimaryExpression
 {
   /**
-   * Returns the value of the '<em><b>Cell X</b></em>' containment reference.
+   * Returns the value of the '<em><b>Line Index</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Cell X</em>' containment reference.
-   * @see #setCellX(Expression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getSelectcell_CellX()
+   * @return the value of the '<em>Line Index</em>' containment reference.
+   * @see #setLineIndex(MathExpression)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getSelectcell_LineIndex()
    * @model containment="true"
    * @generated
    */
-  Expression getCellX();
+  MathExpression getLineIndex();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Selectcell#getCellX <em>Cell X</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Selectcell#getLineIndex <em>Line Index</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cell X</em>' containment reference.
-   * @see #getCellX()
+   * @param value the new value of the '<em>Line Index</em>' containment reference.
+   * @see #getLineIndex()
    * @generated
    */
-  void setCellX(Expression value);
+  void setLineIndex(MathExpression value);
 
   /**
-   * Returns the value of the '<em><b>Cell Y</b></em>' containment reference.
+   * Returns the value of the '<em><b>Col Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Cell Y</em>' containment reference.
-   * @see #setCellY(Expression)
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getSelectcell_CellY()
+   * @return the value of the '<em>Col Name</em>' containment reference.
+   * @see #setColName(StringValue)
+   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getSelectcell_ColName()
    * @model containment="true"
    * @generated
    */
-  Expression getCellY();
+  StringValue getColName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Selectcell#getCellY <em>Cell Y</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Selectcell#getColName <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cell Y</em>' containment reference.
-   * @see #getCellY()
+   * @param value the new value of the '<em>Col Name</em>' containment reference.
+   * @see #getColName()
    * @generated
    */
-  void setCellY(Expression value);
+  void setColName(StringValue value);
 
 } // Selectcell

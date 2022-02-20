@@ -20,7 +20,7 @@ package org.xtext.example.mydsl.idmdsl;
  * @model
  * @generated
  */
-public interface IntValue extends PrimaryExpression
+public interface IntValue extends MathPrimaryExpression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

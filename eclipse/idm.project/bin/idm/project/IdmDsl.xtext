@@ -11,7 +11,7 @@ Loadscope :
 ;
 
 Load : 
-	'Load(' path=STRING ')' '{' instructions+=Instruction* '}'
+	'Load(' path=StringValue ')' '{' instructions+=Instruction* '}'
 ;
 
 Create :
@@ -22,69 +22,79 @@ Instruction :
 	 ( InsertLine | RemoveLine | InsertCol | RemoveCol | Insert | ExportJSON | ExportCSV | Print) ';'
 ;
 
-	
+// Insere une col a l'index colIndex avec le nom colName	
 InsertCol : //insert col at INT with name STRING
-	'InsertCol(' colIndex=Expression ',' colName=STRING (','exp=Expression)?')'
+	'InsertCol(' colIndex=MathExpression ',' colName=StringValue ')'
 ;
 
+// supprime la col a l'index colIndex, ou avec le nom name
 RemoveCol :  
-	'RemoveCol(' colIndex=Expression | name=STRING')'
+	'RemoveCol(' colName=StringValue')'
 ;
 
-InsertLine : //insert line at INT
-	'InsertLine(' lineIndex=Expression (','exps+=Expression )+ ')'
+// Insere une nouvelle ligne a l'index lineIndex
+InsertLine : 
+	'InsertLine(' lineIndex=MathExpression')'
 ;
 
+// Suprime la lingne a l'index lineIndex
 RemoveLine : 
-	'RemoveLine(' lineIndex=Expression ')'
+	'RemoveLine(' lineIndex=MathExpression ')'
 ;
-Insert : // Looks like a modify but is translated as an update in python 
-	'Insert(' lineIndex=Expression ',' colNameOrIndex=(Expression | StringValue) ',' value=(Expression | StringValue) ')'
+
+// Change la valeur a la ligne avec l'index lineIndex, le nom colNameOrIndex et avec la valeur value
+Insert : 
+	'Insert(' lineIndex=MathExpression ',' colName=StringValue ',' value=Expression ')'
 ;
 
 Print : 
-	'Print('value=(Expression|StringValue)')'
+	'Print('value=Expression')'
 ;
 
 ExportCSV :
-	'Store('path=STRING')'
+	'Store('path=StringValue')'
 ;
 
 ExportJSON : 
-	'Export('path=STRING')'
+	'Export('path=StringValue')'
+;
+Expression : MathPrimaryExpression | BinaryExpression | NoneValue | StringValue;
+
+MathExpression : 
+	(MathPrimaryExpression | BinaryExpression)
 ;
 
-Expression : 
-	(PrimaryExpression | Binexpr | NoneValue)
+BinaryExpression : 
+	'(' left=MathPrimaryExpression op=Op right=MathExpression ')'
 ;
 
-PrimaryExpression : 
+MathPrimaryExpression : 
 	(IntValue | Selectcell | Linesum | Colsum | Lineprod | Colprod)
 ;
 
+
+
 Selectcell : 
-	'Selectcell('cellX=Expression','cellY=Expression')'
+	'Selectcell('lineIndex=MathExpression','colName=StringValue')'
 ;
 
 Linesum: //somme de toutes les case de la ligne INT
-	'Linesum('lineIndex=Expression')'
+	'Linesum('lineIndex=MathExpression')'
 ;
 
 Colsum : //somme de toutes les case de la col INT
-	'Colsum('colIndex=Expression | name=STRING')'
+	'Colsum('colName=StringValue')'
 ;
 
 Lineprod : //produit de toutes les case de la ligne INT
-	'Lineprod('lineIndex=Expression')'
+	'Lineprod('lineIndex=MathExpression')'
 ;
 
 Colprod : //produit de toutes les case de la col INT
-	'Colprod('colIndex=Expression | name=STRING ')'
+	'Colprod('colName=StringValue')'
 ;
 
-Binexpr : 
-	'(' left=PrimaryExpression op=Op right=Expression ')'
-;
+
 
 Op : 
 	'+' | '-' | '*' | '/'

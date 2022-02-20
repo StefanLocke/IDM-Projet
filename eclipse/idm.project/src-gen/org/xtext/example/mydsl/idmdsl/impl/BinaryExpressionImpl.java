@@ -11,27 +11,27 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.idmdsl.Binexpr;
-import org.xtext.example.mydsl.idmdsl.Expression;
+import org.xtext.example.mydsl.idmdsl.BinaryExpression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
-import org.xtext.example.mydsl.idmdsl.PrimaryExpression;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
+import org.xtext.example.mydsl.idmdsl.MathPrimaryExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Binexpr</b></em>'.
+ * An implementation of the model object '<em><b>Binary Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinexprImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinexprImpl#getOp <em>Op</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinexprImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinaryExpressionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinaryExpressionImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.BinaryExpressionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BinexprImpl extends ExpressionImpl implements Binexpr
+public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpression
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -41,7 +41,7 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    * @ordered
    */
-  protected PrimaryExpression left;
+  protected MathPrimaryExpression left;
 
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -71,14 +71,14 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    * @ordered
    */
-  protected Expression right;
+  protected MathExpression right;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BinexprImpl()
+  protected BinaryExpressionImpl()
   {
     super();
   }
@@ -91,7 +91,7 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   @Override
   protected EClass eStaticClass()
   {
-    return IdmdslPackage.Literals.BINEXPR;
+    return IdmdslPackage.Literals.BINARY_EXPRESSION;
   }
 
   /**
@@ -100,7 +100,7 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    */
   @Override
-  public PrimaryExpression getLeft()
+  public MathPrimaryExpression getLeft()
   {
     return left;
   }
@@ -110,13 +110,13 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft(PrimaryExpression newLeft, NotificationChain msgs)
+  public NotificationChain basicSetLeft(MathPrimaryExpression newLeft, NotificationChain msgs)
   {
-    PrimaryExpression oldLeft = left;
+    MathPrimaryExpression oldLeft = left;
     left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINEXPR__LEFT, oldLeft, newLeft);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINARY_EXPRESSION__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -128,20 +128,20 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    */
   @Override
-  public void setLeft(PrimaryExpression newLeft)
+  public void setLeft(MathPrimaryExpression newLeft)
   {
     if (newLeft != left)
     {
       NotificationChain msgs = null;
       if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINEXPR__LEFT, null, msgs);
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINARY_EXPRESSION__LEFT, null, msgs);
       if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINEXPR__LEFT, null, msgs);
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINARY_EXPRESSION__LEFT, null, msgs);
       msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINEXPR__LEFT, newLeft, newLeft));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINARY_EXPRESSION__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -166,7 +166,7 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
     String oldOp = op;
     op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINEXPR__OP, oldOp, op));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINARY_EXPRESSION__OP, oldOp, op));
   }
 
   /**
@@ -175,7 +175,7 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    */
   @Override
-  public Expression getRight()
+  public MathExpression getRight()
   {
     return right;
   }
@@ -185,13 +185,13 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Expression newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(MathExpression newRight, NotificationChain msgs)
   {
-    Expression oldRight = right;
+    MathExpression oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINEXPR__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINARY_EXPRESSION__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -203,20 +203,20 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
    * @generated
    */
   @Override
-  public void setRight(Expression newRight)
+  public void setRight(MathExpression newRight)
   {
     if (newRight != right)
     {
       NotificationChain msgs = null;
       if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINEXPR__RIGHT, null, msgs);
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINARY_EXPRESSION__RIGHT, null, msgs);
       if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINEXPR__RIGHT, null, msgs);
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.BINARY_EXPRESSION__RIGHT, null, msgs);
       msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINEXPR__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.BINARY_EXPRESSION__RIGHT, newRight, newRight));
   }
 
   /**
@@ -229,9 +229,9 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   {
     switch (featureID)
     {
-      case IdmdslPackage.BINEXPR__LEFT:
+      case IdmdslPackage.BINARY_EXPRESSION__LEFT:
         return basicSetLeft(null, msgs);
-      case IdmdslPackage.BINEXPR__RIGHT:
+      case IdmdslPackage.BINARY_EXPRESSION__RIGHT:
         return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -247,11 +247,11 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   {
     switch (featureID)
     {
-      case IdmdslPackage.BINEXPR__LEFT:
+      case IdmdslPackage.BINARY_EXPRESSION__LEFT:
         return getLeft();
-      case IdmdslPackage.BINEXPR__OP:
+      case IdmdslPackage.BINARY_EXPRESSION__OP:
         return getOp();
-      case IdmdslPackage.BINEXPR__RIGHT:
+      case IdmdslPackage.BINARY_EXPRESSION__RIGHT:
         return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -267,14 +267,14 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   {
     switch (featureID)
     {
-      case IdmdslPackage.BINEXPR__LEFT:
-        setLeft((PrimaryExpression)newValue);
+      case IdmdslPackage.BINARY_EXPRESSION__LEFT:
+        setLeft((MathPrimaryExpression)newValue);
         return;
-      case IdmdslPackage.BINEXPR__OP:
+      case IdmdslPackage.BINARY_EXPRESSION__OP:
         setOp((String)newValue);
         return;
-      case IdmdslPackage.BINEXPR__RIGHT:
-        setRight((Expression)newValue);
+      case IdmdslPackage.BINARY_EXPRESSION__RIGHT:
+        setRight((MathExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,14 +290,14 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   {
     switch (featureID)
     {
-      case IdmdslPackage.BINEXPR__LEFT:
-        setLeft((PrimaryExpression)null);
+      case IdmdslPackage.BINARY_EXPRESSION__LEFT:
+        setLeft((MathPrimaryExpression)null);
         return;
-      case IdmdslPackage.BINEXPR__OP:
+      case IdmdslPackage.BINARY_EXPRESSION__OP:
         setOp(OP_EDEFAULT);
         return;
-      case IdmdslPackage.BINEXPR__RIGHT:
-        setRight((Expression)null);
+      case IdmdslPackage.BINARY_EXPRESSION__RIGHT:
+        setRight((MathExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -313,11 +313,11 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
   {
     switch (featureID)
     {
-      case IdmdslPackage.BINEXPR__LEFT:
+      case IdmdslPackage.BINARY_EXPRESSION__LEFT:
         return left != null;
-      case IdmdslPackage.BINEXPR__OP:
+      case IdmdslPackage.BINARY_EXPRESSION__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case IdmdslPackage.BINEXPR__RIGHT:
+      case IdmdslPackage.BINARY_EXPRESSION__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
@@ -340,4 +340,4 @@ public class BinexprImpl extends ExpressionImpl implements Binexpr
     return result.toString();
   }
 
-} //BinexprImpl
+} //BinaryExpressionImpl

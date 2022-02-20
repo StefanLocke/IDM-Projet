@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.idmdsl.InsertLine#getLineIndex <em>Line Index</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.InsertLine#getExps <em>Exps</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsertLine()
@@ -29,12 +27,12 @@ public interface InsertLine extends Instruction
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Line Index</em>' containment reference.
-   * @see #setLineIndex(Expression)
+   * @see #setLineIndex(MathExpression)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsertLine_LineIndex()
    * @model containment="true"
    * @generated
    */
-  Expression getLineIndex();
+  MathExpression getLineIndex();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.InsertLine#getLineIndex <em>Line Index</em>}' containment reference.
@@ -44,18 +42,6 @@ public interface InsertLine extends Instruction
    * @see #getLineIndex()
    * @generated
    */
-  void setLineIndex(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Exps</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.idmdsl.Expression}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exps</em>' containment reference list.
-   * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getInsertLine_Exps()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Expression> getExps();
+  void setLineIndex(MathExpression value);
 
 } // InsertLine

@@ -11,9 +11,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
 import org.xtext.example.mydsl.idmdsl.Selectcell;
+import org.xtext.example.mydsl.idmdsl.StringValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,33 +24,33 @@ import org.xtext.example.mydsl.idmdsl.Selectcell;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl#getCellX <em>Cell X</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl#getCellY <em>Cell Y</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl#getLineIndex <em>Line Index</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.idmdsl.impl.SelectcellImpl#getColName <em>Col Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
+public class SelectcellImpl extends MathPrimaryExpressionImpl implements Selectcell
 {
   /**
-   * The cached value of the '{@link #getCellX() <em>Cell X</em>}' containment reference.
+   * The cached value of the '{@link #getLineIndex() <em>Line Index</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCellX()
+   * @see #getLineIndex()
    * @generated
    * @ordered
    */
-  protected Expression cellX;
+  protected MathExpression lineIndex;
 
   /**
-   * The cached value of the '{@link #getCellY() <em>Cell Y</em>}' containment reference.
+   * The cached value of the '{@link #getColName() <em>Col Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCellY()
+   * @see #getColName()
    * @generated
    * @ordered
    */
-  protected Expression cellY;
+  protected StringValue colName;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,9 +79,9 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * @generated
    */
   @Override
-  public Expression getCellX()
+  public MathExpression getLineIndex()
   {
-    return cellX;
+    return lineIndex;
   }
 
   /**
@@ -88,13 +89,13 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCellX(Expression newCellX, NotificationChain msgs)
+  public NotificationChain basicSetLineIndex(MathExpression newLineIndex, NotificationChain msgs)
   {
-    Expression oldCellX = cellX;
-    cellX = newCellX;
+    MathExpression oldLineIndex = lineIndex;
+    lineIndex = newLineIndex;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__CELL_X, oldCellX, newCellX);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__LINE_INDEX, oldLineIndex, newLineIndex);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +107,20 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * @generated
    */
   @Override
-  public void setCellX(Expression newCellX)
+  public void setLineIndex(MathExpression newLineIndex)
   {
-    if (newCellX != cellX)
+    if (newLineIndex != lineIndex)
     {
       NotificationChain msgs = null;
-      if (cellX != null)
-        msgs = ((InternalEObject)cellX).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__CELL_X, null, msgs);
-      if (newCellX != null)
-        msgs = ((InternalEObject)newCellX).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__CELL_X, null, msgs);
-      msgs = basicSetCellX(newCellX, msgs);
+      if (lineIndex != null)
+        msgs = ((InternalEObject)lineIndex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__LINE_INDEX, null, msgs);
+      if (newLineIndex != null)
+        msgs = ((InternalEObject)newLineIndex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__LINE_INDEX, null, msgs);
+      msgs = basicSetLineIndex(newLineIndex, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__CELL_X, newCellX, newCellX));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__LINE_INDEX, newLineIndex, newLineIndex));
   }
 
   /**
@@ -128,9 +129,9 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * @generated
    */
   @Override
-  public Expression getCellY()
+  public StringValue getColName()
   {
-    return cellY;
+    return colName;
   }
 
   /**
@@ -138,13 +139,13 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCellY(Expression newCellY, NotificationChain msgs)
+  public NotificationChain basicSetColName(StringValue newColName, NotificationChain msgs)
   {
-    Expression oldCellY = cellY;
-    cellY = newCellY;
+    StringValue oldColName = colName;
+    colName = newColName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__CELL_Y, oldCellY, newCellY);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__COL_NAME, oldColName, newColName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -156,20 +157,20 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
    * @generated
    */
   @Override
-  public void setCellY(Expression newCellY)
+  public void setColName(StringValue newColName)
   {
-    if (newCellY != cellY)
+    if (newColName != colName)
     {
       NotificationChain msgs = null;
-      if (cellY != null)
-        msgs = ((InternalEObject)cellY).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__CELL_Y, null, msgs);
-      if (newCellY != null)
-        msgs = ((InternalEObject)newCellY).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__CELL_Y, null, msgs);
-      msgs = basicSetCellY(newCellY, msgs);
+      if (colName != null)
+        msgs = ((InternalEObject)colName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__COL_NAME, null, msgs);
+      if (newColName != null)
+        msgs = ((InternalEObject)newColName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IdmdslPackage.SELECTCELL__COL_NAME, null, msgs);
+      msgs = basicSetColName(newColName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__CELL_Y, newCellY, newCellY));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdmdslPackage.SELECTCELL__COL_NAME, newColName, newColName));
   }
 
   /**
@@ -182,10 +183,10 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
   {
     switch (featureID)
     {
-      case IdmdslPackage.SELECTCELL__CELL_X:
-        return basicSetCellX(null, msgs);
-      case IdmdslPackage.SELECTCELL__CELL_Y:
-        return basicSetCellY(null, msgs);
+      case IdmdslPackage.SELECTCELL__LINE_INDEX:
+        return basicSetLineIndex(null, msgs);
+      case IdmdslPackage.SELECTCELL__COL_NAME:
+        return basicSetColName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -200,10 +201,10 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
   {
     switch (featureID)
     {
-      case IdmdslPackage.SELECTCELL__CELL_X:
-        return getCellX();
-      case IdmdslPackage.SELECTCELL__CELL_Y:
-        return getCellY();
+      case IdmdslPackage.SELECTCELL__LINE_INDEX:
+        return getLineIndex();
+      case IdmdslPackage.SELECTCELL__COL_NAME:
+        return getColName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,11 +219,11 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
   {
     switch (featureID)
     {
-      case IdmdslPackage.SELECTCELL__CELL_X:
-        setCellX((Expression)newValue);
+      case IdmdslPackage.SELECTCELL__LINE_INDEX:
+        setLineIndex((MathExpression)newValue);
         return;
-      case IdmdslPackage.SELECTCELL__CELL_Y:
-        setCellY((Expression)newValue);
+      case IdmdslPackage.SELECTCELL__COL_NAME:
+        setColName((StringValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,11 +239,11 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
   {
     switch (featureID)
     {
-      case IdmdslPackage.SELECTCELL__CELL_X:
-        setCellX((Expression)null);
+      case IdmdslPackage.SELECTCELL__LINE_INDEX:
+        setLineIndex((MathExpression)null);
         return;
-      case IdmdslPackage.SELECTCELL__CELL_Y:
-        setCellY((Expression)null);
+      case IdmdslPackage.SELECTCELL__COL_NAME:
+        setColName((StringValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -258,10 +259,10 @@ public class SelectcellImpl extends PrimaryExpressionImpl implements Selectcell
   {
     switch (featureID)
     {
-      case IdmdslPackage.SELECTCELL__CELL_X:
-        return cellX != null;
-      case IdmdslPackage.SELECTCELL__CELL_Y:
-        return cellY != null;
+      case IdmdslPackage.SELECTCELL__LINE_INDEX:
+        return lineIndex != null;
+      case IdmdslPackage.SELECTCELL__COL_NAME:
+        return colName != null;
     }
     return super.eIsSet(featureID);
   }

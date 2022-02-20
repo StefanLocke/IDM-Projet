@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.idmdsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +27,12 @@ public interface Print extends Instruction
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(EObject)
+   * @see #setValue(Expression)
    * @see org.xtext.example.mydsl.idmdsl.IdmdslPackage#getPrint_Value()
    * @model containment="true"
    * @generated
    */
-  EObject getValue();
+  Expression getValue();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.idmdsl.Print#getValue <em>Value</em>}' containment reference.
@@ -43,6 +42,6 @@ public interface Print extends Instruction
    * @see #getValue()
    * @generated
    */
-  void setValue(EObject value);
+  void setValue(Expression value);
 
 } // Print

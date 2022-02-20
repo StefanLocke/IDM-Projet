@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.idmdsl.Expression;
 import org.xtext.example.mydsl.idmdsl.IdmdslPackage;
+import org.xtext.example.mydsl.idmdsl.MathExpression;
 import org.xtext.example.mydsl.idmdsl.RemoveLine;
 
 /**
@@ -38,7 +38,7 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
    * @generated
    * @ordered
    */
-  protected Expression lineIndex;
+  protected MathExpression lineIndex;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
    * @generated
    */
   @Override
-  public Expression getLineIndex()
+  public MathExpression getLineIndex()
   {
     return lineIndex;
   }
@@ -77,9 +77,9 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLineIndex(Expression newLineIndex, NotificationChain msgs)
+  public NotificationChain basicSetLineIndex(MathExpression newLineIndex, NotificationChain msgs)
   {
-    Expression oldLineIndex = lineIndex;
+    MathExpression oldLineIndex = lineIndex;
     lineIndex = newLineIndex;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
    * @generated
    */
   @Override
-  public void setLineIndex(Expression newLineIndex)
+  public void setLineIndex(MathExpression newLineIndex)
   {
     if (newLineIndex != lineIndex)
     {
@@ -154,7 +154,7 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
     switch (featureID)
     {
       case IdmdslPackage.REMOVE_LINE__LINE_INDEX:
-        setLineIndex((Expression)newValue);
+        setLineIndex((MathExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class RemoveLineImpl extends InstructionImpl implements RemoveLine
     switch (featureID)
     {
       case IdmdslPackage.REMOVE_LINE__LINE_INDEX:
-        setLineIndex((Expression)null);
+        setLineIndex((MathExpression)null);
         return;
     }
     super.eUnset(featureID);
