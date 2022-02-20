@@ -1,16 +1,18 @@
 package org.xtext.example.mydsl.tests
 
+import org.xtext.example.mydsl.idmdsl.BinaryExpression
+import org.xtext.example.mydsl.idmdsl.Colprod
+import org.xtext.example.mydsl.idmdsl.Colsum
 import org.xtext.example.mydsl.idmdsl.Create
 import org.xtext.example.mydsl.idmdsl.ExportCSV
 import org.xtext.example.mydsl.idmdsl.ExportJSON
-import org.xtext.example.mydsl.idmdsl.Expression
 import org.xtext.example.mydsl.idmdsl.Insert
 import org.xtext.example.mydsl.idmdsl.InsertCol
 import org.xtext.example.mydsl.idmdsl.InsertLine
-import org.xtext.example.mydsl.idmdsl.Instruction
 import org.xtext.example.mydsl.idmdsl.IntValue
+import org.xtext.example.mydsl.idmdsl.Lineprod
+import org.xtext.example.mydsl.idmdsl.Linesum
 import org.xtext.example.mydsl.idmdsl.Load
-import org.xtext.example.mydsl.idmdsl.Loadscope
 import org.xtext.example.mydsl.idmdsl.NoneValue
 import org.xtext.example.mydsl.idmdsl.Print
 import org.xtext.example.mydsl.idmdsl.Programme
@@ -18,8 +20,6 @@ import org.xtext.example.mydsl.idmdsl.RemoveCol
 import org.xtext.example.mydsl.idmdsl.RemoveLine
 import org.xtext.example.mydsl.idmdsl.Selectcell
 import org.xtext.example.mydsl.idmdsl.StringValue
-import org.xtext.example.mydsl.idmdsl.BinaryExpression
-import org.xtext.example.mydsl.idmdsl.MathPrimaryExpression
 
 class RCompiler {
 	val Programme prog;
@@ -122,6 +122,24 @@ class RCompiler {
 	}
 	def dispatch String compile(Selectcell expr) {
 		return '''df[«compile(expr.lineIndex)»+1,«compile(expr.colName)»]'''
+	}
+	
+	
+	
+	def dispatch String compile(Linesum expr) {
+		return '''apply(df,1,sum,na.rm=TRUE)[«compile(expr.lineIndex)»+1]'''
+	}
+	
+	def dispatch String compile(Colsum expr) {
+		return '''apply(df,2,sum,na.rm=TRUE)[«compile(expr.colName)»]'''
+	}
+	
+	def dispatch String compile(Lineprod expr) {
+		return '''apply(df,1,prod,na.rm=TRUE)[«compile(expr.lineIndex)»+1]'''
+	}
+	
+	def dispatch String compile(Colprod expr) {
+		return '''apply(df,2,prod,na.rm=TRUE)[«compile(expr.colName)»]'''
 	}
 	def dispatch String compile(NoneValue expr) {
 		return expr.value

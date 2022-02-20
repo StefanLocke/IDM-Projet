@@ -1,20 +1,20 @@
 package org.xtext.example.mydsl.tests
 
 import org.xtext.example.mydsl.idmdsl.BinaryExpression
+import org.xtext.example.mydsl.idmdsl.Colprod
+import org.xtext.example.mydsl.idmdsl.Colsum
 import org.xtext.example.mydsl.idmdsl.Create
 import org.xtext.example.mydsl.idmdsl.ExportCSV
 import org.xtext.example.mydsl.idmdsl.ExportJSON
-import org.xtext.example.mydsl.idmdsl.Expression
 import org.xtext.example.mydsl.idmdsl.Insert
 import org.xtext.example.mydsl.idmdsl.InsertCol
 import org.xtext.example.mydsl.idmdsl.InsertLine
 import org.xtext.example.mydsl.idmdsl.Instruction
 import org.xtext.example.mydsl.idmdsl.IntValue
+import org.xtext.example.mydsl.idmdsl.Lineprod
+import org.xtext.example.mydsl.idmdsl.Linesum
 import org.xtext.example.mydsl.idmdsl.Load
-import org.xtext.example.mydsl.idmdsl.Loadscope
 import org.xtext.example.mydsl.idmdsl.NoneValue
-import org.xtext.example.mydsl.idmdsl.MathPrimaryExpression
-import org.xtext.example.mydsl.idmdsl.MathExpression
 import org.xtext.example.mydsl.idmdsl.Print
 import org.xtext.example.mydsl.idmdsl.Programme
 import org.xtext.example.mydsl.idmdsl.RemoveCol
@@ -107,6 +107,23 @@ class PythonCompiler {
 	def dispatch String compile(Selectcell expr) {
 		return '''df.at[«compile(expr.lineIndex)»,«compile(expr.colName)»]'''
 	}
+	
+	def dispatch String compile(Linesum expr) {
+		return '''df.sum(axis=1)[«compile(expr.lineIndex)»]'''
+	}
+	
+	def dispatch String compile(Colsum expr) {
+		return '''df.sum(axis=0)[«compile(expr.colName)»]'''
+	}
+	
+	def dispatch String compile(Lineprod expr) {
+		return '''df.prod(axis=1)[«compile(expr.lineIndex)»]'''
+	}
+	
+	def dispatch String compile(Colprod expr) {
+		return '''df.prod(axis=0)[«compile(expr.colName)»]'''
+	}
+
 	def dispatch String compile(NoneValue expr) {
 		return expr.value
 	}
