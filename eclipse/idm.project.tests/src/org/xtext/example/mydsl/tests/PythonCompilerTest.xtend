@@ -28,6 +28,7 @@ class PythonCompilerTest {
     
     @Test
     def void loadAndExport() {
+    	System.out.println("\n------------------loadAndExport------------------\n");
     	
     	// Test Name
     	var testName = "loadAndExport"
@@ -51,7 +52,7 @@ class PythonCompilerTest {
         
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
         
         println("Compiler result :")
         println(compilerResult)
@@ -67,6 +68,9 @@ class PythonCompilerTest {
         
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -77,6 +81,7 @@ class PythonCompilerTest {
     
     @Test
     def void createAndExport1() {
+    	System.out.println("\n------------------createAndExport1------------------\n");
     	
     	// Test Name
     	var testName = "createAndExport1"
@@ -104,7 +109,7 @@ class PythonCompilerTest {
         
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
         
         println("Compiler result :")
         println(compilerResult)
@@ -120,6 +125,9 @@ class PythonCompilerTest {
         
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -130,7 +138,7 @@ class PythonCompilerTest {
     
     @Test
     def void removeCol() {
-
+		System.out.println("\n------------------removeCol------------------\n");
     	// Test Name
     	var testName = "removeCol"
 
@@ -159,7 +167,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -175,6 +183,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -185,7 +195,7 @@ class PythonCompilerTest {
     
     @Test
     def void removeLine() {
-
+		System.out.println("\n------------------removeLine------------------\n");
     	// Test Name
     	var testName = "removeLine"
 
@@ -209,7 +219,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -225,6 +235,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -235,6 +247,7 @@ class PythonCompilerTest {
     
     @Test
     def void colSum() {
+    	System.out.println("\n------------------colSum------------------\n");
     	// Test Name
     	var testName = "colSum"
 
@@ -259,7 +272,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -275,6 +288,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -285,6 +300,7 @@ class PythonCompilerTest {
     
     @Test
     def void selectCell() {
+    	System.out.println("\n------------------selectCell------------------\n");
     	// Test Name
     	var testName = "selectCell"
 
@@ -312,7 +328,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -328,6 +344,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -338,6 +356,7 @@ class PythonCompilerTest {
     
     @Test
     def void binOp() {
+    	System.out.println("\n------------------binOp------------------\n");
     	// Test Name
     	var testName = "binOp"
 
@@ -365,7 +384,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -381,6 +400,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
@@ -391,6 +412,7 @@ class PythonCompilerTest {
     
     @Test
     def void print() {
+    	System.out.println("\n------------------print------------------\n");
     	// Test Name
     	var testName = "print"
 
@@ -416,7 +438,7 @@ class PythonCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -432,6 +454,8 @@ class PythonCompilerTest {
 
 		// Execute python file
         testUtils.runPython(generated_file_path)
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
