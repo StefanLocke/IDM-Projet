@@ -123,4 +123,57 @@ class RCompilerTest {
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedRTestPath(testName)))
     }
     
+    
+    @Test
+    def void removeCol() {
+
+    	// Test Name
+    	var testName = "removeCol"
+
+    	// Start Time
+    	var startTime = System.nanoTime();
+
+    	// Parse Instructions
+        val result = parseHelper.parse('''
+        Create() {
+			InsertCol(0, "Prenom", "");
+			InsertCol(1, "Sexe", "");
+			InsertCol(2, "removedCol", "");
+			Insert(0, "Prenom", "Alexis");
+			Insert(0,"Sexe", "Male");
+			RemoveCol("removedCol");
+		    Store('«testUtils.getOutputRTestPath(testName)»');
+        }
+        ''') 
+
+        // Assert parse works
+        Assertions.assertNotNull(result)
+
+        // Initialize compiler and get result
+        val compiler = new RCompiler(result);
+        var compilerResult = compiler.doCompile
+
+        // Elapsed time
+        var timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+
+        println("\nCompiler result :")
+        println(compilerResult)
+
+        // Get path of generated
+        var generated_file_path = testUtils.getGeneratedRTestPath(testName);
+
+        // Write compiler result as R file
+        testUtils.writeFile(generated_file_path, compilerResult)
+
+		// Execute R file
+        testUtils.runR(generated_file_path)
+
+        // Compare generated and expected csv
+        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
+
+        // Compare generated and expected R
+        Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedRTestPath(testName)))
+    }
+    
 }
