@@ -78,7 +78,7 @@ class RCompiler {
 		
 		var python = '''
 		#removes the column with the given name
-		python +=df$«compile(instruction.colName)» <- NULL 
+		df$«compile(instruction.colName)» <- NULL 
 		'''
 		return python;
 	}
