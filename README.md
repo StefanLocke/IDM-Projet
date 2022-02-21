@@ -27,10 +27,22 @@ La disposition des ressources, dans eclipse.idm.project.tests.ressources, est la
 
 ![Ressources structure giagram](ressources.png)
 
+#### Lancer les tests
+
+Dans un premier temps, il faut qu’Eclipse prenne en compte la grammaire et syntaxe créée :
+-	eclipse.idm.project.src.idm.project -> GeneratedIdmDsl.mwe2 -> Run As -> MWE2 Worflow
+-	eclipse.idm.project.src.idm.project -> IdmDsl.xtext -> Run As -> Generate Xtext Artifacts
+
+Ensuite, il faut lancer les tests pour Python et R de la façon suivante :
+-	eclipse.idm.project.tests -> PythonCompilerTest.xtend -> Run As -> Junit Test
+-	eclipse.idm.project.tests -> RCompilerTest.xtend -> Run As -> Junit Test
+Les tests sont ainsi exécutés, et leur temps d’exécution est loggé dans la console.
+
+
 ### Résultats et performances
 
 Suite à une batterie de tests réalisées avec JUnit concernant les performances de la compilation du langage source vers Python, on remarque une durée d’exécution d’environ 105 millisecondes.
 
-[...] Ajouter informations sur compilation avec R
+Les tests vers le langage R quant à eux, montrent une performance pour des test similaires sur une durée de XXX millisecondes. On aurait donc tendance à penser que cette compilation est plus XXX, et donc que XXX est plus intéressant que XXX.
 
 À ce stade, les données dont nous disposons ne sont pas suffisantes pour définir qu’elle est la meilleure variante à utiliser. Il faudrait plus de tests, beaucoup plus, et pouvoir les lancer sur des machines dont les capacités physiques diffèrent (pour éviter d’établir une affirmation uniquement grâce à une seule machine).
