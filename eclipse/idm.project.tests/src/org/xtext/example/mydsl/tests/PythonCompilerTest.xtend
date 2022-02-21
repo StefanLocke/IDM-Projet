@@ -61,7 +61,7 @@ class PythonCompilerTest {
         testUtils.writeFile(generated_file_path, compilerResult)
         
 		// Execute python file
-        testUtils.runPython(generated_file_path, "python")
+        testUtils.runPython(generated_file_path)
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVTestPath(testName)))

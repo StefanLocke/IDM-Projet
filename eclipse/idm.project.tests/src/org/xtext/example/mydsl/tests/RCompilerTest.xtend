@@ -23,28 +23,6 @@ class RCompilerTest {
     @Test
     def void test1() {
     	var currentTest = "test1"
-    	
-        val result = parseHelper.parse('''
-            Load('«inputFilePath»') {
-                Store('«testUtils.getOutputPath + "/" + currentTest + ".csv"»');
-            }
-        ''') 
-        
-        val compiler = new PythonCompiler(result);
-        var compilerResult = compiler.doCompile
-        println(compilerResult)
-        
-        testUtils.writeFile(testUtils.getGeneratedPath + "/" + currentTest + ".py", compilerResult)
-        
-        
-        Assertions.assertNotNull(result)
-        val errors = result.eResource.errors
-        //Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-        
-        
-        testUtils.runPython(testUtils.getGeneratedPath + "/" + currentTest + ".py", "python")
-        
-
         
     } 
     

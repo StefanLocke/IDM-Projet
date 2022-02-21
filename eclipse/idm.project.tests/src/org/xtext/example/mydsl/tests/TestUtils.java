@@ -14,6 +14,8 @@ public class TestUtils {
 	String generatedPath = (System.getProperty("user.dir") + "/ressources/generated").replace("\\", "/");
 	String expectedPath = (System.getProperty("user.dir") + "/ressources/expected").replace("\\", "/");
 	
+	String pythonModuleName = "python";
+	
 	public String getInputPath() {
 		return inputPath;
 	}
@@ -114,7 +116,7 @@ public class TestUtils {
 	 * @param pythonModuleName name of Python module in current command line prompt
 	 * @throws IOException
 	 */
-	public void runPython(String pythonFilePath, String pythonModuleName) throws IOException{
+	public void runPython(String pythonFilePath) throws IOException{
 		var rt = Runtime.getRuntime();
 		var pr = rt.exec(pythonModuleName + " " + pythonFilePath);
 	}
@@ -150,6 +152,9 @@ public class TestUtils {
         }
         return r;
    }
+	
+
+	
 	
 
 }
