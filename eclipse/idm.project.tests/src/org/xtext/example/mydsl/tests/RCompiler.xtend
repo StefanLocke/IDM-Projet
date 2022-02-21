@@ -47,7 +47,7 @@ class RCompiler {
 		var python = 
 		'''
 		# Creates a new DataFrame from a CSV File
-		df = read.csv(file = '«scope.path»')
+		df = read.csv(file = '«compile(scope.path)»')
 		'''
 		for (instruction : scope.instructions) {
 			python += compile(instruction) + "\n"
