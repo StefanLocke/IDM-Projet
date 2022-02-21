@@ -24,22 +24,22 @@ Instruction :
 
 // Insere une col a l'index colIndex avec le nom colName	
 InsertCol : //insert col at INT with name STRING
-	'InsertCol(' colIndex=MathExpression ',' colName=StringValue ')'
+	'InsertCol(' colIndex=MathExpression ',' colName=StringValue','defaultValue=Expression')'
 ;
 
 // supprime la col a l'index colIndex, ou avec le nom name
 RemoveCol :  
-	'RemoveCol(' colName=StringValue')'
+	'RemoveCol('colName=StringValue')'
 ;
 
 // Insere une nouvelle ligne a l'index lineIndex
 InsertLine : 
-	'InsertLine(' lineIndex=MathExpression')'
+	'InsertLine('lineIndex=MathExpression','defaultValue=Expression')'
 ;
 
 // Suprime la lingne a l'index lineIndex
 RemoveLine : 
-	'RemoveLine(' lineIndex=MathExpression ')'
+	'RemoveLine('lineIndex=MathExpression ')'
 ;
 
 // Change la valeur a la ligne avec l'index lineIndex, le nom colNameOrIndex et avec la valeur value
