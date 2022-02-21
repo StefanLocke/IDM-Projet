@@ -19,6 +19,7 @@ public class TestUtils {
 	String expectedPath = (System.getProperty("user.dir") + "/ressources/expected").replace("\\", "/");
 	
 	String pythonModuleName = "python";
+	String rModuleName = "R";
 	
 	public String getInputPath() {
 		return inputPath;
@@ -120,9 +121,18 @@ public class TestUtils {
 	 * @param pythonModuleName name of Python module in current command line prompt
 	 * @throws IOException
 	 */
-	public void runPython(String pythonFilePath) throws IOException{
-		var rt = Runtime.getRuntime();
-		var pr = rt.exec(pythonModuleName + " " + pythonFilePath);
+	public void runPython(String filePath) throws IOException{
+		executeCommand(pythonModuleName + " " + filePath);
+	}
+	
+	/**
+	 * Run R Python from command line
+	 * @param pythonFilePath path of R file to run
+	 * @param pythonModuleName name of R module in current command line prompt
+	 * @throws IOException
+	 */
+	public void runR(String filePath) throws IOException{
+		executeCommand(rModuleName + " " + filePath);
 	}
 	
 	/**
@@ -131,9 +141,9 @@ public class TestUtils {
 	 * @param rModuleName name of r module in current command line prompt
 	 * @throws IOException
 	 */
-	public void runR(String rFilePath, String rModuleName) throws IOException{
+	public void executeCommand(String command) throws IOException{
 		var rt = Runtime.getRuntime();
-		var proc = rt.exec(rModuleName + " " + rFilePath);
+		var proc = rt.exec(command);
 		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
 		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));

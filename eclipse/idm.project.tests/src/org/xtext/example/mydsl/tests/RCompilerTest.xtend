@@ -18,14 +18,12 @@ class RCompilerTest {
 	TestUtils testUtils = new TestUtils();
 	String inputFilePath = testUtils.getInputPath + "/fruits.csv"
 	
-	String ext = ".r";
 	
-    
-    @Test
-    def void test1() {
+     @Test
+    def void loadAndExport() {
     	
     	// Test Name
-    	var testName = "test1"
+    	var testName = "loadAndExport"
     	
     	// Start Time
     	var startTime = System.nanoTime();
@@ -61,12 +59,12 @@ class RCompilerTest {
         testUtils.writeFile(generated_file_path, compilerResult)
         
 		// Execute R file
-        testUtils.runPython(generated_file_path)
+        testUtils.runR(generated_file_path)
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVTestPath(testName)))
         
-        // Compare generated and expected r
+        // Compare generated and expected R
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedRTestPath(testName)))
     } 
     
