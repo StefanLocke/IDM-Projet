@@ -38,7 +38,7 @@ Ensuite, il faut lancer les tests pour Python et R de la façon suivante :
 -	eclipse.idm.project.tests -> RCompilerTest.xtend -> Run As -> Junit Test
 Les tests sont ainsi exécutés, et leur temps d’exécution est loggé dans la console.
 
-
+ 
 ### Résultats et performances
 
 Suite à une batterie de tests réalisées avec JUnit concernant les performances de la compilation du langage source vers Python, on remarque une durée d’exécution d’environ 105 millisecondes.
