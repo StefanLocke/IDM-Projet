@@ -19,7 +19,7 @@ public class TestUtils {
 	String expectedPath = (System.getProperty("user.dir") + "/ressources/expected").replace("\\", "/");
 	
 	String pythonModuleName = "python";
-	String rModuleName = "R";
+	String rModuleName = "Rscript";
 	
 	public String getInputPath() {
 		return inputPath;
@@ -52,7 +52,7 @@ public class TestUtils {
 	 * @return expected path for test
 	 */
 	public String getExpectedRTestPath(String testName) {
-		return expectedPath + "/r/" + testName + ".r";
+		return expectedPath + "/r/" + testName + ".R";
 	}
 	
 	/**
@@ -88,7 +88,7 @@ public class TestUtils {
 	 * @return generated R file path
 	 */
 	public String getGeneratedRTestPath(String testName) {
-		return generatedPath + "/" + testName + ".r";
+		return generatedPath + "/" + testName + ".R";
 	}
 	
 	/**
