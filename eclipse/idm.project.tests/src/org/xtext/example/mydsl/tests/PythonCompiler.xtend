@@ -69,7 +69,7 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(InsertCol instruction) { //TODO add conditional expression
-		var python = '''df.insert(«compile(instruction.colIndex)»,«compile(instruction.colName)»,"")'''	
+		var python = '''df.insert(«compile(instruction.colIndex)»,«compile(instruction.colName)»,«compile(instruction.defaultValue)»)'''	
 		python
 	}
 	
@@ -80,7 +80,7 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(InsertLine instruction) {
-		return '''df.loc[«compile(instruction.lineIndex)»,:] = "Default"''';
+		return '''df.loc[«compile(instruction.lineIndex)»,:] = «compile(instruction.defaultValue)»''';
 	}
 	
 	def dispatch String compile(RemoveLine instruction) {
