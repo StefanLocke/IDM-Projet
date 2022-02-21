@@ -69,7 +69,7 @@ class RCompiler {
 	def dispatch String compile(InsertCol instruction) { //TODO add conditional expression
 		var python = '''
 		#Adds a new Column to the dataframe
-		df[1,«compile(instruction.colName)»] <- NA
+		df[1,«compile(instruction.colName)»] <- "Default"
 		'''	
 		python
 	}
@@ -85,8 +85,8 @@ class RCompiler {
 	
 	def dispatch String compile(InsertLine instruction) {
 		var r = '''
-		#Inserts a row at the given index (current appends after last row)
-		df[nrow(df) + 1,] = NA
+		#Inserts a row at the given index
+		df[«compile(instruction.lineIndex)»+1,] = "Default"
 		'''
 		return r;
 	}

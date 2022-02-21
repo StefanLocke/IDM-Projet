@@ -80,7 +80,7 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(InsertLine instruction) {
-		return "df.append(list(), ignore_index=True)";
+		return '''df.loc[«compile(instruction.lineIndex)»,:] = "Default"''';
 	}
 	
 	def dispatch String compile(RemoveLine instruction) {
