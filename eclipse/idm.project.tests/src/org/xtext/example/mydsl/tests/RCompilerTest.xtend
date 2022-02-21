@@ -52,7 +52,7 @@ class RCompilerTest {
         var timeElapsed = System.nanoTime() - startTime;
         System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
         
-        println("Compiler result :")
+        println("\nCompiler result :")
         println(compilerResult)
         
         // Assert there is no errors during compilation

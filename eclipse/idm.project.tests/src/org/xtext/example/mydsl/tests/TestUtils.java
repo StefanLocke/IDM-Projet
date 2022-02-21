@@ -185,7 +185,7 @@ public class TestUtils {
 	 */
 	public Boolean compareFiles(String filePath1, String filePath2) throws IOException{
 		
-		System.out.println("Compare " + filePath1 + " and " + filePath2);
+		System.out.println("\nCompare " + filePath1 + " and " + filePath2);
 		
 		if(!new File(filePath1).isFile()) { 
 			System.out.println("File does not exists : " + filePath1);
@@ -215,7 +215,7 @@ public class TestUtils {
             }
             else if(!line1.strip().equals(line2.strip())){
             	// Skip path case
-            	if ((!line1.strip().contains("df = pd.read_") && !line2.strip().contains("df = pd.read_")) && (!line1.strip().contains("df.to_") && !line2.strip().contains("df.to_"))) {
+            	if ((!line1.strip().contains("df = pd.read_") && !line2.strip().contains("df = pd.read_")) && (!line1.strip().contains("df.to_") && !line2.strip().contains("df.to_")) && (!line1.strip().contains("read.csv") && !line2.strip().contains("read.csv")) && (!line1.strip().contains("write.") && !line2.strip().contains("write."))) {
             		areEqual = false;
                     break;
             	}
