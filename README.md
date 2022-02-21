@@ -15,7 +15,8 @@ Les cibles choisies sont Python et R. Ces langages relativement similaires perme
 
 ### Moyens de test
 
-<span style="color:red">Le programme va utiliser votre commande python. Il est donc nécessaire d’avoir Python installé sur la machine. Si la commande est python ou python3, vous devez modifier en conséquence la valeur située dans eclipse.idm.project.tests.src.org.xtext.example.mydsl.tests.TestUtils.java. Il en va de même pour R, sauf qu’il n’y a pas a de changement de variable préalable à faire.</span>
+<span style="color:red">Le programme va utiliser votre commande python. Il est donc nécessaire d’avoir Python installé sur la machine. Si la commande est python ou python3, vous devez modifier en conséquence la valeur située dans eclipse.idm.project.tests.src.org.xtext.example.mydsl.tests.TestUtils.java. 
+Il est également nécessaire d’avoir installé la librairie pandas (pour la lecture de CSV). pip install pandas. Il en va de même pour R, sauf qu’il n’y a pas a de changement de variable préalable à faire , ni de librairie particulière.</span>
 
 Afin de tester le bon déroulement de la compilation et l’exactitude du développement qui y est lié, des tests ont été réalisés. Pour les effectuer il y a besoin :
 -	D’un programme du langage source compilé (en Python et en R) 
@@ -27,10 +28,22 @@ La disposition des ressources, dans eclipse.idm.project.tests.ressources, est la
 
 ![Ressources structure giagram](ressources.png)
 
+#### Lancer les tests
+
+Dans un premier temps, il faut qu’Eclipse prenne en compte la grammaire et syntaxe créée :
+-	eclipse.idm.project.src.idm.project -> GeneratedIdmDsl.mwe2 -> Run As -> MWE2 Worflow
+-	eclipse.idm.project.src.idm.project -> IdmDsl.xtext -> Run As -> Generate Xtext Artifacts
+
+Ensuite, il faut lancer les tests pour Python et R de la façon suivante :
+-	eclipse.idm.project.tests -> PythonCompilerTest.xtend -> Run As -> Junit Test
+-	eclipse.idm.project.tests -> RCompilerTest.xtend -> Run As -> Junit Test
+Les tests sont ainsi exécutés, et leur temps d’exécution est loggé dans la console.
+
+ 
 ### Résultats et performances
 
 Suite à une batterie de tests réalisées avec JUnit concernant les performances de la compilation du langage source vers Python, on remarque une durée d’exécution d’environ 105 millisecondes.
 
-[...] Ajouter informations sur compilation avec R
+Les tests vers le langage R quant à eux, montrent une performance pour des test similaires sur une durée de XXX millisecondes. On aurait donc tendance à penser que cette compilation est plus XXX, et donc que XXX est plus intéressant que XXX.
 
 À ce stade, les données dont nous disposons ne sont pas suffisantes pour définir qu’elle est la meilleure variante à utiliser. Il faudrait plus de tests, beaucoup plus, et pouvoir les lancer sur des machines dont les capacités physiques diffèrent (pour éviter d’établir une affirmation uniquement grâce à une seule machine).
