@@ -94,10 +94,10 @@ class PythonCompiler {
 		return '''print(«compile(instruction.value)»)''';
 	}
 	def dispatch String compile(ExportCSV instruction) {
-		return '''df.to_csv(«compile(instruction.path)»)''';
+		return '''df.to_csv(«compile(instruction.path)», index=False)''';
 	}
 	def dispatch String compile(ExportJSON instruction) {
-		return '''df.to_json(«compile(instruction.path)»)''';
+		return '''df.to_json(«compile(instruction.path)», index=False)''';
 	}
 	
 	def dispatch String compile(BinaryExpression expr) {
