@@ -158,40 +158,31 @@ public class TestUtils {
 		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 
 		// Read the output from the command
-		System.out.println("Command line result :\n");
+		if(stdInput.ready()) {
+			System.out.println("Command line result :\n");
+		}
 		String s = null;
 		while ((s = stdInput.readLine()) != null) {
 		    System.out.println(s);
 		}
-	
+		
 		// Read any errors from the attempted command
-		System.out.println("Command line errors :\n");
+		if(stdInput.ready()) {
+			System.out.println("Command line result :\n");
+		}
+		
 		while ((s = stdError.readLine()) != null) {
 		    System.out.println(s);
 		}
 	}
 	
 	/**
-	 * Compare two files
-	 * @param filePath1 path of first file
-	 * @param filePath2 path of second file
-	 * @return true if similar else false
+	 * Compare two files line by line
+	 * @param filePath1
+	 * @param filePath2
+	 * @return
 	 * @throws IOException
 	 */
-	public Boolean compareFiles2(String filePath1, String filePath2) throws IOException{
-		System.out.println("Compare " + filePath1 + " and " + filePath2);
-        var first = Files.readAllBytes(Paths.get(filePath1));
-        var second = Files.readAllBytes(Paths.get(filePath2));
-        var r = Arrays.equals(first, second);
-        if(r == true) {
-        	System.out.println("Files are similar : " + filePath1 + " and " + filePath2);
-        }
-        else {
-        	System.out.println("Files are different : " + filePath1 + " and " + filePath2);
-        }
-        return r;
-   }
-	
 	public Boolean compareFiles(String filePath1, String filePath2) throws IOException{
 		
 		System.out.println("Compare " + filePath1 + " and " + filePath2);
@@ -224,10 +215,7 @@ public class TestUtils {
             }
             else if(!line1.strip().equals(line2.strip())){
             	// Skip path case
-            	if (!line1.strip().contains("df = pd.read_") && !line1.strip().contains("df.to_")) {
-            		System.out.println(line1.strip());
-            		System.out.println(line1.strip().contains("df.read_csv"));
-            		System.out.println(line1.strip().contains("df.to_"));
+            	if ((!line1.strip().contains("df = pd.read_") && !line2.strip().contains("df = pd.read_")) && (!line1.strip().contains("df.to_") && !line2.strip().contains("df.to_"))) {
             		areEqual = false;
                     break;
             	}
@@ -254,6 +242,10 @@ public class TestUtils {
         return areEqual;
     }
 	
+	/**
+	 * Clean a directory
+	 * @param path of directory to clean
+	 */
 	public void cleanDirectory(String path) {
 		var directoryToBeDeleted = new File(path);
 	    File[] allContents = directoryToBeDeleted.listFiles();
