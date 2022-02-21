@@ -42,8 +42,8 @@ Les tests sont ainsi exécutés, et leur temps d’exécution est loggé dans la conso
  
 ### Résultats et performances
 
-Suite à une batterie de tests réalisées avec JUnit concernant les performances de la compilation du langage source vers Python, on remarque une durée d’exécution d’environ 105 millisecondes.
+![Echantillon de tests](tests.png)
 
-Les tests vers le langage R quant à eux, montrent une performance pour des test similaires sur une durée de XXX millisecondes. On aurait donc tendance à penser que cette compilation est plus XXX, et donc que XXX est plus intéressant que XXX.
+En ce basant sur les échantillons ci-dessus, on remarque la performance similaire quant à la durer nécessaire à la compilation, que ce soit en R ou en Python. En revanche, la différence de performance lors de l’exécution est nettement plus grande et on s’aperçoit que R est bien plus rapide : une différence capée à 225 ms. R serait donc deux fois plus rapide que python !?
 
-À ce stade, les données dont nous disposons ne sont pas suffisantes pour définir qu’elle est la meilleure variante à utiliser. Il faudrait plus de tests, beaucoup plus, et pouvoir les lancer sur des machines dont les capacités physiques diffèrent (pour éviter d’établir une affirmation uniquement grâce à une seule machine).
+Cependant à ce stade, les données dont nous disposons ne sont pas suffisantes pour définir qu’elle est la meilleure variante à utiliser. Il faudrait plus de tests, beaucoup plus, et pouvoir les lancer sur des machines dont les capacités physiques diffèrent (pour éviter d’établir une affirmation uniquement grâce à une seule machine).
