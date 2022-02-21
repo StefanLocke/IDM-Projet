@@ -31,12 +31,30 @@ public class TestUtils {
 	}
 	
 	/**
-	 * Get expected test file path for a test
+	 * Get expected python test file path for a test
 	 * @param testName 
 	 * @return expected path for test
 	 */
-	public String getExpectedTestPath(String testName) {
-		return expectedPath + "/" + testName + ".csv";
+	public String getExpectedPythonTestPath(String testName) {
+		return expectedPath + "/python/" + testName + ".py";
+	}
+	
+	/**
+	 * Get expected R test file path for a test
+	 * @param testName 
+	 * @return expected path for test
+	 */
+	public String getExpectedRTestPath(String testName) {
+		return expectedPath + "/r/" + testName + ".r";
+	}
+	
+	/**
+	 * Get expected csv test file path for a test
+	 * @param testName 
+	 * @return expected path for test
+	 */
+	public String getExpectedCSVTestPath(String testName) {
+		return expectedPath + "/csv/" + testName + ".csv";
 	}
 	
 	/**
