@@ -15,7 +15,7 @@ Les cibles choisies sont Python et R. Ces langages relativement similaires perme
 
 ### Moyens de test
 
-<span style="color:red">Le programme va utiliser votre commande python. Il est donc nécessaire d’avoir Python installé sur la machine. Si la commande est python ou python3, vous devez modifier en conséquence la valeur située dans eclipse.idm.project.tests.src.org.xtext.example.mydsl.tests.TestUtils.java.</span>.
+<span style="color:red">Le programme va utiliser votre commande python. Il est donc nécessaire d’avoir Python installé sur la machine. Si la commande est python ou python3, vous devez modifier en conséquence la valeur située dans eclipse.idm.project.tests.src.org.xtext.example.mydsl.tests.TestUtils.java. Il en va de même pour R, sauf qu’il n’y a pas a de changement de variable préalable à faire.</span>
 
 Afin de tester le bon déroulement de la compilation et l’exactitude du développement qui y est lié, des tests ont été réalisés. Pour les effectuer il y a besoin :
 -	D’un programme du langage source compilé (en Python et en R) 
