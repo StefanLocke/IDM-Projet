@@ -62,7 +62,7 @@ class RCompilerTest {
         testUtils.runR(generated_file_path)
         
         // Compare generated and expected csv
-        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVTestPath(testName)))
+        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
         
         // Compare generated and expected R
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedRTestPath(testName)))
