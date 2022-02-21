@@ -121,7 +121,7 @@ class RCompiler {
 		return '''(«compile(expr.left) + expr.op + compile(expr.right)»)'''
 	}
 	def dispatch String compile(Selectcell expr) {
-		return '''df[«compile(expr.lineIndex)»+1,«compile(expr.colName)»]'''
+		return '''as.numeric(df[«compile(expr.lineIndex)»+1,«compile(expr.colName)»])'''
 	}
 	
 	
