@@ -51,7 +51,7 @@ class RCompilerTest {
         
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
         
         println("\nCompiler result :")
         println(compilerResult)
@@ -62,8 +62,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
         
+        // Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -102,7 +109,7 @@ class RCompilerTest {
         
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
         
         println("\nCompiler result :")
         println(compilerResult)
@@ -113,8 +120,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
         
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
         
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -156,7 +170,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -167,8 +181,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -204,7 +225,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -215,8 +236,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -253,7 +281,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -267,8 +295,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -309,7 +344,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -323,8 +358,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -364,7 +406,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -378,8 +420,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
@@ -417,7 +466,7 @@ class RCompilerTest {
 
         // Elapsed time
         var timeElapsed = System.nanoTime() - startTime;
-        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+        System.out.println("Compilation time in milliseconds: " + timeElapsed / 1000000);
 
         println("\nCompiler result :")
         println(compilerResult)
@@ -431,8 +480,15 @@ class RCompilerTest {
         // Write compiler result as R file
         testUtils.writeFile(generated_file_path, compilerResult)
 
+		// Start Time
+    	startTime = System.nanoTime();
+    	
 		// Execute R file
         testUtils.runR(generated_file_path)
+        
+        // Elapsed time
+        timeElapsed = System.nanoTime() - startTime;
+        System.out.println("\nExecution time in milliseconds: " + timeElapsed / 1000000);
 
         // Compare generated and expected csv
         Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputRTestPath(testName), testUtils.getExpectedCSVRTestPath(testName)))
