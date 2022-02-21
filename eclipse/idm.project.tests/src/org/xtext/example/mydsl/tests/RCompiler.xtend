@@ -111,7 +111,7 @@ class RCompiler {
 		''';
 	}
 	def dispatch String compile(ExportCSV instruction) {
-		return '''write.csv(df,«compile(instruction.path)»,quote = FALSE )''';
+		return '''write.csv(df,«compile(instruction.path)»,quote = FALSE,row.names = FALSE)''';
 	}
 	def dispatch String compile(ExportJSON instruction) {
 		return '''write(toJSON(df),file = «compile(instruction.path)»)''';
