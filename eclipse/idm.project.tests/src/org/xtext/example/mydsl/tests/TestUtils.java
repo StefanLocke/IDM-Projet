@@ -141,7 +141,14 @@ public class TestUtils {
 		System.out.println("Compare " + filePath1 + " and " + filePath2);
         var first = Files.readAllBytes(Paths.get(filePath1));
         var second = Files.readAllBytes(Paths.get(filePath2));
-        return Arrays.equals(first, second);
+        var r = Arrays.equals(first, second);
+        if(r == true) {
+        	System.out.println("Files are similar : " + filePath1 + " and " + filePath2);
+        }
+        else {
+        	System.out.println("Files are different : " + filePath1 + " and " + filePath2);
+        }
+        return r;
    }
 	
 
