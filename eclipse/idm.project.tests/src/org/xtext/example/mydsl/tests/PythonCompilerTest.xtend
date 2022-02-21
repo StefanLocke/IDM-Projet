@@ -62,7 +62,7 @@ class PythonCompilerTest {
         testUtils.runPython(generated_file_path)
         
         // Compare generated and expected csv
-        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVTestPath(testName)))
+        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
         
         // Compare generated and expected python
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedPythonTestPath(testName)))
@@ -115,7 +115,7 @@ class PythonCompilerTest {
         testUtils.runPython(generated_file_path)
         
         // Compare generated and expected csv
-        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVTestPath(testName)))
+        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
         
         // Compare generated and expected python
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedPythonTestPath(testName)))

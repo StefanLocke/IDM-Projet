@@ -56,12 +56,21 @@ public class TestUtils {
 	}
 	
 	/**
-	 * Get expected csv test file path for a test
+	 * Get expected csv test file path for a python test
 	 * @param testName 
 	 * @return expected path for test
 	 */
-	public String getExpectedCSVTestPath(String testName) {
-		return expectedPath + "/csv/" + testName + ".csv";
+	public String getExpectedCSVPythonTestPath(String testName) {
+		return expectedPath + "/csvPython/" + testName + ".csv";
+	}
+	
+	/**
+	 * Get expected csv test file path for a python test
+	 * @param testName 
+	 * @return expected path for test
+	 */
+	public String getExpectedCSVRTestPath(String testName) {
+		return expectedPath + "/csvR/" + testName + ".csv";
 	}
 	
 	/**
