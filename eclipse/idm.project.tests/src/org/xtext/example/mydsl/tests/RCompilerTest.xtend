@@ -227,6 +227,8 @@ class RCompilerTest {
     
     @Test
     def void colSum() {
+    	System.out.println("\n------------------colSum------------------\n");
+    	
     	// Test Name
     	var testName = "colSum"
 
@@ -278,6 +280,8 @@ class RCompilerTest {
     
     @Test
     def void selectCell() {
+    	System.out.println("\n------------------selectCell------------------\n");
+    	
     	// Test Name
     	var testName = "selectCell"
 
@@ -331,6 +335,8 @@ class RCompilerTest {
     
     @Test
     def void binOp() {
+    	System.out.println("\n------------------binOp------------------\n");
+    	
     	// Test Name
     	var testName = "binOp"
 
@@ -384,6 +390,8 @@ class RCompilerTest {
     
     @Test
     def void print() {
+    	System.out.println("\n------------------print------------------\n");
+    	
     	// Test Name
     	var testName = "print"
 

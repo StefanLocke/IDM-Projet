@@ -7,7 +7,7 @@ df[1,"Stocks"] <- "Default"
 df[0+1,"Stocks"] = (10+10)
 
 #Prints a expression
-print(df[0+1,"Stocks"])
+print(as.numeric(df[0+1,"Stocks"]))
 
 write.csv(df,"C:/Users/Leloup/Documents/FAC/M2/IDM/Git/IDM-Projet/eclipse/idm.project.tests/ressources/output/printR.csv",quote = FALSE,row.names = FALSE)
 
