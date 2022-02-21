@@ -176,9 +176,16 @@ public class TestUtils {
                 areEqual = false;
                 break;
             }
-            else if(!line1.strip().equals( line2.strip())){
-                areEqual = false;
-                break;
+            else if(!line1.strip().equals(line2.strip())){
+            	// Skip path case
+            	if (!line1.strip().contains("df = pd.read_") && !line1.strip().contains("df.to_")) {
+            		System.out.println(line1.strip());
+            		System.out.println(line1.strip().contains("df.read_csv"));
+            		System.out.println(line1.strip().contains("df.to_"));
+            		areEqual = false;
+                    break;
+            	}
+                
             }
              
             line1 = reader1.readLine(); 
