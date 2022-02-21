@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -132,7 +133,23 @@ public class TestUtils {
 	 */
 	public void runR(String rFilePath, String rModuleName) throws IOException{
 		var rt = Runtime.getRuntime();
-		var pr = rt.exec(rModuleName + " " + rFilePath);
+		var proc = rt.exec(rModuleName + " " + rFilePath);
+		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+
+		// Read the output from the command
+		System.out.println("Command line result :\n");
+		String s = null;
+		while ((s = stdInput.readLine()) != null) {
+		    System.out.println(s);
+		}
+	
+		// Read any errors from the attempted command
+		System.out.println("Command line errors :\n");
+		while ((s = stdError.readLine()) != null) {
+		    System.out.println(s);
+		}
 	}
 	
 	/**
@@ -159,6 +176,16 @@ public class TestUtils {
 	public Boolean compareFiles(String filePath1, String filePath2) throws IOException{
 		
 		System.out.println("Compare " + filePath1 + " and " + filePath2);
+		
+		if(!new File(filePath1).isFile()) { 
+			System.out.println("File does not exists : " + filePath1);
+			return false;
+		}
+		if(!new File(filePath2).isFile()) { 
+			System.out.println("File does not exists : " + filePath2);
+			return false;
+		}
+		
 		
 		BufferedReader reader1 = new BufferedReader(new FileReader(filePath1));
         BufferedReader reader2 = new BufferedReader(new FileReader(filePath2));
