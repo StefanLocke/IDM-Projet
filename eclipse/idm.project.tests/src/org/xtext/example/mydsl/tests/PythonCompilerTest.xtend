@@ -87,8 +87,8 @@ class PythonCompilerTest {
     	// Parse Instructions
         val result = parseHelper.parse('''
         Create() {
-			InsertCol(0, "Prenom");
-			InsertCol(1, "Sexe");
+			InsertCol(0, "Prenom", "");
+			InsertCol(1, "Sexe", "");
 			Insert(0, "Prenom", "Alexis");
 			Insert(0,"Sexe", "Male");
 		    Store('«testUtils.getOutputPythonTestPath(testName)»');
