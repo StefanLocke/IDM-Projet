@@ -151,10 +151,10 @@ public class TestUtils {
 	 * @throws IOException
 	 */
 	public void executeCommand(String command) throws IOException{
+		System.out.println("\nExecute command : " + command);
 		var rt = Runtime.getRuntime();
 		var proc = rt.exec(command);
 		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-
 		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 
 		// Read the output from the command

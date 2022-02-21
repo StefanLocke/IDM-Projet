@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.idmdsl.Programme
+import org.junit.jupiter.api.BeforeEach
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MyDslInjectorProvider)
@@ -18,6 +19,11 @@ class RCompilerTest {
 	TestUtils testUtils = new TestUtils();
 	String inputFilePath = testUtils.getInputPath + "/fruits.csv"
 	
+    //@BeforeEach
+    //def void init(){
+    //	testUtils.cleanDirectory(testUtils.generatedPath);
+    //	testUtils.cleanDirectory(testUtils.outputPath);
+    //}
 	
     @Test
     def void loadAndExport() {
