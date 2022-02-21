@@ -26,3 +26,11 @@ Et en sortie nous aurons :
 La disposition des ressources, dans eclipse.idm.project.tests.ressources, est la suivante :
 
 ![Ressources structure giagram](ressources.png)
+
+### Résultats et performances
+
+Suite à une batterie de tests réalisées avec JUnit concernant les performances de la compilation du langage source vers Python, on remarque une durée d’exécution d’environ 105 millisecondes.
+
+[...] Ajouter informations sur compilation avec R
+
+À ce stade, les données dont nous disposons ne sont pas suffisantes pour définir qu’elle est la meilleure variante à utiliser. Il faudrait plus de tests, beaucoup plus, et pouvoir les lancer sur des machines dont les capacités physiques diffèrent (pour éviter d’établir une affirmation uniquement grâce à une seule machine).
