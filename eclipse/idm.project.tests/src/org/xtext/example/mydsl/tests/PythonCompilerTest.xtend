@@ -283,4 +283,57 @@ class PythonCompilerTest {
         Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedPythonTestPath(testName)))
     }
     
+    @Test
+    def void selectCell() {
+    	// Test Name
+    	var testName = "selectCell"
+
+    	// Start Time
+    	var startTime = System.nanoTime();
+
+    	// Parse Instructions
+        val result = parseHelper.parse('''
+        Create() {
+        	InsertCol(0, "Stocks", 0);
+        	Insert(0, "Stocks", 40);
+        	Insert(1, "Stocks", 25);
+        	Insert(2, "Stocks", 10);
+        	Insert(3, "Stocks", (Selectcell(0,"Stocks")+Selectcell(1,"Stocks")));
+		    Store('«testUtils.getOutputPythonTestPath(testName)»');
+        }
+        ''') 
+
+        // Assert parse works
+        Assertions.assertNotNull(result)
+
+        // Initialize compiler and get result
+        val compiler = new PythonCompiler(result);
+        var compilerResult = compiler.doCompile
+
+        // Elapsed time
+        var timeElapsed = System.nanoTime() - startTime;
+        System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
+
+        println("\nCompiler result :")
+        println(compilerResult)
+
+        // Assert there is no errors during compilation
+        Assertions.assertTrue(result.eResource.errors.isEmpty)
+
+        // Get path of generated
+        var generated_file_path = testUtils.getGeneratedPythonTestPath(testName);
+
+        // Write compiler result as python file
+        testUtils.writeFile(generated_file_path, compilerResult)
+
+		// Execute python file
+        testUtils.runPython(generated_file_path)
+
+        // Compare generated and expected csv
+        Assertions.assertTrue(testUtils.compareFiles(testUtils.getOutputPythonTestPath(testName), testUtils.getExpectedCSVPythonTestPath(testName)))
+
+        // Compare generated and expected python
+        Assertions.assertTrue(testUtils.compareFiles(generated_file_path, testUtils.getExpectedPythonTestPath(testName)))
+    }
+    
 }
