@@ -127,19 +127,19 @@ class RCompiler {
 	
 	
 	def dispatch String compile(Linesum expr) {
-		return '''apply(df,1,sum,na.rm=TRUE)[«compile(expr.lineIndex)»+1]'''
+		return '''sum(as.numeric(df[«compile(expr.lineIndex)»,]),na.rm = TRUE)'''
 	}
 	
 	def dispatch String compile(Colsum expr) {
-		return '''apply(df,2,sum,na.rm=TRUE)[«compile(expr.colName)»]'''
+		return '''sum(as.numeric(df$«compile(expr.colName)»),na.rm = TRUE)'''
 	}
 	
 	def dispatch String compile(Lineprod expr) {
-		return '''apply(df,1,prod,na.rm=TRUE)[«compile(expr.lineIndex)»+1]'''
+		return '''prod(as.numeric(df[«compile(expr.lineIndex)»,]),na.rm = TRUE)'''
 	}
 	
 	def dispatch String compile(Colprod expr) {
-		return '''apply(df,2,prod,na.rm=TRUE)[«compile(expr.colName)»]'''
+		return '''prod(as.numeric(df$«compile(expr.colName)»),na.rm = TRUE)'''
 	}
 	def dispatch String compile(NoneValue expr) {
 		return expr.value
