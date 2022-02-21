@@ -19,7 +19,7 @@ class RCompilerTest {
 	String inputFilePath = testUtils.getInputPath + "/fruits.csv"
 	
 	
-     @Test
+    @Test
     def void loadAndExport() {
     	
     	// Test Name

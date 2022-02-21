@@ -253,5 +253,15 @@ public class TestUtils {
         
         return areEqual;
     }
+	
+	public void cleanDirectory(String path) {
+		var directoryToBeDeleted = new File(path);
+	    File[] allContents = directoryToBeDeleted.listFiles();
+	    if (allContents != null) {
+	        for (File file : allContents) {
+	        	file.delete();
+	        }
+	    }
+	}
 
 }
