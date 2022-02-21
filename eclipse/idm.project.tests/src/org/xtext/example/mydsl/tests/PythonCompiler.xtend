@@ -80,7 +80,7 @@ class PythonCompiler {
 	}
 	
 	def dispatch String compile(InsertLine instruction) {
-		return "Instruction";
+		return "df.append(list(), ignore_index=True)";
 	}
 	
 	def dispatch String compile(RemoveLine instruction) {
@@ -94,7 +94,7 @@ class PythonCompiler {
 		return '''print(«compile(instruction.value)»)''';
 	}
 	def dispatch String compile(ExportCSV instruction) {
-		return '''df.to_csv(«compile(instruction.path)», index=False)''';
+		return '''df.to_csv(«compile(instruction.path)»)''';
 	}
 	def dispatch String compile(ExportJSON instruction) {
 		return '''df.to_json(«compile(instruction.path)»)''';
