@@ -14,6 +14,7 @@ Le langage source inventé dispose des fonctionnalités nécessaires et souhaitable
 Les cibles choisies sont Python et R. Ces langages relativement similaires permettent l’utilisation de librairies et restent assez faciles à écrire. De plus, certains membres de l’équipe s’y sentent à l’aise.
 
 ### Moyens de test
+<span style="color:red">Le programme va utiliser votre commande python. Il est donc nécessaire d’avoir Python installé sur la machine. Si la commande est python ou python3, vous devez modifier en conséquence la valeur située dans eclipse.idm.project.tests.src.org.xtext.example.mydsl.tests.TestUtils.java.</span>.
 
 Afin de tester le bon déroulement de la compilation et l’exactitude du développement qui y est lié, des tests ont été réalisés. Pour les effectuer il y a besoin :
 -	D’un programme du langage source compilé (en Python et en R) 
